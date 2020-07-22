@@ -1,7 +1,7 @@
-/*global module*/
+/*global*/
 
 const SECTION = 'insights';
-const APP_ID = 'starter';
+const APP_ID = 'register';
 const FRONTEND_PORT = 8002;
 const API_PORT = 8888;
 const routes = {};

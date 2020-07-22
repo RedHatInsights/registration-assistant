@@ -1,33 +1,11 @@
-import { Redirect, Route, Switch, useLocation } from 'react-router-dom';
+import React, { Suspense, lazy } from 'react';
+import { Redirect, Route, Switch } from 'react-router-dom';
 
+import Loading from './Components/Loading/Loading';
 import PropTypes from 'prop-types';
-import React from 'react';
-import asyncComponent from './Utilities/asyncComponent';
-import some from 'lodash/some';
 
-/**
- * Aysnc imports of components
- *
- * https://webpack.js.org/guides/code-splitting/
- * https://reactjs.org/docs/code-splitting.html
- *
- * pros:
- *      1) code splitting
- *      2) can be used in server-side rendering
- * cons:
- *      1) nameing chunk names adds unnecessary docs to code,
- *         see the difference with DashboardMap and InventoryDeployments.
- *
- */
-const SamplePage = asyncComponent(() => import(/* webpackChunkName: "SamplePage" */ './Routes/SamplePage/SamplePage'));
-const OopsPage = asyncComponent(() => import(/* webpackChunkName: "OopsPage" */ './Routes/OopsPage/OopsPage'));
-const NoPermissionsPage = asyncComponent(() => import(/* webpackChunkName: "NoPermissionsPage" */ './Routes/NoPermissionsPage/NoPermissionsPage'));
-
-const paths = {
-    samplePage: '/sample',
-    oops: '/oops',
-    noPermissions: '/no-permissions'
-};
+const Register = lazy(() => import(/* webpackChunkName: "Register" */ './Routes/Register/Register'));
+const paths = { register: '/' };
 
 const InsightsRoute = ({ component: Component, rootClass, ...rest }) => {
     const root = document.getElementById('root');
@@ -43,32 +21,8 @@ InsightsRoute.propTypes = {
     rootClass: PropTypes.string
 };
 
-/**
- * the Switch component changes routes depending on the path.
- *
- * Route properties:
- *      exact - path must match exactly,
- *      path - https://prod.foo.redhat.com:1337/insights/advisor/rules
- *      component - component to be rendered when a route has been chosen.
- */
-export const Routes = () => {
-    const path = useLocation().pathname;
-
-    return (
-        <Switch>
-            <InsightsRoute path={paths.samplePage} component={SamplePage} rootClass='samplePage' />
-            <InsightsRoute path={paths.oops} component={OopsPage} rootClass='oopsPage' />
-            <InsightsRoute path={paths.noPermissions} component={NoPermissionsPage} rootClass='noPermissionsPage' />
-            { /* Finally, catch all unmatched routes */}
-            <Route render={() => some(paths, p => p === path) ? null : (<Redirect to={paths.samplePage} />)} />
-        </Switch>
-    );
-};
-
-Routes.propTypes = {
-    childProps: PropTypes.shape({
-        history: PropTypes.shape({
-            push: PropTypes.func
-        })
-    })
-};
+export const Routes = () => <Switch>
+    <InsightsRoute key='register' exact path={paths.register} rootClass='Insights'
+        component={() => <Suspense fallback={<Loading />}> <Register /> </Suspense>} />
+    <Redirect path='*' to={paths.register} push />
+</Switch>;
