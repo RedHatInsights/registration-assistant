@@ -1,18 +1,17 @@
 import './Register.scss';
 
 import { DataCollection, EnablingInsightsOnRhui, RegisterWithRhsm, SetupConfigure, SmartManagement, SubscribetoSatellite, schema } from './Helpers';
+import { FormTemplate as PfForm, componentMapper } from '@data-driven-forms/pf4-component-mapper';
 import { Split, SplitItem } from '@patternfly/react-core/dist/esm/layouts/Split/index';
 import { Stack, StackItem } from '@patternfly/react-core/dist/esm/layouts/Stack/index';
 
 import { Divider } from '@patternfly/react-core/dist/esm/components/Divider/Divider';
 import FormRenderer from '@data-driven-forms/react-form-renderer';
 import FormSpy from '@data-driven-forms/react-form-renderer/dist/esm/form-spy';
-import { Form as PfForm } from '@patternfly/react-core/dist/esm/components/Form/Form';
 import PropTypes from 'prop-types';
 import React from 'react';
 import { TasksIcon } from '@patternfly/react-icons';
 import { Title } from '@patternfly/react-core/dist/esm/components/Title/Title';
-import { componentMapper } from '@data-driven-forms/pf4-component-mapper';
 import messages from '../../Messages';
 import { useIntl } from 'react-intl';
 import { withRouter } from 'react-router-dom';
@@ -20,7 +19,7 @@ import { withRouter } from 'react-router-dom';
 const Register = () => {
     const intl = useIntl();
 
-    const FormTemplate = ({ formFields }) => <Split hasGutter className='ins-c-main-split'>
+    const FormTemplate = props => <Split hasGutter className='ins-c-main-split'>
         <SplitItem className='ins-c-left'>
             <Stack hasGutter >
                 <StackItem>
@@ -28,7 +27,7 @@ const Register = () => {
                 </StackItem>
                 <StackItem>
                     <Title headingLevel='h3'>{intl.formatMessage(messages.stepOneTitle)}</Title>
-                    <PfForm>{formFields}</PfForm>
+                    <PfForm {...props}/>
                 </StackItem>
             </Stack>
         </SplitItem>

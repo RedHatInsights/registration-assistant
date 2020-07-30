@@ -1,0 +1,97 @@
+@import '~@redhat-cloud-services/frontend-components-utilities/files/Utilities/_all.scss';
+
+section {
+    outline: none;
+}
+
+.ins-c-install-client-tab {
+    p, h4, a, pre {
+        padding: 0 var(--pf-global--gutter) 0 var(--pf-global--gutter);
+    }
+    p, pre, li {
+        font-size: small;
+    }
+    .ins-c-install-client-tab__links {
+        display: inline-flex;
+        justify-content: space-between;
+        width: 75%;
+        a {
+            text-decoration: none;
+        }
+    }
+    .ins-c-install-client-tab__section {
+        padding-right: var(--pf-global--gutter);
+        hr {
+            margin-bottom: 0 !important;
+        }
+        .pf-c-expandable-section__toggle {
+            display: inline-flex;
+            width: 100%;
+            .pf-c-expandable-section__toggle-text {
+                position: relative;
+                right: calc(var(--pf-global--spacer--sm) + var(--pf-global--spacer--xs));
+            }
+            .pf-c-expandable-section__toggle-icon {
+                position: relative;
+                left: 100%;
+            }
+        }
+        .pf-c-expandable-section__content {
+            margin: var(--pf-global--spacer--md) 0 var(--pf-global--spacer--lg) 0;
+            p {
+                margin: var(--pf-global--spacer--md);
+            }
+        }
+    }
+}
+
+.ins-c-install-ansible-tab {
+    .ins-c-install-ansible-tab__downloads {
+        display: inline-flex;
+        justify-content: space-between;
+        width: 100%;
+        margin-bottom: var(--pf-global--spacer--sm);
+        .ins-c-install-ansible-tab__download {
+            width: 50%;
+            position: relative;
+            text-decoration: none;
+            text-align: center;
+            .ins-c-install-ansible-tab__download_icon {
+                margin: var(--pf-global--spacer--xl) 0 var(--pf-global--spacer--lg) 0;
+                color: var(--pf-global--Color--100);
+                .outer-icon {
+                    position: relative;
+                    @include rem('left', 10px);
+                }
+                .inner-icon {
+                    position: relative;
+                    @include rem('left', -26px);
+                    @include rem('top', -6px);
+                }
+            }
+            .ins-c-install-ansible-tab__download_desc {
+                width: 65%;
+                margin: 0 auto;
+            }
+        }
+    }
+    .ins-c-install-ansible-tab__title {
+        margin-top: var(--pf-global--spacer--xl);
+        padding-left: var(--pf-global--gutter);
+    }
+    .ins-c-install-ansible-tab__details {
+        display: inline-flex;
+        justify-content: space-between;
+        padding: 0 var(--pf-global--gutter) 0 var(--pf-global--gutter);
+        margin-bottom: var(--pf-global--spacer--lg);
+        .ins-c-install-ansible-tab__detail {
+            width: 45%;
+            * {
+                margin-top: var(--pf-global--spacer--lg);
+            }
+            a {
+                text-decoration: none;
+            }
+        }
+    }
+}

@@ -2,7 +2,8 @@
 /* eslint-disable max-len */
 import './Helpers.scss';
 
-import { CloudIcon, CogsIcon, DownloadIcon, ShieldAltIcon } from '@patternfly/react-icons';
+import { CloudIcon, CogsIcon, DownloadIcon, ShieldAltIcon } from '@patternfly/react-icons/dist/esm/icons';
+import { ConfigureClientTab, InstallAnsibleTab } from '../../Components/AnsibleTabs/AnsibleTabs';
 import { Text, TextContent, TextList, TextListItem, TextListVariants, TextVariants } from '@patternfly/react-core/dist/esm/components/Text/index';
 import { Title, TitleSizes } from '@patternfly/react-core/dist/esm/components/Title/Title';
 
@@ -100,6 +101,43 @@ const schema = intl => ({
             {rhelNoAutomationSnippet(intl)}
         </React.Fragment>,
         condition: [{ when: 'automation', is: 'no' }, { when: 'how-are-systems-managed', is: 'rhsm' }, { when: 'rhel-os', is: 'rhel8' }]
+    }, {
+        component: 'sub-form',
+        name: 'rhsm-ansible',
+        fields: [{
+            component: 'plain-text',
+            name: 'rhsm-ansible-label',
+            label: <React.Fragment>
+                {stepTitle(intl, intl.formatMessage(messages.downloadClientPlaybook), 2)}
+                <Button variant="primary" className='pf-m-display-lg' icon={<DownloadIcon />} component='a' href='https://github.com/RedHatInsights/insights-client-role'>
+                    {intl.formatMessage(messages.downloadPlaybook)}
+                </Button>
+                <br/>
+                {stepTitle(intl, intl.formatMessage(messages.configurePlaybook), 3)}
+                <br/>
+            </React.Fragment>
+        }, {
+            component: componentTypes.TABS,
+            name: 'rhsm-ansible-tabs',
+            fields: [{
+                name: '0',
+                title: intl.formatMessage(messages.installAnsible),
+                fields: [{
+                    component: 'plain-text',
+                    name: 'install-ansible',
+                    label: <InstallAnsibleTab intl={intl}/>
+                }]
+            }, {
+                name: '1',
+                title: intl.formatMessage(messages.configureClient),
+                fields: [{
+                    component: 'plain-text',
+                    name: 'configure-client',
+                    label: <ConfigureClientTab intl={intl}/>
+                }]
+            }]
+        }],
+        condition: [{ when: 'automation', is: 'ansible' }, { when: 'how-are-systems-managed', is: 'rhsm' }]
     }, {
         component: 'plain-text',
         name: 'rhsm-puppet',

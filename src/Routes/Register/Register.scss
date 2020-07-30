@@ -1,14 +1,14 @@
 .ins-c-main-split {
-    height: 100%;
+    overflow: visible;
     .ins-c-left {
-        width: 50%;
+        width: 60%;
         background-color: var(--pf-global--BackgroundColor--100);
         .pf-l-stack {
             padding: var(--pf-global--gutter--md);
         }
     }
     .ins-c-right {
-        width: 50%;
+        width: 40%;
 
         .pf-l-stack {
             padding: var(--pf-global--gutter--md) var(--pf-global--gutter--md) 0 0;

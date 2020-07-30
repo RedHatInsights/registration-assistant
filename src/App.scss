@@ -5,3 +5,9 @@
 .ins-c-icon {
     margin-right: var(--pf-global--spacer--sm);
 }
+
+pre {
+    background-color: var(--pf-global--BackgroundColor--light-300);
+    border-radius: var(--pf-global--BorderRadius--sm);
+    padding: var(--pf-global--spacer--md);
+}
