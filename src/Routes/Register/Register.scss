@@ -1,7 +1,8 @@
 .ins-c-main-split {
-    height: auto;
+    height: 100%;
     .ins-c-left {
         width: 60%;
+        overflow-y: scroll;
         background-color: var(--pf-global--BackgroundColor--100);
         .pf-l-stack {
             padding: var(--pf-global--gutter--md);
