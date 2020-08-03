@@ -10,6 +10,7 @@
     }
     .ins-c-right {
         width: 40%;
+        overflow-y: scroll;
 
         .pf-l-stack {
             padding: var(--pf-global--gutter--md) var(--pf-global--gutter--md) 0 0;
