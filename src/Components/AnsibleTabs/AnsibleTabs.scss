@@ -8,9 +8,6 @@ section {
     p, h4, a, pre {
         padding: 0 var(--pf-global--gutter) 0 var(--pf-global--gutter);
     }
-    p, pre, li {
-        font-size: small;
-    }
     .ins-c-install-client-tab__links {
         display: inline-flex;
         justify-content: space-between;
