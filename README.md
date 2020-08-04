@@ -2,7 +2,7 @@
 
 # registration-assistant
 
-React.js registration-assistant app for Red Hat Insights provides an in-application interactive experience which helps guide the user through the registration process to get the Red Hat Insights client installed and registered on their systems. We believe by nurturing the customer through the process and providing a clear call to action around installation within the applications, we can help drive additional adoption increasing the breadth of Insights registrations for an account. By providing the steps within a wizard, we can simplify the process for understanding the registration steps given the various mechanisms & setups, and provide the user with the exact steps needed for their systems.
+React.js registration-assistant app for Red Hat Insights provides an in-application interactive experience which helps guide the user through the registration process to get the Red Hat Insights client installed and registered on their systems. We believe by nurturing the customer through the process and providing a clear call to action around installation within the applications, we can help drive additional adoption increasing the breadth of Insights registrations for an account.
 
 ## Getting Started
 
@@ -22,7 +22,7 @@ Note: You will need to set up the Insights environment if you want to develop wi
 2. ```npm run start```
     - starts webpack bundler and serves the files with webpack dev server
 
-3. ```https://prod.foo.redhat.com:1337/insights/registration-assistant/```
+3. ```https://prod.foo.redhat.com:1337/insights/registration/```
     - visit this url (or any listed in the spandx config terminal) to checkout the results!
 
 ### Testing
