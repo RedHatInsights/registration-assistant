@@ -13,3 +13,9 @@ pre {
     font-size: small;
     overflow: auto;
 }
+
+.pf-c-content {
+    p {
+        margin: var(--pf-global--spacer--md) 0 var(--pf-global--spacer--md) 0;
+    }
+}

@@ -14,7 +14,7 @@ import { componentTypes } from '@data-driven-forms/react-form-renderer';
 import messages from '../../Messages';
 
 const learnMore = (intl, url = '#') => <Button className='learnMore' isInline component='a' variant='link' href={url} >{intl.formatMessage(messages.learnMore)}</Button>;
-const insightsDashboard = intl => <Button component='a' variant='primary' href='https://cloud.redhat.com/insights/' >{intl.formatMessage(messages.viewInsightsDashboard)}</Button>;
+const insightsDashboard = intl => <Button className='ins-c-dashboard-link' component='a' variant='primary' href='https://cloud.redhat.com/insights/' >{intl.formatMessage(messages.viewInsightsDashboard)}</Button>;
 
 const registerInsightsCodeSnippet =
     <pre className='ins-c-gray'>
