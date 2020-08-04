@@ -65,7 +65,7 @@ export default defineMessages({
     puppetAutomatedInstall: {
         id: 'puppetAutomatedInstall',
         description: 'Text for rhsm puppet automated installation',
-        defaultMessage: `If you are using Red Hat Satellite's configuration management provided by puppet this process can be automated by applying the preinstalled Puppet class {class}. This class can be imported from the Puppet Master into t he appropriate Puppet enviroment and papplied to hots that you wish to subrscribe to Red Hat Insights.`
+        defaultMessage: `If you are using Red Hat Satellite's configuration management provided by puppet this process can be automated by applying the preinstalled Puppet class {class}. This class can be imported from the Puppet Master into the appropriate Puppet environment and applied to hosts that you wish to subscribe to Red Hat Insights.`
     },
     puppetAutomatedInstallMoInfo: {
         id: 'puppetAutomatedInstallMoInfo',
@@ -202,7 +202,7 @@ export default defineMessages({
     registerRhsmText: {
         id: 'registerRhsmText',
         description: 'Red Hat Subscription Manager text body',
-        defaultMessage: 'You must register all Red Hat Enterprise Linux (RHEL) systems with Red Hat Subscription Manager to recieve necessary updates and to resolve software dependencies.'
+        defaultMessage: 'You must register all Red Hat Enterprise Linux (RHEL) systems with Red Hat Subscription Manager to receive necessary updates and to resolve software dependencies.'
     },
     registerRhsmTextNote: {
         id: 'registerRhsmTextNote',
@@ -366,8 +366,8 @@ export default defineMessages({
     },
     verifySatelliteStepOne: {
         id: 'verifySatelliteStepOne',
-        description: 'In the Satellite UI, navigate to Insighst > Manage.',
-        defaultMessage: 'In the Satellite UI, navigate to Insighst > Manage.'
+        description: 'In the Satellite UI, navigate to Insights > Manage.',
+        defaultMessage: 'In the Satellite UI, navigate to Insights > Manage.'
     },
     verifySatelliteStepTwo: {
         id: 'verifySatelliteStepTwo',
@@ -567,7 +567,7 @@ export default defineMessages({
     authMethod: {
         id: 'authMethod',
         description: 'auth_method secret',
-        defaultMessage: 'BASIC/CERT - This parameter is used to set the authentication method for the Portal. Default bahavior is BASIC.Note: when \'auto_config\' is enabled (set to True), CERT will be used if RHSM or Satellite is detected.'
+        defaultMessage: 'BASIC/CERT - This parameter is used to set the authentication method for the Portal. Default behavior is BASIC. Note: when \'auto_config\' is enabled (set to True), CERT will be used if RHSM or Satellite is detected.'
     },
     insightsProxy: {
         id: 'insightsProxy',
