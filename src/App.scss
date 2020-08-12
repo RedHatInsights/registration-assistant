@@ -1,4 +1,5 @@
 // Importing Global Variables
+@import "~@patternfly/patternfly/sass-utilities/_all";
 @import "~@redhat-cloud-services/frontend-components-utilities/files/Utilities/_all";
 @import "~@redhat-cloud-services/frontend-components/index.css";
 
@@ -6,16 +7,86 @@
     margin-right: var(--pf-global--spacer--sm);
 }
 
-pre {
-    background-color: var(--pf-global--BackgroundColor--light-300);
-    border-radius: var(--pf-global--BorderRadius--sm);
-    padding: var(--pf-global--spacer--md);
-    font-size: small;
-    overflow: auto;
+.ins-c-registration-assistant {
+
+    pre {
+        background-color: var(--pf-global--palette--black-150);
+        border: var(--pf-global--BorderWidth--sm) solid var(--pf-global--palette--black-200);
+        padding: var(--pf-global--spacer--md);
+        overflow: auto;
+        white-space: pre-wrap;
+        margin-top: var(--pf-global--spacer--lg);
+    }
+
+    pre + pre {
+        margin-top: var(--pf-global--spacer--md);
+    }
 }
 
-.pf-c-content {
-    p {
-        margin: var(--pf-global--spacer--md) 0 var(--pf-global--spacer--md) 0;
+.pf-c-title.ins-c-content-title,
+.ins-c-content-title {
+    font-family: var(--pf-global--FontFamily--sans-serif);
+    font-size: var(--pf-global--FontSize--lg);
+
+    .pf-c-drawer__panel & {
+        margin-bottom: var(--pf-global--spacer--md);
     }
+
+    &.ins-m-font-light {
+        font-weight: var(--pf-global--FontWeight--light);
+    }
+
+    &.ins-m-font-normal {
+        font-weight: var(--pf-global--FontWeight--normal);
+    }
+
+    &.ins-m-font-semi-bold {
+        font-weight: var(--pf-global--FontWeight--semi-bold);
+    }
+
+    &.ins-m-font-bold {
+        font-weight: var(--pf-global--FontWeight--bold);
+    }
+}
+
+.ins-c-title-group {
+    display: grid;
+    grid-gap: var(--pf-global--spacer--sm);
+    grid-template-columns: 2rem auto;
+    align-items: center;
+
+    .pf-c-title,
+    .ins-c-title {
+        display: inline;
+        font-family: var(--pf-global--FontFamily--sans-serif);
+        font-size: var(--pf-global--FontSize--sm);
+        font-weight: var(--pf-global--FontWeight--semi-bold);
+    }
+}
+
+.ins-m-light-300 {
+    background-color: var(--pf-global--BackgroundColor--light-300);
+}
+
+.ins-c-overflow-content {
+    @media screen and (min-width: $pf-global--breakpoint--md) {
+        max-height: 100%;
+    }
+}
+
+.ins-c-title-group__main {
+    display: flex;
+    flex-wrap: wrap;
+
+    > * {
+        margin-right: var(--pf-global--spacer--sm);
+    }
+
+    > :last-child {
+        margin-right: 0;
+    }
+}
+
+.ins-c-text-lg {
+    font-size: var(--pf-global--FontSize--lg);
 }

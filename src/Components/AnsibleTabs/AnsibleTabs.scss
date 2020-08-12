@@ -5,91 +5,111 @@ section {
 }
 
 .ins-c-install-client-tab {
-    margin-bottom: var(--pf-global--gutter);
-    p, h4, a {
-        padding: 0 var(--pf-global--gutter) 0 var(--pf-global--gutter);
-    }
-    .ins-c-install-client-tab__links {
-        display: inline-flex;
-        justify-content: space-between;
-        width: 75%;
-        a {
-            text-decoration: none;
-        }
-    }
-    .ins-c-install-client-tab__section {
-        padding-right: var(--pf-global--gutter);
-        hr {
-            margin-bottom: 0 !important;
-        }
-        .pf-c-expandable-section__toggle {
-            display: inline-flex;
-            width: 100%;
-            .pf-c-expandable-section__toggle-text {
-                position: relative;
-                right: calc(var(--pf-global--spacer--sm) + var(--pf-global--spacer--xs));
-            }
-            .pf-c-expandable-section__toggle-icon {
-                position: relative;
-                left: 100%;
-            }
-        }
-        .pf-c-expandable-section__content {
-            margin: var(--pf-global--spacer--md) 0 var(--pf-global--spacer--lg) 0;
-            p {
-                margin: var(--pf-global--spacer--md);
-            }
-        }
+    .pf-c-tab-content {
+        padding-top: var(--pf-global--spacer--lg);
     }
 }
 
-.ins-c-install-ansible-tab {
-    .ins-c-install-ansible-tab__downloads {
+.ins-c-install-client-tab__links {
+    display: inline-flex;
+    justify-content: space-between;
+    width: 75%;
+
+    a {
+        text-decoration: none;
+    }
+}
+
+.ins-c-install-client-tab__section {
+    padding-right: var(--pf-global--gutter);
+
+    .pf-c-expandable-section__toggle-text {
+        position: relative;
+        right: calc(var(--pf-global--spacer--sm) + var(--pf-global--spacer--xs));
+    }
+
+    .pf-c-expandable-section {
+        --pf-c-expandable-section__toggle--Color: var(--pf-global--Color--100);
+        --pf-c-expandable-section--after--BorderWidth: var(--pf-global--BorderWidth--lg);
+        --pf-c-expandable-section--after--BorderColor: transparent;
+
+        position: relative;
+
+        &::before {
+            content: '';
+            position: absolute;
+            width: 0;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            pointer-events: none;
+            border-left: var(--pf-c-expandable-section--after--BorderWidth) solid var(--pf-c-expandable-section--after--BorderColor);
+            transition: var(--pf-global--Transition);
+        }
+
+        &.pf-m-expanded {
+            --pf-c-expandable-section--after--BorderColor: var(--pf-global--active-color--100);
+
+            .pf-c-expandable-section__toggle-text {
+                font-weight: var(--pf-global--FontWeight--semi-bold);
+                color: var(--pf-global--primary-color--100);
+            }
+        }
+    }
+
+    .pf-c-expandable-section__content {
+        padding: 0 0 var(--pf-global--spacer--md) var(--pf-global--spacer--xl);
+
+        p + p {
+            margin-top: var(--pf-global--spacer--md);
+        }
+    }
+
+    .pf-c-expandable-section__toggle {
         display: inline-flex;
-        justify-content: space-between;
         width: 100%;
-        margin-bottom: var(--pf-global--spacer--sm);
-        .ins-c-install-ansible-tab__download {
-            width: 50%;
-            position: relative;
-            text-decoration: none;
-            text-align: center;
-            .ins-c-install-ansible-tab__download_icon {
-                margin: var(--pf-global--spacer--xl) 0 var(--pf-global--spacer--lg) 0;
-                color: var(--pf-global--Color--100);
-                .outer-icon {
-                    position: relative;
-                    @include rem('left', 10px);
-                }
-                .inner-icon {
-                    position: relative;
-                    @include rem('left', -26px);
-                    @include rem('top', -6px);
-                }
-            }
-            .ins-c-install-ansible-tab__download_desc {
-                width: 65%;
-                margin: 0 auto;
-            }
-        }
     }
-    .ins-c-install-ansible-tab__title {
-        margin-top: var(--pf-global--spacer--xl);
-        padding-left: var(--pf-global--gutter);
+
+    .pf-c-expandable-section__toggle-icon {
+        position: relative;
+        left: 100%;
     }
-    .ins-c-install-ansible-tab__details {
-        display: inline-flex;
-        justify-content: space-between;
-        padding: 0 var(--pf-global--gutter) 0 var(--pf-global--gutter);
-        margin-bottom: var(--pf-global--spacer--lg);
-        .ins-c-install-ansible-tab__detail {
-            width: 45%;
-            * {
-                margin-top: var(--pf-global--spacer--lg);
-            }
-            a {
-                text-decoration: none;
-            }
-        }
+}
+
+.ins-c-install-ansible-tab__downloads {
+    .pf-l-gallery {
+        --pf-l-gallery--GridTemplateColumns: repeat(auto-fill, minmax(300px, 1fr));
     }
+}
+
+.ins-c-install-ansible-tab__download {
+    display: inline-block;
+    padding-bottom: var(--pf-global--spacer--xl);
+    text-decoration: none;
+    text-align: center;
+}
+
+.ins-c-install-ansible-tab__download_icon {
+    margin: var(--pf-global--spacer--xl) 0 var(--pf-global--spacer--lg) 0;
+    color: var(--pf-global--Color--100);
+
+    .outer-icon {
+        position: relative;
+        @include rem('left', 10px);
+    }
+
+    .inner-icon {
+        position: relative;
+        @include rem('left', -26px);
+        @include rem('top', -6px);
+    }
+}
+
+.ins-c-install-ansible-tab__download_desc {
+    width: 65%;
+    margin: 0 auto;
+}
+
+.ins-c-install-ansible-tab__title {
+    margin-top: var(--pf-global--spacer--xl);
 }

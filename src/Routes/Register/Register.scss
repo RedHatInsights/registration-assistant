@@ -1,27 +1,40 @@
-.ins-c-main-split {
-    height: 100%;
-    .ins-c-left {
-        width: 60%;
-        overflow-y: scroll;
-        background-color: var(--pf-global--BackgroundColor--100);
-        .pf-l-stack {
-            padding: var(--pf-global--gutter--md);
-        }
+@import "~@patternfly/patternfly/sass-utilities/_all";
+@import "~@patternfly/patternfly/components/Form/form.scss";
+
+.ins-c-registration-assistant-form .pf-c-form {
+    --pf-c-form--GridGap: var(--pf-global--spacer--xl);
+
+    .pf-c-form__label {
+        --pf-c-form__label--FontSize: var(--pf-global--FontSize--md);
+        --pf-c-form__label-text--FontWeight: var(--pf-global--FontWeight--normal);
     }
-    .ins-c-right {
-        width: 40%;
-        overflow-y: scroll;
 
-        .pf-l-stack {
-            padding: var(--pf-global--gutter--md) var(--pf-global--gutter--md) 0 0;
-        }
+    .pf-c-form__helper-text {
+        flex: 1 0 100%;
+    }
 
-        pre {
-            background-color: var(--pf-global--BackgroundColor--light-100);
-        }
+    .pf-c-form__group-control {
+        @extend .pf-c-form__group-control.pf-m-inline;
     }
 }
 
-.pf-c-divider {
-    margin: var(--pf-global--spacer--xl) 0;
+.ins-c-registration-assistant-drawer {
+    @media screen and (min-width: $pf-global--breakpoint--md) {
+        --pf-c-drawer__panel--FlexBasis: 40%;
+    }
+
+    @media screen and (min-width: $pf-global--breakpoint--xl) {
+        --pf-c-drawer__panel--FlexBasis: 35%;
+    }
+
+    .pf-c-drawer__panel {
+        pre {
+            background: #e5e5e5;
+            border-color: #ccc;
+        }
+
+        .pf-c-content ul {
+            padding: 0;
+        }
+    }
 }
