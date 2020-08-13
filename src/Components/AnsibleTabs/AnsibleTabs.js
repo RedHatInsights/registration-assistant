@@ -78,7 +78,7 @@ const InstallAnsibleTab = ({ intl }) => {
     return <Grid hasGutter className='ins-c-install-ansible-tab'>
         <Gallery hasGutter className='ins-c-install-ansible-tab__downloads'>
             <a className='ins-c-install-ansible-tab__download' href='https://access.redhat.com/articles/3050101'>
-                <div className='ins-c-install-ansible-tab__download_icon'>
+                <div className='ins-c-install-ansible-tab__download-icon'>
                     <OutlinedFileIcon className='outer-icon' size='xl'/> <ArrowDownIcon className='inner-icon'/>
                 </div>
                 <div className='ins-c-install-ansible-tab__download_desc'>
@@ -86,7 +86,7 @@ const InstallAnsibleTab = ({ intl }) => {
                 </div>
             </a>
             <a className='ins-c-install-ansible-tab__download' href='https://docs.ansible.com/ansible/latest/user_guide/playbooks.html'>
-                <div className='ins-c-install-ansible-tab__download_icon'>
+                <div className='ins-c-install-ansible-tab__download-icon'>
                     <OutlinedFileIcon className='outer-icon' size='xl'/> <SearchIcon className='inner-icon'/>
                 </div>
                 <div className='ins-c-install-ansible-tab__download_desc'>
@@ -150,12 +150,14 @@ const ConfigureClientTab = ({ intl }) => {
                     <Text> {intl.formatMessage(messages.rolesAndConfigDescription)} </Text>
                 </TextContent>
                 <Accordion asDefinitionList>
-                    {getSections(intl).map(section => <AccordionItem key={section.name} className='ins-c-install-client-tab__sections'>
+                    {getSections(intl).map(section => <AccordionItem key={section.name} className='ins-c-install-client-tab__section'>
                         <AccordionToggle isExpanded={false}>
                             {section.name}
                         </AccordionToggle>
                         <AccordionContent id={section.id} isHidden={true}>
-                            {section.description}
+                            <TextContent>
+                                {section.description}
+                            </TextContent>
                         </AccordionContent>
                         <Divider />
                     </AccordionItem>)}

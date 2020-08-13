@@ -1,87 +1,20 @@
 @import '~@redhat-cloud-services/frontend-components-utilities/files/Utilities/_all.scss';
 
-section {
-    outline: none;
-}
-
+// Client tab
 .ins-c-install-client-tab {
     .pf-c-tab-content {
         padding-top: var(--pf-global--spacer--lg);
     }
 }
 
-.ins-c-install-client-tab__links {
-    display: inline-flex;
-    justify-content: space-between;
-    width: 75%;
-
-    a {
-        text-decoration: none;
-    }
-}
-
-.ins-c-install-client-tab__section {
-    padding-right: var(--pf-global--gutter);
-
-    .pf-c-expandable-section__toggle-text {
-        position: relative;
-        right: calc(var(--pf-global--spacer--sm) + var(--pf-global--spacer--xs));
-    }
-
-    .pf-c-expandable-section {
-        --pf-c-expandable-section__toggle--Color: var(--pf-global--Color--100);
-        --pf-c-expandable-section--after--BorderWidth: var(--pf-global--BorderWidth--lg);
-        --pf-c-expandable-section--after--BorderColor: transparent;
-
-        position: relative;
-
-        &::before {
-            content: '';
-            position: absolute;
-            width: 0;
-            top: 0;
-            bottom: 0;
-            left: 0;
-            pointer-events: none;
-            border-left: var(--pf-c-expandable-section--after--BorderWidth) solid var(--pf-c-expandable-section--after--BorderColor);
-            transition: var(--pf-global--Transition);
-        }
-
-        &.pf-m-expanded {
-            --pf-c-expandable-section--after--BorderColor: var(--pf-global--active-color--100);
-
-            .pf-c-expandable-section__toggle-text {
-                font-weight: var(--pf-global--FontWeight--semi-bold);
-                color: var(--pf-global--primary-color--100);
-            }
-        }
-    }
-
-    .pf-c-expandable-section__content {
-        padding: 0 0 var(--pf-global--spacer--md) var(--pf-global--spacer--xl);
-
-        p + p {
-            margin-top: var(--pf-global--spacer--md);
-        }
-    }
-
-    .pf-c-expandable-section__toggle {
-        display: inline-flex;
-        width: 100%;
-    }
-
-    .pf-c-expandable-section__toggle-icon {
-        position: relative;
-        left: 100%;
-    }
-}
-
+// Downloads tab
 .ins-c-install-ansible-tab__downloads {
     .pf-l-gallery {
         --pf-l-gallery--GridTemplateColumns: repeat(auto-fill, minmax(300px, 1fr));
     }
 }
 
+// Download link
 .ins-c-install-ansible-tab__download {
     display: inline-block;
     padding-bottom: var(--pf-global--spacer--xl);
@@ -89,7 +22,8 @@ section {
     text-align: center;
 }
 
-.ins-c-install-ansible-tab__download_icon {
+// Download link icon
+.ins-c-install-ansible-tab__download-icon {
     margin: var(--pf-global--spacer--xl) 0 var(--pf-global--spacer--lg) 0;
     color: var(--pf-global--Color--100);
 
@@ -105,11 +39,13 @@ section {
     }
 }
 
+// Download link description
 .ins-c-install-ansible-tab__download_desc {
     width: 65%;
     margin: 0 auto;
 }
 
-.ins-c-install-ansible-tab__title {
-    margin-top: var(--pf-global--spacer--xl);
+// Accordion content body
+.ins-c-registration-assistant-form .pf-c-accordion__expanded-content-body {
+    padding: var(--pf-global--spacer--md) var(--pf-global--spacer--xl) var(--pf-global--spacer--xl) var(--pf-global--spacer--xl);
 }

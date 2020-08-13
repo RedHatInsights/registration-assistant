@@ -1,6 +1,7 @@
 // Importing Global Variables
 @import "~@patternfly/patternfly/sass-utilities/_all";
 
+// Page title
 .ins-c-page-title {
     --ins-c-page-title__main--GridGap: var(--pf-global--spacer--sm);
     --ins-c-page-title__main--MarginBottom: var(--pf-global--spacer--md);
@@ -17,6 +18,7 @@
 
 }
 
+// Page title main section
 .ins-c-page-title__main {
     display: grid;
     grid-template-columns: auto;

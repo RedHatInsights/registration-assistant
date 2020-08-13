@@ -3,10 +3,7 @@
 @import "~@redhat-cloud-services/frontend-components-utilities/files/Utilities/_all";
 @import "~@redhat-cloud-services/frontend-components/index.css";
 
-.ins-c-icon {
-    margin-right: var(--pf-global--spacer--sm);
-}
-
+// Base
 .ins-c-registration-assistant {
 
     pre {
@@ -23,6 +20,13 @@
     }
 }
 
+// Step title
+.pf-c-title.ins-c-step-title,
+.pf-c-content .pf-c-title.ins-c-step-title {
+    margin-bottom: var(--pf-global--spacer--md);
+}
+
+// Content title
 .pf-c-title.ins-c-content-title,
 .ins-c-content-title {
     font-family: var(--pf-global--FontFamily--sans-serif);
@@ -49,6 +53,7 @@
     }
 }
 
+// Title group
 .ins-c-title-group {
     display: grid;
     grid-gap: var(--pf-global--spacer--sm);
@@ -62,31 +67,56 @@
         font-size: var(--pf-global--FontSize--sm);
         font-weight: var(--pf-global--FontWeight--semi-bold);
     }
+
+    .ins-c-icon {
+        margin-right: var(--pf-global--spacer--sm);
+    }
 }
 
-.ins-m-light-300 {
-    background-color: var(--pf-global--BackgroundColor--light-300);
+// Helper text
+.pf-c-form__helper-text {
+    span {
+        display: block;
+        max-width: 500px;
+    }
+
+    // use this modifier when helper text appears as a sibling of .pf-c-form__group instead of a child
+    &.ins-m-conditional-helper {
+        --pf-c-content--MarginBottom: 0;
+
+        margin-top: calc((var(--pf-c-form--GridGap) * -1) + var(--pf-c-form__helper-text--MarginTop));
+    }
+
+    &.ins-m-light {
+        --pf-c-form__helper-text--Color: var(--pf-global--secondary-color--100);
+    }
 }
 
+// Learn more link
+.ins-c-learn-more {
+    font-size: var(--pf-global--FontSize--sm);
+    white-space: nowrap;
+
+    p & {
+        margin-left: var(--pf-global--spacer--sm);
+    }
+}
+
+// Dashboard link
+.ins-c-dashboard-link {
+    margin-top: var(--pf-global--spacer--xl);
+}
+
+// Drawer panel
+.pf-c-drawer__panel {
+    .ins-m-light-300 {
+        background-color: var(--pf-global--BackgroundColor--light-300);
+    }
+}
+
+// Overflow wrapper
 .ins-c-overflow-content {
     @media screen and (min-width: $pf-global--breakpoint--md) {
         max-height: 100%;
     }
-}
-
-.ins-c-title-group__main {
-    display: flex;
-    flex-wrap: wrap;
-
-    > * {
-        margin-right: var(--pf-global--spacer--sm);
-    }
-
-    > :last-child {
-        margin-right: 0;
-    }
-}
-
-.ins-c-text-lg {
-    font-size: var(--pf-global--FontSize--lg);
 }

@@ -1,6 +1,7 @@
 // Importing Global Variables
 @import "~@patternfly/patternfly/sass-utilities/_all";
 
+// Form step group
 .ins-c-form-step-group {
     --ins-form-step-group--item--MarginBottom: var(--pf-global--spacer--md);
     --ins-form-step-group--form-step-group--item--MarginTop: var(--pf-global--spacer--lg);
