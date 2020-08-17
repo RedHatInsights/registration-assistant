@@ -1,38 +1,23 @@
 import React, { useState } from 'react';
 
 import './Register.scss';
-import { DataCollection, EnablingInsightsOnRhui, RegisterWithRhsm, SetupConfigure, SmartManagement, SubscribetoSatellite, schema } from './Helpers';
 import { FormTemplate as PfForm, componentMapper } from '@data-driven-forms/pf4-component-mapper';
-import { Divider } from '@patternfly/react-core/dist/esm/components/Divider/Divider';
+import { Button } from '@patternfly/react-core/dist/esm/components/Button/index';
+import { DataCollection, EnablingInsightsOnRhui, RegisterWithRhsm, SetupConfigure, SmartManagement, SubscribetoSatellite, schema } from './Helpers';
+import { Divider } from '@patternfly/react-core/dist/esm/components/Divider/index';
+import { Drawer, DrawerActions, DrawerCloseButton, DrawerContent, DrawerContentBody,
+    DrawerHead, DrawerPanelBody, DrawerPanelContent } from '@patternfly/react-core/dist/esm/components/Drawer/';
+import { PageSection, PageSectionVariants } from '@patternfly/react-core/dist/esm/components/Page/';
+import { Title } from '@patternfly/react-core/dist/esm/components/Title/index';
+import { TasksIcon, ColumnsIcon } from '@patternfly/react-icons/dist/esm/icons/';
+import { TextContent } from '@patternfly/react-core/dist/esm/components/Text/index';
+import Group from '../../Components/Group/Group';
 import FormRenderer from '@data-driven-forms/react-form-renderer';
 import FormSpy from '@data-driven-forms/react-form-renderer/dist/esm/form-spy';
 import PropTypes from 'prop-types';
-import { TasksIcon } from '@patternfly/react-icons';
-import { Title } from '@patternfly/react-core/dist/esm/components/Title/Title';
 import messages from '../../Messages';
 import { useIntl } from 'react-intl';
 import { withRouter } from 'react-router-dom';
-import TitleGroup from '../../Components/LayoutComponents/TitleGroup';
-import PageTitle from '../../Components/LayoutComponents/PageTitle';
-
-import {
-    Button,
-    Drawer,
-    DrawerActions,
-    DrawerCloseButton,
-    DrawerContent,
-    DrawerContentBody,
-    DrawerHead,
-    DrawerPanelBody,
-    DrawerPanelContent,
-    PageSection,
-    PageSectionVariants,
-    TextContent
-} from '@patternfly/react-core';
-
-import {
-    ColumnsIcon
-} from '@patternfly/react-icons';
 
 const CustomSection = ({ label }) => <React.Fragment>{label}</React.Fragment>;
 
@@ -63,12 +48,12 @@ const Register = () => {
             <ul aria-label="Red Hat Insights tips">
                 <li>
                     <DrawerHead>
-                        <TitleGroup>
+                        <Group type='title-group'>
                             <TasksIcon size='md' />
                             <Title headingLevel='h3' size="md">
                                 {intl.formatMessage(messages.preinstallationChecks)}
                             </Title>
-                        </TitleGroup>
+                        </Group>
                         <DrawerActions>
                             <DrawerCloseButton onClick={onCloseClick} />
                         </DrawerActions>
@@ -120,7 +105,7 @@ const Register = () => {
             <Drawer className='ins-c-registration-assistant-drawer' isStatic isExpanded={isExpanded}>
                 <DrawerContent panelContent={panelContent}>
                     <DrawerContentBody hasPadding>
-                        <PageTitle>
+                        <Group type='page-title'>
                             <TextContent>
                                 <div className="ins-c-page-title__main">
                                     <Title headingLevel='h1' size="xl">
@@ -134,7 +119,7 @@ const Register = () => {
                                     {intl.formatMessage(messages.stepOneTitle)}
                                 </Title>
                             </TextContent>
-                        </PageTitle>
+                        </Group>
                         <div className='ins-c-registration-assistant-form'>
                             <PfForm {...props}/>
                         </div>

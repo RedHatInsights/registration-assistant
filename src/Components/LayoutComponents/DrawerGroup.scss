@@ -1,8 +1,0 @@
-// Importing Global Variables
-@import "~@patternfly/patternfly/sass-utilities/_all";
-
-// Drawer group
-.ins-c-drawer-group {
-    display: grid;
-    grid-gap: var(--pf-global--spacer--md);
-}

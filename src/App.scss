@@ -109,7 +109,7 @@
 
 // Drawer panel
 .pf-c-drawer__panel {
-    .ins-m-light-300 {
+    &.ins-m-light-300 {
         background-color: var(--pf-global--BackgroundColor--light-300);
     }
 }

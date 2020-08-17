@@ -2,25 +2,18 @@
 /* eslint-disable max-len */
 import './Helpers.scss';
 
+import { Button } from '@patternfly/react-core/dist/esm/components/Button/Button';
 import { CloudIcon, CogsIcon, DownloadIcon, ShieldAltIcon } from '@patternfly/react-icons/dist/esm/icons/';
 import { ConfigureClientTab, InstallAnsibleTab } from '../../Components/AnsibleTabs/AnsibleTabs';
+import { ExpandableSection } from '@patternfly/react-core/dist/esm/components/ExpandableSection/ExpandableSection';
+import { Flex, FlexItem } from '@patternfly/react-core/dist/esm/layouts/Flex/index';
+import { FormHelperText } from '@patternfly/react-core/dist/esm/components/Form/FormHelperText';
 import { Text, TextContent, TextList, TextListItem, TextListVariants, TextVariants } from '@patternfly/react-core/dist/esm/components/Text/index';
 import { Title, TitleSizes } from '@patternfly/react-core/dist/esm/components/Title/Title';
-
-import { Button } from '@patternfly/react-core/dist/esm/components/Button/Button';
-import { ExpandableSection } from '@patternfly/react-core/dist/esm/components/ExpandableSection/ExpandableSection';
 import React from 'react';
 import { componentTypes } from '@data-driven-forms/react-form-renderer';
 import messages from '../../Messages';
-import TitleGroup from '../../Components/LayoutComponents/TitleGroup';
-import DrawerGroup from '../../Components/LayoutComponents/DrawerGroup';
-import FormStepGroup from '../../Components/LayoutComponents/FormStepGroup';
-
-import {
-    Flex,
-    FlexItem,
-    FormHelperText
-} from '@patternfly/react-core';
+import Group from '../../Components/Group/Group';
 
 const learnMore = (intl, url = '#') => <a className='learnMore ins-c-learn-more' href={url} >{intl.formatMessage(messages.learnMore)}</a>;
 const insightsDashboard = intl => <Button className='ins-c-dashboard-link' component='a' variant='primary' href='https://cloud.redhat.com/insights/' >{intl.formatMessage(messages.viewInsightsDashboard)}</Button>;
@@ -111,34 +104,34 @@ const schema = intl => ({
     }, {
         component: 'custom-section',
         name: 'rhsm-rhel76-no',
-        label: <FormStepGroup>
+        label: <Group type='form-step'>
             <TextContent>
                 {stepTitle(intl, intl.formatMessage(messages.installTheClient), 2)}
                 {manualInstall(intl)}
             </TextContent>
-        </FormStepGroup>,
+        </Group>,
         condition: [{ when: 'automation', is: 'no' }, { when: 'how-are-systems-managed', is: 'rhsm' }, { when: 'rhel-os', is: 'rhel76' }]
     }, {
         component: 'custom-section',
         name: 'rhsm-rhel8-no',
-        label: <FormStepGroup>
+        label: <Group type='form-step'>
             <TextContent>
                 {stepTitle(intl, intl.formatMessage(messages.registerYourSystems), 2)}
                 {rhelNoAutomationSnippet(intl)}
             </TextContent>
-        </FormStepGroup>,
+        </Group>,
         condition: [{ when: 'automation', is: 'no' }, { when: 'how-are-systems-managed', is: 'rhsm' }, { when: 'rhel-os', is: 'rhel8' }]
     }, {
         component: 'custom-section',
         name: 'rhsm-ansible-1',
-        label: <FormStepGroup>
+        label: <Group type='form-step'>
             <TextContent>
                 {stepTitle(intl, intl.formatMessage(messages.downloadClientPlaybook), 2)}
                 <Button variant="primary" className='pf-m-display-lg ins-c-action' icon={<DownloadIcon />} component='a' href='https://github.com/RedHatInsights/insights-client-role'>
                     {intl.formatMessage(messages.downloadPlaybook)}
                 </Button>
             </TextContent>
-        </FormStepGroup>,
+        </Group>,
         condition: [{ when: 'automation', is: 'ansible' }, { when: 'how-are-systems-managed', is: 'rhsm' }]
     }, {
         component: 'sub-form',
@@ -179,16 +172,16 @@ const schema = intl => ({
         component: 'custom-section',
         name: 'rhsm-puppet',
         label: <React.Fragment>
-            <FormStepGroup>
+            <Group type='form-step'>
                 <TextContent>
                     {stepTitle(intl, intl.formatMessage(messages.downloadPuppet), 2)}
                     <Button variant="primary" className='pf-m-display-lg' icon={<DownloadIcon />} component='a' href='https://forge.puppet.com/lphiri/access_insights_client'>
                         {intl.formatMessage(messages.downloadModule)}
                     </Button>
                 </TextContent>
-            </FormStepGroup>
+            </Group>
 
-            <FormStepGroup>
+            <Group type='form-step'>
                 <TextContent>
                     {stepTitle(intl, intl.formatMessage(messages.installAndConfigure), 3)}
                     <Title headingLevel='h3' size='md'>{intl.formatMessage(messages.automatedInstallation)}</Title>
@@ -199,7 +192,7 @@ const schema = intl => ({
                     <Title headingLevel='h3' size='md'>{intl.formatMessage(messages.manualInstall)}</Title>
                     {manualInstall(intl)}
                 </TextContent>
-            </FormStepGroup>
+            </Group>
         </React.Fragment>,
         condition: [{ when: 'automation', is: 'puppet' }, { when: 'how-are-systems-managed', is: 'rhsm' }]
     }, {
@@ -221,7 +214,7 @@ const schema = intl => ({
     }, {
         component: 'custom-section',
         name: 'rhs-puppet',
-        label: <FormStepGroup>
+        label: <Group type='form-step'>
             <TextContent>
                 {stepTitle(intl, intl.formatMessage(messages.deployRHI), 2)}
                 <Button variant="primary" className='pf-m-display-lg ins-c-action' icon={<DownloadIcon />} component='a' href='https://forge.puppet.com/lphiri/access_insights_client'>
@@ -233,13 +226,13 @@ const schema = intl => ({
                 <Text component={TextVariants.p}>{intl.formatMessage(messages.puppetAutomatedInstallMoInfo)}</Text>
                 {insightsDashboard(intl)}
             </TextContent>
-        </FormStepGroup>,
+        </Group>,
         condition: [{ when: 'rhs-automation', is: 'puppet' }, { when: 'how-are-systems-managed', is: 'rhs' }]
     }, {
         component: 'custom-section',
         name: 'rhs-ansible',
         label: <React.Fragment>
-            <FormStepGroup>
+            <Group type='form-step'>
                 <TextContent>
                     {stepTitle(intl, intl.formatMessage(messages.deployingRHInsights), 2)}
                     <Text component={TextVariants.p}>{intl.formatMessage(messages.youCanAutomate, {
@@ -271,18 +264,18 @@ const schema = intl => ({
                     </ExpandableSection>
                     {insightsDashboard(intl)}
                 </TextContent>
-            </FormStepGroup>
+            </Group>
         </React.Fragment>,
         condition: [{ when: 'rhs-automation', is: 'ansible' }, { when: 'how-are-systems-managed', is: 'rhs' }]
     }, {
         component: 'custom-section',
         name: 'rhui-first-part',
-        label: <FormStepGroup>
+        label: <Group type='form-step'>
             <TextContent>
                 {stepTitle(intl, intl.formatMessage(messages.deployInsightsOnCloudTitle), 2)}
                 <Text component={TextVariants.p}>{intl.formatMessage(messages.deployInsightsOnCloudText)}</Text>
             </TextContent>
-        </FormStepGroup>,
+        </Group>,
         condition: [{ when: 'how-are-systems-managed', is: 'rhui' }]
     }, {
         component: 'plain-text',
@@ -313,7 +306,7 @@ const schema = intl => ({
     }]
 });
 
-const DataCollection = ({ intl }) => <TitleGroup>
+const DataCollection = ({ intl }) => <Group type='title-group'>
     <ShieldAltIcon size='md' className='ins-c-icon' />
     <Flex spaceItems={{ default: 'spaceItemsSm' }}>
         <FlexItem>
@@ -325,13 +318,13 @@ const DataCollection = ({ intl }) => <TitleGroup>
             {learnMore(intl, 'https://access.redhat.com/articles/1598863')}
         </FlexItem>
     </Flex>
-</TitleGroup>;
+</Group>;
 
-const SetupConfigure = ({ intl }) => <DrawerGroup>
-    <TitleGroup>
+const SetupConfigure = ({ intl }) => <Group type='drawer-group'>
+    <Group type='title-group'>
         <CogsIcon size='md' className='ins-c-icon' />
         <Title headingLevel='h4'>{intl.formatMessage(messages.setupConfigure)}</Title>
-    </TitleGroup>
+    </Group>
     <TextContent >
         <Text component={TextVariants.p}>
             {intl.formatMessage(messages.assessAndMonitor)}
@@ -342,20 +335,20 @@ const SetupConfigure = ({ intl }) => <DrawerGroup>
             {learnMore(intl, 'https://www.redhat.com/en/technologies/management/smart-management')}
         </Text>
     </TextContent>
-</DrawerGroup>;
+</Group>;
 
-const SmartManagement = ({ intl }) => <DrawerGroup>
-    <TitleGroup>
+const SmartManagement = ({ intl }) => <Group type='drawer-group'>
+    <Group type='title-group'>
         <CloudIcon size='md' className='ins-c-icon' />
         <Title headingLevel='h4'>{intl.formatMessage(messages.rhSM)}</Title>
-    </TitleGroup>
+    </Group>
     <TextContent>
         <Text component={TextVariants.p}>
             {intl.formatMessage(messages.combineTheFlexible)}
             {learnMore(intl, 'https://www.redhat.com/en/technologies/management/smart-management')}
         </Text>
     </TextContent>
-</DrawerGroup>;
+</Group>;
 
 const RegisterWithRhsm = ({ intl }) => <TextContent>
     <Title headingLevel='h4' size={TitleSizes.lg} className='ins-c-content-title ins-m-font-light'>{intl.formatMessage(messages.registerRhsm)}</Title>
@@ -374,7 +367,7 @@ const RegisterWithRhsm = ({ intl }) => <TextContent>
         { howToAccess: <a href='https://access.redhat.com/solutions/1583183' >{intl.formatMessage(messages.howToAccess)}</a> })}</Text>
 </TextContent>;
 
-const SubscribetoSatellite = ({ intl }) => <DrawerGroup>
+const SubscribetoSatellite = ({ intl }) => <Group type='drawer-group'>
     <TextContent>
         <Title headingLevel='h4' size={TitleSizes.lg} className='ins-c-content-title ins-m-font-light'>{intl.formatMessage(messages.subscribeSatellite)}</Title>
         <Text component={TextVariants.p}>
@@ -388,9 +381,9 @@ const SubscribetoSatellite = ({ intl }) => <DrawerGroup>
         <Text component={TextVariants.small}>{intl.formatMessage(messages.verifySatelliteNote,
             { link: <a href='https://cert-api.accesss.redhat.com' >https://cert-api.accesss.redhat.com</a> })}</Text>
     </TextContent>
-</DrawerGroup>;
+</Group>;
 
-const EnablingInsightsOnRhui = ({ intl }) => <DrawerGroup>
+const EnablingInsightsOnRhui = ({ intl }) => <Group type='drawer-group'>
     <Title headingLevel='h4' size={TitleSizes.lg} className='ins-c-content-title ins-m-font-light'>{intl.formatMessage(messages.enablingInsightsOnRhuiTitle)}</Title>
     <TextContent>
         <Text component={TextVariants.p}>{intl.formatMessage(messages.enablingInsightsOnRhuiParagraph1,
@@ -400,6 +393,6 @@ const EnablingInsightsOnRhui = ({ intl }) => <DrawerGroup>
             { cloudAccessDocumentation: <Button isInline component='a' variant='link' target="_blank" href='https://access.redhat.com/documentation/en-us/red_hat_subscription_management/1/html/red_hat_cloud_access_reference_guide/index' >{intl.formatMessage(messages.cloudAccessDocumentation)}</Button> })}
         </Text>
     </TextContent>
-</DrawerGroup>;
+</Group>;
 
 export { learnMore, schema, DataCollection, SetupConfigure, SmartManagement, RegisterWithRhsm, SubscribetoSatellite, EnablingInsightsOnRhui };

@@ -2,24 +2,15 @@ import './AnsibleTabs.scss';
 
 import { ArrowDownIcon, OutlinedFileIcon, SearchIcon } from '@patternfly/react-icons/dist/esm/icons/';
 import React, { useState } from 'react';
-import { Text, TextVariants } from '@patternfly/react-core/dist/esm/components/Text/index';
+import { Text, TextVariants, TextContent } from '@patternfly/react-core/dist/esm/components/Text/index';
 import PropTypes from 'prop-types';
 import messages from '../../Messages';
-import {
-    Accordion,
-    AccordionItem,
-    AccordionToggle,
-    AccordionContent,
-    Divider,
-    Gallery,
-    Grid,
-    TextContent,
-    Tab,
-    Tabs,
-    TabTitleText,
-    Title,
-    TitleSizes
-} from '@patternfly/react-core';
+import { Accordion, AccordionItem, AccordionToggle, AccordionContent } from '@patternfly/react-core/dist/esm/components/Accordion/index';
+import { Divider } from '@patternfly/react-core/dist/esm/components/Divider/index';
+import { Gallery } from '@patternfly/react-core/dist/esm/layouts/Gallery/index';
+import { Grid } from '@patternfly/react-core/dist/esm/layouts/Grid/index';
+import { Tab, Tabs, TabTitleText } from '@patternfly/react-core/dist/esm/components/Tabs/index';
+import { Title, TitleSizes } from '@patternfly/react-core/dist/esm/components/Title/index';
 
 const getSections = intl => {
     return [

@@ -1,6 +1,40 @@
 // Importing Global Variables
 @import "~@patternfly/patternfly/sass-utilities/_all";
 
+// Drawer group
+.ins-c-drawer-group {
+    display: grid;
+    grid-gap: var(--pf-global--spacer--md);
+}
+
+// Form step group
+.ins-c-form-step-group {
+    --ins-form-step-group--item--MarginBottom: var(--pf-global--spacer--md);
+    --ins-form-step-group--form-step-group--item--MarginTop: var(--pf-global--spacer--lg);
+
+    & + & {
+        margin-top: var(--ins-form-step-group--form-step-group--item--MarginTop);
+    }
+
+    .ins-c-action:not(:last-child) {
+        margin-bottom: var(--pf-global--spacer--lg);
+    }
+
+    .pf-c-content + .pf-c-content {
+        margin-top: var(--pf-global--spacer--2xl);
+    }
+
+    pre {
+        width: 100%;
+        max-width: 800px;
+    }
+}
+
+.pf-c-form__helper-text + .ins-c-form-step-group,
+.pf-c-form__group + .ins-c-form-step-group {
+    margin-top: var(--ins-form-step-group--form-step-group--item--MarginTop);
+}
+
 // Page title
 .ins-c-page-title {
     --ins-c-page-title__main--GridGap: var(--pf-global--spacer--sm);
@@ -37,5 +71,12 @@
         @media screen and (min-width: $pf-global--breakpoint--md) {
             margin-bottom: var(--ins-c-page-title__c-title--MarginBottom);
         }
+    }
+}
+
+// Title group
+.ins-c-title-group {
+    .pf-c-button {
+        grid-column: 3;
     }
 }
