@@ -1,20 +1,29 @@
+import './Register.scss';
+
+import { ColumnsIcon, TasksIcon } from '@patternfly/react-icons/dist/esm/icons/';
+import { DataCollection, EnablingInsightsOnRhui, RegisterWithRhsm, SetupConfigure, SmartManagement, SubscribetoSatellite, schema } from './Helpers';
+import {
+    Drawer,
+    DrawerActions,
+    DrawerCloseButton,
+    DrawerContent,
+    DrawerContentBody,
+    DrawerHead,
+    DrawerPanelBody,
+    DrawerPanelContent
+} from '@patternfly/react-core/dist/esm/components/Drawer/';
+import { PageSection, PageSectionVariants } from '@patternfly/react-core/dist/esm/components/Page/';
+import { FormTemplate as PfForm, componentMapper } from '@data-driven-forms/pf4-component-mapper';
 import React, { useState } from 'react';
 
-import './Register.scss';
-import { FormTemplate as PfForm, componentMapper } from '@data-driven-forms/pf4-component-mapper';
 import { Button } from '@patternfly/react-core/dist/esm/components/Button/index';
-import { DataCollection, EnablingInsightsOnRhui, RegisterWithRhsm, SetupConfigure, SmartManagement, SubscribetoSatellite, schema } from './Helpers';
 import { Divider } from '@patternfly/react-core/dist/esm/components/Divider/index';
-import { Drawer, DrawerActions, DrawerCloseButton, DrawerContent, DrawerContentBody,
-    DrawerHead, DrawerPanelBody, DrawerPanelContent } from '@patternfly/react-core/dist/esm/components/Drawer/';
-import { PageSection, PageSectionVariants } from '@patternfly/react-core/dist/esm/components/Page/';
-import { Title } from '@patternfly/react-core/dist/esm/components/Title/index';
-import { TasksIcon, ColumnsIcon } from '@patternfly/react-icons/dist/esm/icons/';
-import { TextContent } from '@patternfly/react-core/dist/esm/components/Text/index';
-import Group from '../../Components/Group/Group';
 import FormRenderer from '@data-driven-forms/react-form-renderer';
 import FormSpy from '@data-driven-forms/react-form-renderer/dist/esm/form-spy';
+import Group from '../../Components/Group/Group';
 import PropTypes from 'prop-types';
+import { TextContent } from '@patternfly/react-core/dist/esm/components/Text/index';
+import { Title } from '@patternfly/react-core/dist/esm/components/Title/index';
 import messages from '../../Messages';
 import { useIntl } from 'react-intl';
 import { withRouter } from 'react-router-dom';

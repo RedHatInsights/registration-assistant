@@ -1,9 +1,10 @@
-import React from 'react';
 import {
-    Title,
     EmptyState,
-    EmptyStateIcon
-} from '@patternfly/react-core';
+    EmptyStateIcon,
+    Title
+} from '@patternfly/react-core/dist/esm/components';
+
+import React from 'react';
 
 const Loading = () => {
     const Spinner = () => (

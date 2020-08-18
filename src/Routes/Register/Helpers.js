@@ -2,18 +2,19 @@
 /* eslint-disable max-len */
 import './Helpers.scss';
 
-import { Button } from '@patternfly/react-core/dist/esm/components/Button/Button';
 import { CloudIcon, CogsIcon, DownloadIcon, ShieldAltIcon } from '@patternfly/react-icons/dist/esm/icons/';
 import { ConfigureClientTab, InstallAnsibleTab } from '../../Components/AnsibleTabs/AnsibleTabs';
-import { ExpandableSection } from '@patternfly/react-core/dist/esm/components/ExpandableSection/ExpandableSection';
 import { Flex, FlexItem } from '@patternfly/react-core/dist/esm/layouts/Flex/index';
-import { FormHelperText } from '@patternfly/react-core/dist/esm/components/Form/FormHelperText';
 import { Text, TextContent, TextList, TextListItem, TextListVariants, TextVariants } from '@patternfly/react-core/dist/esm/components/Text/index';
 import { Title, TitleSizes } from '@patternfly/react-core/dist/esm/components/Title/Title';
+
+import { Button } from '@patternfly/react-core/dist/esm/components/Button/Button';
+import { ExpandableSection } from '@patternfly/react-core/dist/esm/components/ExpandableSection/ExpandableSection';
+import { FormHelperText } from '@patternfly/react-core/dist/esm/components/Form/FormHelperText';
+import Group from '../../Components/Group/Group';
 import React from 'react';
 import { componentTypes } from '@data-driven-forms/react-form-renderer';
 import messages from '../../Messages';
-import Group from '../../Components/Group/Group';
 
 const learnMore = (intl, url = '#') => <a className='learnMore ins-c-learn-more' href={url} >{intl.formatMessage(messages.learnMore)}</a>;
 const insightsDashboard = intl => <Button className='ins-c-dashboard-link' component='a' variant='primary' href='https://cloud.redhat.com/insights/' >{intl.formatMessage(messages.viewInsightsDashboard)}</Button>;

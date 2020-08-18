@@ -1,6 +1,7 @@
+import './Group.scss';
+
 import React from 'react';
 import propTypes from 'prop-types';
-import './Group.scss';
 
 const Group = ({ type, children }) => {
 
