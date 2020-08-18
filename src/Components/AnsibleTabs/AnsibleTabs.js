@@ -1,16 +1,17 @@
 import './AnsibleTabs.scss';
 
+import { Accordion, AccordionContent, AccordionItem, AccordionToggle } from '@patternfly/react-core/dist/esm/components/Accordion/index';
 import { ArrowDownIcon, OutlinedFileIcon, SearchIcon } from '@patternfly/react-icons/dist/esm/icons/';
 import React, { useState } from 'react';
-import { Text, TextVariants, TextContent } from '@patternfly/react-core/dist/esm/components/Text/index';
-import PropTypes from 'prop-types';
-import messages from '../../Messages';
-import { Accordion, AccordionItem, AccordionToggle, AccordionContent } from '@patternfly/react-core/dist/esm/components/Accordion/index';
+import { Tab, TabTitleText, Tabs } from '@patternfly/react-core/dist/esm/components/Tabs/index';
+import { Text, TextContent, TextVariants } from '@patternfly/react-core/dist/esm/components/Text/index';
+import { Title, TitleSizes } from '@patternfly/react-core/dist/esm/components/Title/index';
+
 import { Divider } from '@patternfly/react-core/dist/esm/components/Divider/index';
 import { Gallery } from '@patternfly/react-core/dist/esm/layouts/Gallery/index';
 import { Grid } from '@patternfly/react-core/dist/esm/layouts/Grid/index';
-import { Tab, Tabs, TabTitleText } from '@patternfly/react-core/dist/esm/components/Tabs/index';
-import { Title, TitleSizes } from '@patternfly/react-core/dist/esm/components/Title/index';
+import PropTypes from 'prop-types';
+import messages from '../../Messages';
 
 const getSections = intl => {
     return [
@@ -130,6 +131,7 @@ InstallAnsibleTab.propTypes = {
 const ConfigureClientTab = ({ intl }) => {
 
     const [activeTabKey, setActiveTabKey] = useState(0);
+    const [expanded, setExpanded] = useState();
 
     return <Tabs activeKey={activeTabKey} className='ins-c-install-client-tab' isSecondary>
         <Tab eventKey={0} onClick={() => setActiveTabKey(0)} title={<TabTitleText>{intl.formatMessage(messages.roleVariables)}</TabTitleText>}>
@@ -142,10 +144,12 @@ const ConfigureClientTab = ({ intl }) => {
                 </TextContent>
                 <Accordion asDefinitionList>
                     {getSections(intl).map(section => <AccordionItem key={section.name} className='ins-c-install-client-tab__section'>
-                        <AccordionToggle isExpanded={false}>
+                        <AccordionToggle isExpanded={expanded === section.name} onClick={() => {
+                            expanded === section.name ? setExpanded(undefined) : setExpanded(section.name);
+                        }}>
                             {section.name}
                         </AccordionToggle>
-                        <AccordionContent id={section.id} isHidden={true}>
+                        <AccordionContent id={section.id} isHidden={expanded !== section.name}>
                             <TextContent>
                                 {section.description}
                             </TextContent>

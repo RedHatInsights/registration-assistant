@@ -1,5 +1,9 @@
 @import '~@redhat-cloud-services/frontend-components-utilities/files/Utilities/_all.scss';
 
+section {
+    outline: none;
+}
+
 // Client tab
 .ins-c-install-client-tab {
     .pf-c-tab-content {
@@ -47,5 +51,5 @@
 
 // Accordion content body
 .ins-c-registration-assistant-form .pf-c-accordion__expanded-content-body {
-    padding: var(--pf-global--spacer--md) var(--pf-global--spacer--xl) var(--pf-global--spacer--xl) var(--pf-global--spacer--xl);
+    padding: var(--pf-global--spacer--md) var(--pf-global--spacer--xl) var(--pf-global--spacer--md) var(--pf-global--spacer--xl);
 }
