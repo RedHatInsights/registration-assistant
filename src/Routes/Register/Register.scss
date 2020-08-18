@@ -30,6 +30,9 @@
     }
 
     .pf-c-drawer__panel {
+        .pf-c-form-control[readonly] {
+            background-color: var(--pf-global--palette--black-100);
+        }
         .pf-c-content ul {
             padding: 0;
         }
