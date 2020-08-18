@@ -2,6 +2,7 @@ import './AnsibleTabs.scss';
 
 import { Accordion, AccordionContent, AccordionItem, AccordionToggle } from '@patternfly/react-core/dist/esm/components/Accordion/index';
 import { ArrowDownIcon, OutlinedFileIcon, SearchIcon } from '@patternfly/react-icons/dist/esm/icons/';
+import { ClipboardCopy, ClipboardCopyVariant } from '@patternfly/react-core/dist/esm/components/ClipboardCopy/index';
 import React, { useState } from 'react';
 import { Tab, TabTitleText, Tabs } from '@patternfly/react-core/dist/esm/components/Tabs/index';
 import { Text, TextContent, TextVariants } from '@patternfly/react-core/dist/esm/components/Text/index';
@@ -12,6 +13,24 @@ import { Gallery } from '@patternfly/react-core/dist/esm/layouts/Gallery/index';
 import { Grid } from '@patternfly/react-core/dist/esm/layouts/Grid/index';
 import PropTypes from 'prop-types';
 import messages from '../../Messages';
+
+const examplePlaybookOne = `- hosts: all
+  roles:
+    - { role: RedHatInsights.insights-client, when: ansible_os_family == 'RedHat' }`;
+
+const examplePlaybookTwo = `- hosts: all
+  roles:
+    - role: RedHatInsights.insights-client
+        vars:
+          insights_display_name: 'example_system'
+          ansible_python_interpreter: '/usr/libexec/platform-python'
+      when: ansible_os_family == 'RedHat'`;
+
+const exampleConfigurationOne = `redhat_portal_username: example_user 
+redhat_portal_password: example_password 
+insights_display_name: example_system 
+autoconfig: False 
+authmethod: BASIC`;
 
 const getSections = intl => {
     return [
@@ -167,11 +186,9 @@ const ConfigureClientTab = ({ intl }) => {
                 <Text> {intl.formatMessage(messages.factsInstalledOne)} </Text>
                 <Text> {intl.formatMessage(messages.factsInstalledTwo)} </Text>
                 <Text> {intl.formatMessage(messages.exampleTaskOne)} </Text>
-                <pre>
-                    <code>
-                        - debug: var=ansible_local.insights.system_id
-                    </code>
-                </pre>
+                <ClipboardCopy isCode isReadOnly variant={ClipboardCopyVariant.expansion}>
+                    { `- debug: var=ansible_local.insights.system_id` }
+                </ClipboardCopy>
                 <Text> {intl.formatMessage(messages.exampleTaskTwo)} </Text>
             </TextContent>
         </Tab>
@@ -179,58 +196,35 @@ const ConfigureClientTab = ({ intl }) => {
             <TextContent>
                 <Text> <strong>{intl.formatMessage(messages.examplePlaybook)}</strong> </Text>
                 <Text> {intl.formatMessage(messages.examplePlaybookOne)} </Text>
-                <pre>
-                    <code>
-                        - hosts: all <br />
-                            roles: <br />
-                            - role: RedHatInsights.insights-client <br />
-                            when: ansible_os_family == &apos;RedHat&apos;
-                    </code>
-                </pre>
+                <ClipboardCopy isCode isReadOnly variant={ClipboardCopyVariant.expansion}>
+                    {examplePlaybookOne}
+                </ClipboardCopy>
                 <Text> {intl.formatMessage(messages.examplePlaybookTwo)} </Text>
-                <pre>
-                    <code>
-                    - hosts: all <br />
-                        roles: <br />
-                        - role: RedHatInsights.insights-client <br />
-                            vars: <br />
-                                insights_display_name: &apos;example_system&apos; <br />
-                                ansible_python_interpreter: &apos;/usr/libexec/platform-python&apos; <br />
-                        when: ansible_os_family == &apos;RedHat&apos;
-                    </code>
-                </pre>
+                <ClipboardCopy isCode isReadOnly variant={ClipboardCopyVariant.expansion}>
+                    {examplePlaybookTwo}
+                </ClipboardCopy>
                 <Text> <strong>{intl.formatMessage(messages.exampleConfigurationFile)}</strong> </Text>
                 <Text> {intl.formatMessage(messages.exampleConfigurationOne)} </Text>
-                <pre>
-                    <code>
-                        redhat_portal_username: example_user <br />
-                        redhat_portal_password: example_password <br />
-                        insights_display_name: example_system <br />
-                        autoconfig: False <br />
-                        authmethod: BASIC
-                    </code>
-                </pre>
+                <ClipboardCopy isCode isReadOnly variant={ClipboardCopyVariant.expansion}>
+                    {exampleConfigurationOne}
+                </ClipboardCopy>
                 <Text> {intl.formatMessage(messages.exampleConfigurationTwo, {
                     strong(str) { return <strong>{ str }</strong>; }
                 })} </Text>
                 <Text> {intl.formatMessage(messages.exampleConfigurationThree)} </Text>
                 <Text> {intl.formatMessage(messages.exampleConfigurationFour)} </Text>
                 <Text> {intl.formatMessage(messages.exampleConfigurationFive)} </Text>
-                <pre>
-                    <code>
-                        $ ansible-playbook ... --extra-vars @insights-client-config.yml ...
-                    </code>
-                </pre>
+                <ClipboardCopy isCode isReadOnly variant={ClipboardCopyVariant.expansion}>
+                    { `$ ansible-playbook ... --extra-vars @insights-client-config.yml ...` }
+                </ClipboardCopy>
                 <Text> {intl.formatMessage(messages.exampleConfigurationSix)} </Text>
                 <Text> <strong>{intl.formatMessage(messages.exampleUse)}</strong> </Text>
                 <ol>
                     <li>
                         <Text> {intl.formatMessage(messages.exampleUseOne)} </Text>
-                        <pre>
-                            <code>
-                                $ ansible-galaxy install RedHatInsights.insights-client
-                            </code>
-                        </pre>
+                        <ClipboardCopy isCode isReadOnly variant={ClipboardCopyVariant.expansion}>
+                            { `$ ansible-galaxy install RedHatInsights.insights-client` }
+                        </ClipboardCopy>
                         <Text> {intl.formatMessage(messages.exampleUseTwo)} </Text>
                     </li>
                     <li>
@@ -238,13 +232,9 @@ const ConfigureClientTab = ({ intl }) => {
                     </li>
                     <li>
                         <Text> {intl.formatMessage(messages.exampleUseFour)} </Text>
-                        <pre>
-                            <code>
-                                $ ansible-playbook <br />
-                                --limit=myhost.example.com install-insights.yml <br />
-                                --extra-vars @insights-client-config.yml
-                            </code>
-                        </pre>
+                        <ClipboardCopy isCode isReadOnly variant={ClipboardCopyVariant.expansion}>
+                            { `$ ansible-playbook --limit=myhost.example.com install-insights.yml --extra-vars @insights-client-config.yml` }
+                        </ClipboardCopy>
                         <Text> {intl.formatMessage(messages.exampleUseFive)} </Text>
                     </li>
                 </ol>

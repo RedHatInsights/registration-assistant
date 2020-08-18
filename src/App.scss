@@ -5,18 +5,11 @@
 
 // Base
 .ins-c-registration-assistant {
-
-    pre {
-        background-color: var(--pf-global--palette--black-150);
-        border: var(--pf-global--BorderWidth--sm) solid var(--pf-global--palette--black-200);
-        padding: var(--pf-global--spacer--md);
-        overflow: auto;
-        white-space: pre-wrap;
-        margin-top: var(--pf-global--spacer--lg);
+    .pf-c-clipboard-copy {
+        padding-bottom: var(--pf-global--spacer--md);
     }
-
-    pre + pre {
-        margin-top: var(--pf-global--spacer--md);
+    .pf-c-form-control[readonly] {
+        background-color: var(--pf-global--palette--black-150);
     }
 }
 

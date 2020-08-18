@@ -2,6 +2,7 @@
 /* eslint-disable max-len */
 import './Helpers.scss';
 
+import { ClipboardCopy, ClipboardCopyVariant } from '@patternfly/react-core/dist/esm/components/ClipboardCopy/index';
 import { CloudIcon, CogsIcon, DownloadIcon, ShieldAltIcon } from '@patternfly/react-icons/dist/esm/icons/';
 import { ConfigureClientTab, InstallAnsibleTab } from '../../Components/AnsibleTabs/AnsibleTabs';
 import { Flex, FlexItem } from '@patternfly/react-core/dist/esm/layouts/Flex/index';
@@ -21,18 +22,14 @@ const insightsDashboard = intl => <Button className='ins-c-dashboard-link' compo
 const stepTitle = (intl, title, stepNum) => <Title headingLevel='h2' size='md' className='ins-c-step-title'>{intl.formatMessage(messages.stepNumberTitle, { number: stepNum, variable: title })}</Title>;
 
 const registerInsightsCodeSnippet =
-    <pre className='ins-c-gray'>
-        <code>
-            [root@server ~]# insights-client --register
-        </code>
-    </pre>;
+    <ClipboardCopy isCode isReadOnly variant={ClipboardCopyVariant.expansion}>
+        { `[root@server ~]# insights-client --register` }
+    </ClipboardCopy>;
 
 const installInsightsCodeSnippet =
-    <pre className='ins-c-gray'>
-        <code>
-            [root@server ~]# yum install insights-client
-        </code>
-    </pre>;
+    <ClipboardCopy isCode isReadOnly variant={ClipboardCopyVariant.expansion}>
+        { `[root@server ~]# yum install insights-client` }
+    </ClipboardCopy>;
 
 const rhelNoAutomationSnippet = intl => <React.Fragment>
     {registerInsightsCodeSnippet}
@@ -356,11 +353,9 @@ const RegisterWithRhsm = ({ intl }) => <TextContent>
     <Text component={TextVariants.p}>
         {intl.formatMessage(messages.registerRhsmText)}
     </Text>
-    <pre>
-        <code>
-            [root@server ~]# subscription-manager register --auto-attach
-        </code>
-    </pre>
+    <ClipboardCopy isCode isReadOnly variant={ClipboardCopyVariant.expansion}>
+        { `[root@server ~]# subscription-manager register --auto-attach` }
+    </ClipboardCopy>
     <Text component={TextVariants.small}>{intl.formatMessage(messages.registerRhsmTextNote,
         { basicAuth: <a href='https://access.redhat.com/documentation/en-us/red_hat_insights/2020-04/html/assessing_and_monitoring_security_policy_compliance_of_rhel_systems/' >{intl.formatMessage(messages.basicAuth)}</a> })}
     </Text>
