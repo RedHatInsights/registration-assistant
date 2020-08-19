@@ -26,7 +26,6 @@ import { TextContent } from '@patternfly/react-core/dist/esm/components/Text/ind
 import { Title } from '@patternfly/react-core/dist/esm/components/Title/index';
 import messages from '../../Messages';
 import { useIntl } from 'react-intl';
-import { withRouter } from 'react-router-dom';
 
 const CustomSection = ({ label }) => <React.Fragment>{label}</React.Fragment>;
 
@@ -73,7 +72,9 @@ const Register = () => {
                                 <RegisterWithRhsm intl={intl} />
                             ) : values['how-are-systems-managed'] === 'rhs' ?
                                 <SubscribetoSatellite intl={intl} />
-                                : <EnablingInsightsOnRhui intl={intl} />
+                                : values['how-are-systems-managed'] === 'rhui' ?
+                                    <EnablingInsightsOnRhui intl={intl} />
+                                    : intl.formatMessage(messages.pleaseIndicate)
                             }
                         </FormSpy>
                     </DrawerPanelBody>
@@ -130,7 +131,7 @@ const Register = () => {
                             </TextContent>
                         </Group>
                         <div className='ins-c-registration-assistant-form'>
-                            <PfForm {...props}/>
+                            <PfForm {...props} />
                         </div>
                     </DrawerContentBody>
                 </DrawerContent>
@@ -147,4 +148,4 @@ Register.propTypes = {
     formFields: PropTypes.object
 };
 
-export default withRouter(Register);
+export default Register;

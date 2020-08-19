@@ -127,11 +127,6 @@ export default defineMessages({
         description: 'Choose a configuration management tool',
         defaultMessage: 'Choose a configuration management tool'
     },
-    rhsChooseConfig: {
-        id: 'rhsChooseConfig',
-        description: 'Note: you can automate the installation and registration of systems with Ansible, included with your Red Hat Enterprise Linux entitlement.',
-        defaultMessage: 'Note: you can automate the installation and registration of systems with Ansible, included with your Red Hat Enterprise Linux entitlement.'
-    },
     rhsChooseConfigStepOne: {
         id: 'rhsChooseConfigStepOne',
         description: 'Add the RedHatInsights.insights-client role to the hosts',
@@ -683,5 +678,10 @@ export default defineMessages({
         id: 'exampleUseFive',
         description: 'Part five of the Example Use section',
         defaultMessage: 'Note: The ansible-playbook invocation will depend on ansible configuration'
+    },
+    pleaseIndicate: {
+        id: 'pleaseIndicate',
+        description: 'Please indicate how your systems are managed.',
+        defaultMessage: 'Please indicate how your systems are managed.'
     }
 });

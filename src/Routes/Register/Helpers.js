@@ -23,12 +23,12 @@ const stepTitle = (intl, title, stepNum) => <Title headingLevel='h2' size='md' c
 
 const registerInsightsCodeSnippet =
     <ClipboardCopy isCode isReadOnly variant={ClipboardCopyVariant.expansion}>
-        { `[root@server ~]# insights-client --register` }
+        {`insights-client --register`}
     </ClipboardCopy>;
 
 const installInsightsCodeSnippet =
     <ClipboardCopy isCode isReadOnly variant={ClipboardCopyVariant.expansion}>
-        { `[root@server ~]# yum install insights-client` }
+        {`yum install insights-client`}
     </ClipboardCopy>;
 
 const rhelNoAutomationSnippet = intl => <React.Fragment>
@@ -46,7 +46,6 @@ const schema = intl => ({
         component: componentTypes.RADIO,
         name: 'how-are-systems-managed',
         initializeOnMount: true,
-        initialValue: 'rhsm',
         label: intl.formatMessage(messages.systemsManaged),
         options: [
             { label: intl.formatMessage(messages.rhsm), value: 'rhsm' },
@@ -56,7 +55,6 @@ const schema = intl => ({
         component: componentTypes.RADIO,
         name: 'rhel-os',
         initializeOnMount: true,
-        initialValue: 'rhel8',
         clearOnUnmount: true,
         label: intl.formatMessage(messages.operatingSystem),
         condition: { when: 'how-are-systems-managed', pattern: /rhsm|rhui/ },
@@ -80,25 +78,18 @@ const schema = intl => ({
         component: componentTypes.RADIO,
         name: 'automation',
         initializeOnMount: true,
-        initialValue: 'no',
         clearOnUnmount: true,
         label: intl.formatMessage(messages.useAutomation),
-        condition: { when: 'how-are-systems-managed', is: 'rhsm' },
+        helperText:
+            <FormHelperText className='ins-m-light' isHidden={false} inValidHelperText>
+                <span>{intl.formatMessage(messages.automationNote)}</span>
+            </FormHelperText>,
+        condition: [{ when: 'how-are-systems-managed', is: 'rhsm' }, { when: 'rhel-os', pattern: /rhel8|rhel76/ }],
         options: [
             { label: intl.formatMessage(messages.ansible), value: 'ansible' },
             { label: intl.formatMessage(messages.puppet), value: 'puppet' },
             { label: intl.formatMessage(messages.no), value: 'no' }
         ]
-    }, {
-        component: 'custom-section',
-        name: 'rhsm-automation-no-helper',
-        label:
-            <FormHelperText isHidden={false} aria-live="polite" className="ins-m-light ins-m-conditional-helper">
-                <span>
-                    {intl.formatMessage(messages.automationNote)}
-                </span>
-            </FormHelperText>,
-        condition: [{ when: 'automation', is: 'no' }]
     }, {
         component: 'custom-section',
         name: 'rhsm-rhel76-no',
@@ -142,14 +133,13 @@ const schema = intl => ({
         }, {
             component: componentTypes.TABS,
             name: 'rhsm-ansible-tabs',
-            // isFilled: true,
             fields: [{
                 name: '0',
                 title: intl.formatMessage(messages.installAnsible),
                 fields: [{
                     component: 'custom-section',
                     name: 'install-ansible',
-                    label: <InstallAnsibleTab intl={intl}/>
+                    label: <InstallAnsibleTab intl={intl} />
                 }]
             }, {
                 name: '1',
@@ -157,7 +147,7 @@ const schema = intl => ({
                 fields: [{
                     component: 'custom-section',
                     name: 'configure-client',
-                    label: <ConfigureClientTab intl={intl}/>
+                    label: <ConfigureClientTab intl={intl} />
                 }]
             }]
         }, {
@@ -197,12 +187,11 @@ const schema = intl => ({
         component: componentTypes.RADIO,
         name: 'rhs-automation',
         initializeOnMount: true,
-        initialValue: 'puppet',
         clearOnUnmount: true,
         label: intl.formatMessage(messages.rhsChooseConfigMan),
         helperText:
             <FormHelperText className='ins-m-light' isHidden={false} inValidHelperText>
-                <span>{intl.formatMessage(messages.rhsChooseConfig)}</span>
+                <span>{intl.formatMessage(messages.automationNote)}</span>
             </FormHelperText>,
         condition: { when: 'how-are-systems-managed', is: 'rhs' },
         options: [
@@ -274,7 +263,7 @@ const schema = intl => ({
                 <Text component={TextVariants.p}>{intl.formatMessage(messages.deployInsightsOnCloudText)}</Text>
             </TextContent>
         </Group>,
-        condition: [{ when: 'how-are-systems-managed', is: 'rhui' }]
+        condition: [{ when: 'how-are-systems-managed', is: 'rhui' }, { when: 'rhel-os', pattern: /rhel76|rhel8/ }]
     }, {
         component: 'plain-text',
         name: 'rhui-rhel76-optional-part',
@@ -300,7 +289,7 @@ const schema = intl => ({
             <Title headingLevel='h3' size='md'>{intl.formatMessage(messages.registerInsightsClient)}</Title>
             {rhelNoAutomationSnippet(intl)}
         </React.Fragment>,
-        condition: [{ when: 'how-are-systems-managed', is: 'rhui' }]
+        condition: [{ when: 'how-are-systems-managed', is: 'rhui' }, { when: 'rhel-os', pattern: /rhel76|rhel8/ }]
     }]
 });
 
@@ -354,7 +343,7 @@ const RegisterWithRhsm = ({ intl }) => <TextContent>
         {intl.formatMessage(messages.registerRhsmText)}
     </Text>
     <ClipboardCopy isCode isReadOnly variant={ClipboardCopyVariant.expansion}>
-        { `[root@server ~]# subscription-manager register --auto-attach` }
+        {`subscription-manager register --auto-attach`}
     </ClipboardCopy>
     <Text component={TextVariants.small}>{intl.formatMessage(messages.registerRhsmTextNote,
         { basicAuth: <a href='https://access.redhat.com/documentation/en-us/red_hat_insights/2020-04/html/assessing_and_monitoring_security_policy_compliance_of_rhel_systems/' >{intl.formatMessage(messages.basicAuth)}</a> })}

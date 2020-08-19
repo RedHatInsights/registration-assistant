@@ -25,7 +25,6 @@
     "deployRHI": "Deploy Red Hat Insights using Puppet in Satellite",
     "stepNumberTitle": "Step {number}: {variable}",
     "rhsChooseConfigMan": "Choose a configuration management tool",
-    "rhsChooseConfig": "Note: you can automate the installation and registration of systems with Ansible, included with your Red Hat Enterprise Linux entitlement.",
     "rhsChooseConfigStepOne": "Add the RedHatInsights.insights-client role to the hosts. {newLine}\n        For new hosts, see {linkOne}. {newLine}\n        For existing hosts, see {linkTwo}.",
     "rhsChooseConfigStepTwo": "To run the RedHatInsights.insights-client role on your host, navigate to Hosts > All Hosts and click the name of the host that you want to use.",
     "rhsChooseConfigStepThree": "Click the Run Ansible roles button.",
@@ -135,6 +134,7 @@
     "exampleUseTwo": "This will install the latest version of the role to ansible's default role directory (if using a non default role directory update the playbook accordingly)",
     "exampleUseThree": "Copy the Example Playbook to a file named 'install-insights.yml'.",
     "exampleUseFour": "Run the following command, replacing 'myhost.example.com' with the name of the system where you want to install, configure, and register the insights client.",
-    "exampleUseFive": "Note: The ansible-playbook invocation will depend on ansible configuration"
+    "exampleUseFive": "Note: The ansible-playbook invocation will depend on ansible configuration",
+    "pleaseIndicate": "Please indicate how your systems are managed."
   }
 }

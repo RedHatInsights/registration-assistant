@@ -215,7 +215,7 @@ const ConfigureClientTab = ({ intl }) => {
                 <Text> {intl.formatMessage(messages.exampleConfigurationFour)} </Text>
                 <Text> {intl.formatMessage(messages.exampleConfigurationFive)} </Text>
                 <ClipboardCopy isCode isReadOnly variant={ClipboardCopyVariant.expansion}>
-                    { `$ ansible-playbook ... --extra-vars @insights-client-config.yml ...` }
+                    { `ansible-playbook ... --extra-vars @insights-client-config.yml ...` }
                 </ClipboardCopy>
                 <Text> {intl.formatMessage(messages.exampleConfigurationSix)} </Text>
                 <Text> <strong>{intl.formatMessage(messages.exampleUse)}</strong> </Text>
@@ -223,7 +223,7 @@ const ConfigureClientTab = ({ intl }) => {
                     <li>
                         <Text> {intl.formatMessage(messages.exampleUseOne)} </Text>
                         <ClipboardCopy isCode isReadOnly variant={ClipboardCopyVariant.expansion}>
-                            { `$ ansible-galaxy install RedHatInsights.insights-client` }
+                            { `ansible-galaxy install RedHatInsights.insights-client` }
                         </ClipboardCopy>
                         <Text> {intl.formatMessage(messages.exampleUseTwo)} </Text>
                     </li>
@@ -233,7 +233,7 @@ const ConfigureClientTab = ({ intl }) => {
                     <li>
                         <Text> {intl.formatMessage(messages.exampleUseFour)} </Text>
                         <ClipboardCopy isCode isReadOnly variant={ClipboardCopyVariant.expansion}>
-                            { `$ ansible-playbook --limit=myhost.example.com install-insights.yml --extra-vars @insights-client-config.yml` }
+                            { `ansible-playbook --limit=myhost.example.com install-insights.yml --extra-vars @insights-client-config.yml` }
                         </ClipboardCopy>
                         <Text> {intl.formatMessage(messages.exampleUseFive)} </Text>
                     </li>
