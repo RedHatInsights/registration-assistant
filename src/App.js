@@ -14,6 +14,7 @@ const App = (props) => {
 
     useEffect(() => {
         initChrome();
+        insights.chrome.hideGlobalFilter?.();
     }, []);
 
     return <Routes childProps={props} />;
