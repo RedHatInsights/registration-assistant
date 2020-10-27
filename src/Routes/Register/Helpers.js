@@ -301,7 +301,7 @@ const DataCollection = ({ intl }) => <Group type='title-group'>
             </Title>
         </FlexItem>
         <FlexItem>
-            {learnMore(intl, 'https://access.redhat.com/articles/1598863')}
+            {learnMore(intl, 'https://cloud.redhat.com/security/insights/')}
         </FlexItem>
     </Flex>
 </Group>;
