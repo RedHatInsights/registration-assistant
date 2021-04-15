@@ -66,6 +66,7 @@
     "@babel/preset-flow": "7.13.13",
     "@babel/preset-react": "7.13.13",
     "@formatjs/cli": "4.2.6",
+    "@redhat-cloud-services/eslint-config-redhat-cloud-services": "1.0.0",
     "@redhat-cloud-services/frontend-components-config": "4.0.21",
     "babel-core": "7.0.0-bridge.0",
     "babel-eslint": "10.1.0",

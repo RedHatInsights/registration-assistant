@@ -75,6 +75,22 @@
     "defaultMessage": "Install and configure your playbook",
     "description": "Configure ansible playbook"
   },
+  "connectSystemsWithNew": {
+    "defaultMessage": "Connect systems with new Red Hat connector",
+    "description": "Connect systems with new"
+  },
+  "connectSystemsWithNewBody": {
+    "defaultMessage": "Red Hat connector allows you to connect your systems to Red Hat with one command. Connect, register, and manage.",
+    "description": "Connect systems with new body"
+  },
+  "connectSystemsWithNewBody2": {
+    "defaultMessage": "Red Hat connector is for RHEL 8.4 systems and newer.",
+    "description": "Connect systems with new body2"
+  },
+  "connectYourSystems": {
+    "defaultMessage": "Connect your systems",
+    "description": "Connect your systems"
+  },
   "createRedHatAccountInstructions": {
     "defaultMessage": "following these instructions",
     "description": "Create Red Hat Account instructions"
@@ -299,6 +315,10 @@
     "defaultMessage": "Learn more",
     "description": "Learn more"
   },
+  "learnMoreAboutConnector": {
+    "defaultMessage": "Learn more about connector",
+    "description": "Learn more about connector"
+  },
   "managingAnsibleRoles": {
     "defaultMessage": "Managing Ansible Roles",
     "description": "Managing Ansible Roles"
@@ -379,6 +399,18 @@
     "defaultMessage": "If you have a web-based proxy between your system and the Internet, you can configure the insights-client to connect through it. For more information, refer to {howToAccess}.",
     "description": "Red Hat Subscription Manager text note after"
   },
+  "registerWithAUsername": {
+    "defaultMessage": "Register with a username and password",
+    "description": "Register with a username and password"
+  },
+  "registerWithActivation": {
+    "defaultMessage": "Register with an activation key",
+    "description": "Register with an activation key"
+  },
+  "registerYourSystemTo": {
+    "defaultMessage": "Register your system to Red Hat Insights",
+    "description": "Title"
+  },
   "registerYourSystems": {
     "defaultMessage": "Register your systems with Red Hat Insights",
     "description": "Title"
@@ -392,12 +424,16 @@
     "description": "Red Hat-supported versions"
   },
   "rhel76": {
-    "defaultMessage": "RHEL 7 & 6",
+    "defaultMessage": "RHEL 7.9-6.4",
     "description": "RHEL 7 & 6"
   },
-  "rhel8": {
-    "defaultMessage": "RHEL 8",
-    "description": "RHEL 8"
+  "rhel83": {
+    "defaultMessage": "RHEL 8.3-8.0",
+    "description": "RHEL 8.3"
+  },
+  "rhel84": {
+    "defaultMessage": "RHEL 8.4+",
+    "description": "RHEL 8.4"
   },
   "rhs": {
     "defaultMessage": "Red Hat Satellite",
@@ -474,6 +510,10 @@
   "systemsManaged": {
     "defaultMessage": "How are the systems managed?",
     "description": "Step one, first question"
+  },
+  "techPreview": {
+    "defaultMessage": "Tech preview",
+    "description": "Tech preview"
   },
   "toApply": {
     "defaultMessage": "To apply any system updates to the Red Hat Insights plug-in, enter httpd restart after updating.",

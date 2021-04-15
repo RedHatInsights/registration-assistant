@@ -6,17 +6,17 @@ import { Routes } from './Routes';
 import { withRouter } from 'react-router-dom';
 
 const App = (props) => {
-    async function initChrome() {
-        insights.chrome.init();
-        insights.chrome.identifyApp('registration');
-    }
+  async function initChrome() {
+    insights.chrome.init();
+    insights.chrome.identifyApp('registration');
+  }
 
-    useEffect(() => {
-        initChrome();
-        insights.chrome.hideGlobalFilter?.();
-    }, []);
+  useEffect(() => {
+    initChrome();
+    insights.chrome.hideGlobalFilter?.();
+  }, []);
 
-    return <Routes childProps={props} />;
+  return <Routes childProps={props} />;
 };
 
 export default withRouter(App);

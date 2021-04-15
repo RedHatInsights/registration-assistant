@@ -44,8 +44,12 @@
 
     &.ins-m-font-bold {
         font-weight: var(--pf-global--FontWeight--bold);
-    }
+    }  
 }
+
+.pf-c-drawer__body {
+        max-width: 900px;
+    }
 
 // Title group
 .ins-c-title-group {
