@@ -625,7 +625,7 @@ const schema = (intl) => ({
             isReadOnly
             variant={ClipboardCopyVariant.expansion}
           >
-            {`rhc --connect -[activationkey-namehere] -[organization Id]`}
+            {`rhc connect -a <activation-key> -o <organization-id>`}
           </ClipboardCopy>
 
           <Title headingLevel="h3" size="md">
@@ -636,7 +636,7 @@ const schema = (intl) => ({
             isReadOnly
             variant={ClipboardCopyVariant.expansion}
           >
-            {`rhc --connect -[username] -[password]`}
+            {`rhc connect -u <username> -p <password>`}
           </ClipboardCopy>
 
           {/* <Button
