@@ -1,6 +1,6 @@
 /* eslint-disable no-console */
 import App from './App';
-import { IntlProvider } from '@redhat-cloud-services/frontend-components-translations';
+import { IntlProvider } from '@redhat-cloud-services/frontend-components-translations/index';
 import React from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { getBaseName } from '@redhat-cloud-services/frontend-components-utilities/helpers';
