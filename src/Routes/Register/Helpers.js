@@ -480,7 +480,7 @@ const schema = (intl) => ({
                           isInline
                           component="a"
                           variant="link"
-                          href="https://access.redhat.com/documentation/en-us/red_hat_insights/1.0/html/client_configuration_guide_for_red_hat_insights/changing-the-client-schedule"
+                          href="https://access.redhat.com/documentation/en-us/red_hat_insights/2021/html/client_configuration_guide_for_red_hat_insights/con-insights-changing-the-client-schedule_insights-cg-changing-schedule"
                         >
                           {intl.formatMessage(messages.changingTheInsights)}
                         </Button>
@@ -638,15 +638,6 @@ const schema = (intl) => ({
           >
             {`rhc connect -u <username> -p <password>`}
           </ClipboardCopy>
-
-          {/* <Button
-            className="ins-c-dashboard-link"
-            component="a"
-            variant="primary"
-            href="poop"
-          >
-            {intl.formatMessage(messages.connectYourSystems)}
-          </Button> */}
         </React.Fragment>
       ),
       condition: [
@@ -689,14 +680,14 @@ const SetupConfigure = ({ intl }) => (
         {intl.formatMessage(messages.assessAndMonitor)}
         {learnMore(
           intl,
-          'https://access.redhat.com/documentation/en-us/red_hat_insights/2020-04/html/monitoring_and_reacting_to_configuration_changes_using_policies/'
+          'https://access.redhat.com/documentation/en-us/red_hat_insights/2021/html/monitoring_and_reacting_to_configuration_changes_using_policies/'
         )}
       </Text>
       <Text component={TextVariants.p}>
         {intl.formatMessage(messages.detectAndNotify)}
         {learnMore(
           intl,
-          'https://www.redhat.com/en/technologies/management/smart-management'
+          'https://access.redhat.com/documentation/en-us/red_hat_insights/2021/html/monitoring_and_reacting_to_configuration_changes_using_policies/index'
         )}
       </Text>
     </TextContent>
