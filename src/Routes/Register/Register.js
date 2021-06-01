@@ -43,6 +43,7 @@ import { Divider } from '@patternfly/react-core/dist/esm/components/Divider/inde
 import FormRenderer from '@data-driven-forms/react-form-renderer/form-renderer/form-renderer';
 import FormSpy from '@data-driven-forms/react-form-renderer/form-spy/form-spy';
 import Group from '../../Components/Group/Group';
+import { Helmet } from 'react-helmet';
 import PropTypes from 'prop-types';
 import { Title } from '@patternfly/react-core/dist/esm/components/Title/index';
 import messages from '../../Messages';
@@ -188,13 +189,19 @@ const Register = () => {
   );
 
   return (
-    <FormRenderer
-      schema={schema(intl)}
-      componentMapper={insRaMapper}
-      FormTemplate={(props) => (
-        <FormTemplate {...props} showFormControls={false} />
-      )}
-    />
+    <React.Fragment>
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>Register Systems | Red Hat Insights</title>
+      </Helmet>
+      <FormRenderer
+        schema={schema(intl)}
+        componentMapper={insRaMapper}
+        FormTemplate={(props) => (
+          <FormTemplate {...props} showFormControls={false} />
+        )}
+      />
+    </React.Fragment>
   );
 };
 

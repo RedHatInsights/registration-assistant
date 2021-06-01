@@ -15,7 +15,7 @@
     }
 
     .pf-c-form__group-control {
-        @extend .pf-c-form__group-control.pf-m-inline;
+        @extend .pf-c-form__group-control, .pf-m-inline;
     }
 }
 
