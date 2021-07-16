@@ -51,7 +51,7 @@ const insightsDashboard = (intl) => (
     className="ins-c-dashboard-link"
     component="a"
     variant="primary"
-    href="https://cloud.redhat.com/insights/"
+    href="https://console.redhat.com/insights/"
   >
     {intl.formatMessage(messages.viewInsightsDashboard)}
   </Button>
@@ -660,7 +660,7 @@ const DataCollection = ({ intl }) => (
       <FlexItem>
         {learnMore(
           intl,
-          'https://cloud.redhat.com/security/insights#section-data-collection'
+          'https://console.redhat.com/security/insights#section-data-collection'
         )}
       </FlexItem>
     </Flex>
