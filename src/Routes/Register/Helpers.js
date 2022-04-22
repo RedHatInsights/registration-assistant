@@ -480,7 +480,7 @@ const schema = (intl) => ({
                           isInline
                           component="a"
                           variant="link"
-                          href="https://access.redhat.com/documentation/en-us/red_hat_insights/2021/html/client_configuration_guide_for_red_hat_insights/con-insights-changing-the-client-schedule_insights-cg-changing-schedule"
+                          href="https://access.redhat.com/documentation/en-us/red_hat_insights/2022/html/client_configuration_guide_for_red_hat_insights/con-insights-changing-the-client-schedule_insights-cg-changing-schedule"
                         >
                           {intl.formatMessage(messages.changingTheInsights)}
                         </Button>
@@ -680,14 +680,14 @@ const SetupConfigure = ({ intl }) => (
         {intl.formatMessage(messages.assessAndMonitor)}
         {learnMore(
           intl,
-          'https://access.redhat.com/documentation/en-us/red_hat_insights/2021/html/monitoring_and_reacting_to_configuration_changes_using_policies/'
+          'https://access.redhat.com/documentation/en-us/red_hat_insights/2022/html/monitoring_and_reacting_to_configuration_changes_using_policies/'
         )}
       </Text>
       <Text component={TextVariants.p}>
         {intl.formatMessage(messages.detectAndNotify)}
         {learnMore(
           intl,
-          'https://access.redhat.com/documentation/en-us/red_hat_insights/2021/html/monitoring_and_reacting_to_configuration_changes_using_policies/index'
+          'https://access.redhat.com/documentation/en-us/red_hat_insights/2022/html/monitoring_and_reacting_to_configuration_changes_using_policies/index'
         )}
       </Text>
     </TextContent>
