@@ -680,14 +680,14 @@ const SetupConfigure = ({ intl }) => (
         {intl.formatMessage(messages.assessAndMonitor)}
         {learnMore(
           intl,
-          'https://access.redhat.com/documentation/en-us/red_hat_insights/2021/html/monitoring_and_reacting_to_configuration_changes_using_policies/'
+          'https://access.redhat.com/documentation/en-us/red_hat_insights/2022/html/assessing_and_monitoring_security_policy_compliance_of_rhel_systems/index'
         )}
       </Text>
       <Text component={TextVariants.p}>
         {intl.formatMessage(messages.detectAndNotify)}
         {learnMore(
           intl,
-          'https://access.redhat.com/documentation/en-us/red_hat_insights/2021/html/monitoring_and_reacting_to_configuration_changes_using_policies/index'
+          'https://access.redhat.com/documentation/en-us/red_hat_insights/2022/html/monitoring_and_reacting_to_configuration_changes_using_policies/index'
         )}
       </Text>
     </TextContent>
@@ -730,7 +730,7 @@ const RegisterWithRhsm = ({ intl }) => (
     <Text component={TextVariants.small}>
       {intl.formatMessage(messages.registerRhsmTextNote, {
         basicAuth: (
-          <a href="https://access.redhat.com/documentation/en-us/red_hat_insights/2020-04/html/assessing_and_monitoring_security_policy_compliance_of_rhel_systems/">
+          <a href="https://access.redhat.com/documentation/en-us/red_hat_insights/2022/html/configuring_basic_authentication_for_red_hat_insights/index">
             {intl.formatMessage(messages.basicAuth)}
           </a>
         ),
