@@ -79,7 +79,7 @@ const installInsightsCodeSnippet = (
 
 const registerRHSMInsightsCodeSnippet = (
   <ClipboardCopy isCode isReadOnly variant={ClipboardCopyVariant.expansion}>
-    {`[root@server ~]# insights-client --register`}
+    {`insights-client --register`}
   </ClipboardCopy>
 );
 
