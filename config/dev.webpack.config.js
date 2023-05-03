@@ -7,7 +7,7 @@ const { config: webpackConfig, plugins } = config({
   deployment: process.env.BETA ? 'beta/apps' : 'apps',
   useProxy: true,
   appUrl: process.env.BETA
-    ? '/beta/insights/registration'
+    ? ['/beta/insights/registration', '/preview/insights/registration']
     : '/insights/registration',
   env: process.env.BETA ? 'stage-beta' : 'stage-stable',
   exposes: {
