@@ -774,28 +774,24 @@ export default defineMessages({
   connectSystemsWithNew: {
     id: 'connectSystemsWithNew',
     description: 'Connect systems with new',
-    defaultMessage: 'Connect systems with new Red Hat connector',
+    defaultMessage: 'Connect systems with new Remote host configuration (rhc)',
   },
   connectSystemsWithNewBody: {
     id: 'connectSystemsWithNewBody',
     description: 'Connect systems with new body',
     defaultMessage:
-      'Red Hat connector allows you to connect your systems to Red Hat with one command. Connect, register, and manage.',
+      'Remote host configuration (rhc) allows you to connect your systems to Red Hat with one command. Connect, register, and manage.',
   },
   connectSystemsWithNewBody2: {
     id: 'connectSystemsWithNewBody2',
     description: 'Connect systems with new body2',
-    defaultMessage: 'Red Hat connector is for RHEL 8.4 systems and newer.',
+    defaultMessage:
+      'Remote host configuration (rhc) is for RHEL 8.4 systems and newer.',
   },
   learnMoreAboutConnector: {
     id: 'learnMoreAboutConnector',
     description: 'Learn more about connector',
     defaultMessage: 'Learn more about connector',
-  },
-  techPreview: {
-    id: 'techPreview',
-    description: 'Tech preview',
-    defaultMessage: 'Tech preview',
   },
   registerWithActivation: {
     id: 'registerWithActivation',

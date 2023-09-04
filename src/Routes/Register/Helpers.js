@@ -36,7 +36,6 @@ import { Button } from '@patternfly/react-core/dist/esm/components/Button/Button
 import { ExpandableSection } from '@patternfly/react-core/dist/esm/components/ExpandableSection/ExpandableSection';
 import { FormHelperText } from '@patternfly/react-core/dist/esm/components/Form/FormHelperText';
 import Group from '../../Components/Group/Group';
-import { Label } from '@patternfly/react-core/dist/esm/components/Label/Label';
 import React from 'react';
 import { componentTypes } from '@data-driven-forms/react-form-renderer';
 import messages from '../../Messages';
@@ -605,10 +604,7 @@ const schema = (intl, chrome) => ({
       label: (
         <React.Fragment>
           <Title headingLevel="h3" size="md">
-            {intl.formatMessage(messages.connectSystemsWithNew)}{' '}
-            <Label color="green">
-              {intl.formatMessage(messages.techPreview)}
-            </Label>
+            {intl.formatMessage(messages.connectSystemsWithNew)}
           </Title>
           <Text component={TextVariants.p}>
             {intl.formatMessage(messages.connectSystemsWithNewBody)}
