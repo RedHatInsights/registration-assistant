@@ -4,7 +4,7 @@
 React.js registration-assistant app for Red Hat Insights provides an in-application interactive experience which helps guide the user through the registration process to get the Red Hat Insights client installed and registered on their systems. We believe by nurturing the customer through the process and providing a clear call to action around installation within the applications, we can help drive additional adoption increasing the breadth of Insights registrations for an account.
 
 ## First time setup
-1. Make sure you have [Node.js](https://nodejs.org/en/) version >14 installed
+1. Make sure you have [Node.js](https://nodejs.org/en/) version >16 installed
 2. Run [script to patch your `/etc/hosts`](https://github.com/RedHatInsights/insights-proxy/blob/master/scripts/patch-etc-hosts.sh)
 3. Make sure you are using [Red Hat proxy](http://hdn.corp.redhat.com/proxy.pac)
 
