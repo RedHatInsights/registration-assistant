@@ -2,8 +2,7 @@ import './App.scss';
 
 import React, { useEffect } from 'react';
 
-import { Routes } from './Routes';
-import { withRouter } from 'react-router-dom';
+import { RouteList } from './Routes';
 
 const App = (props) => {
   async function initChrome() {
@@ -16,7 +15,7 @@ const App = (props) => {
     insights.chrome.hideGlobalFilter?.();
   }, []);
 
-  return <Routes childProps={props} />;
+  return <RouteList childProps={props} />;
 };
 
-export default withRouter(App);
+export default App;
