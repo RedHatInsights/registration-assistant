@@ -1,5 +1,5 @@
 @import "~@patternfly/patternfly/sass-utilities/_all";
-@import "~@patternfly/patternfly/components/Form/form.scss";
+@import "~@patternfly/patternfly/components/Form/form";
 
 // Registration assistant form
 .ins-c-registration-assistant-form .pf-c-form {
@@ -15,6 +15,7 @@
     }
 
     .pf-c-form__group-control {
+        // stylelint-disable-next-line
         @extend .pf-c-form__group-control, .pf-m-inline;
     }
 }
