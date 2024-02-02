@@ -115,7 +115,7 @@
 
 // Overflow wrapper
 .ins-c-overflow-content {
-    @media screen and (min-width: $pf-global--breakpoint--md) {
+    @media screen and (min-width: $pf-v5-global--breakpoint--md) {
         max-height: 100%;
     }
 }

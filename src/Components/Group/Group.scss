@@ -40,7 +40,7 @@
     .pf-c-button {
         grid-column: 2;
 
-        @media screen and (min-width: $pf-global--breakpoint--md) {
+        @media screen and (min-width: $pf-v5-global--breakpoint--md) {
             display: none;
         }
     }
@@ -56,14 +56,14 @@
     align-items: baseline;
     margin-bottom: var(--ins-c-page-title__main--MarginBottom);
 
-    @media screen and (min-width: $pf-global--breakpoint--md) {
+    @media screen and (min-width: $pf-v5-global--breakpoint--md) {
         --ins-c-page-title__main--MarginBottom: 0;
 
         display: inline;
     }
 
     .pf-c-title {
-        @media screen and (min-width: $pf-global--breakpoint--md) {
+        @media screen and (min-width: $pf-v5-global--breakpoint--md) {
             margin-bottom: var(--ins-c-page-title__c-title--MarginBottom);
         }
     }

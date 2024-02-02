@@ -22,11 +22,11 @@
 
 // Registration assistant drawer
 .ins-c-registration-assistant-drawer {
-    @media screen and (min-width: $pf-global--breakpoint--md) {
+    @media screen and (min-width: $pf-v5-global--breakpoint--md) {
         --pf-c-drawer__panel--FlexBasis: 40%;
     }
 
-    @media screen and (min-width: $pf-global--breakpoint--xl) {
+    @media screen and (min-width: $pf-v5-global--breakpoint--xl) {
         --pf-c-drawer__panel--FlexBasis: 35%;
     }
 
