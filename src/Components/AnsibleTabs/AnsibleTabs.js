@@ -36,6 +36,7 @@ import { Gallery } from '@patternfly/react-core/dist/esm/layouts/Gallery/index';
 import { Grid } from '@patternfly/react-core/dist/esm/layouts/Grid/index';
 import PropTypes from 'prop-types';
 import messages from '../../Messages';
+import { Icon } from '@patternfly/react-core';
 
 const examplePlaybookOne = `- hosts: all
   roles:
@@ -179,7 +180,9 @@ const InstallAnsibleTab = ({ intl }) => {
           href="https://access.redhat.com/articles/3050101"
         >
           <div className="ins-c-install-ansible-tab__download-icon">
-            <OutlinedFileIcon className="outer-icon" size="xl" />{' '}
+            <Icon size="xl">
+              <OutlinedFileIcon className="outer-icon" />
+            </Icon>{' '}
             <ArrowDownIcon className="inner-icon" />
           </div>
           <div className="ins-c-install-ansible-tab__download_desc">
@@ -191,7 +194,9 @@ const InstallAnsibleTab = ({ intl }) => {
           href="https://docs.ansible.com/ansible/latest/user_guide/playbooks.html"
         >
           <div className="ins-c-install-ansible-tab__download-icon">
-            <OutlinedFileIcon className="outer-icon" size="xl" />{' '}
+            <Icon size="xl">
+              <OutlinedFileIcon className="outer-icon" />
+            </Icon>{' '}
             <SearchIcon className="inner-icon" />
           </div>
           <div className="ins-c-install-ansible-tab__download_desc">

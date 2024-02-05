@@ -6,7 +6,7 @@ section {
 
 // Client tab
 .ins-c-install-client-tab {
-    .pf-c-tab-content {
+    .pf-v5-c-tab-content {
         padding-top: var(--pf-global--spacer--lg);
     }
 }
@@ -38,7 +38,7 @@ section {
 
     .inner-icon {
         position: relative;
-        @include rem('left', -26px);
+        @include rem('left', -28px);
         @include rem('top', -6px);
     }
 }
@@ -50,6 +50,6 @@ section {
 }
 
 // Accordion content body
-.ins-c-registration-assistant-form .pf-c-accordion__expanded-content-body {
+.ins-c-registration-assistant-form .pf-v5-c-accordion__expanded-content-body {
     padding: var(--pf-global--spacer--md) var(--pf-global--spacer--xl) var(--pf-global--spacer--md) var(--pf-global--spacer--xl);
 }

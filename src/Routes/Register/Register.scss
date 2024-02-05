@@ -2,39 +2,39 @@
 @import "~@patternfly/patternfly/components/Form/form";
 
 // Registration assistant form
-.ins-c-registration-assistant-form .pf-c-form {
-    --pf-c-form--GridGap: var(--pf-global--spacer--xl);
+.ins-c-registration-assistant-form .pf-v5-c-form {
+    --pf-v5-c-form--GridGap: var(--pf-global--spacer--xl);
 
-    .pf-c-form__label {
-        --pf-c-form__label--FontSize: var(--pf-global--FontSize--md);
-        --pf-c-form__label-text--FontWeight: var(--pf-global--FontWeight--normal);
+    .pf-v5-c-form__label {
+        --pf-v5-c-form__label--FontSize: var(--pf-global--FontSize--md);
+        --pf-v5-c-form__label-text--FontWeight: var(--pf-global--FontWeight--normal);
     }
 
-    .pf-c-form__helper-text {
+    .pf-v5-c-form__helper-text {
         flex: 1 0 100%;
     }
 
-    .pf-c-form__group-control {
+    .pf-v5-c-form__group-control {
         // stylelint-disable-next-line
-        @extend .pf-c-form__group-control, .pf-m-inline;
+        @extend .pf-v5-c-form__group-control, .pf-m-inline;
     }
 }
 
 // Registration assistant drawer
 .ins-c-registration-assistant-drawer {
     @media screen and (min-width: $pf-v5-global--breakpoint--md) {
-        --pf-c-drawer__panel--FlexBasis: 40%;
+        --pf-v5-c-drawer__panel--FlexBasis: 40%;
     }
 
     @media screen and (min-width: $pf-v5-global--breakpoint--xl) {
-        --pf-c-drawer__panel--FlexBasis: 35%;
+        --pf-v5-c-drawer__panel--FlexBasis: 35%;
     }
 
-    .pf-c-drawer__panel {
-        .pf-c-form-control[readonly] {
+    .pf-v5-c-drawer__panel {
+        .pf-v5-c-form-control[readonly] {
             background-color: var(--pf-global--palette--black-100);
         }
-        .pf-c-content ul {
+        .pf-v5-c-content ul {
             padding: 0;
         }
     }

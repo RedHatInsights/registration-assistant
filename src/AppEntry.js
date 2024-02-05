@@ -2,8 +2,6 @@
 import App from './App';
 import { IntlProvider } from '@redhat-cloud-services/frontend-components-translations/index';
 import React from 'react';
-import { BrowserRouter as Router } from 'react-router-dom';
-import { getBaseName } from '@redhat-cloud-services/frontend-components-utilities/helpers';
 import messages from '../locales/data.json';
 
 const AppEntry = () => (
@@ -12,9 +10,7 @@ const AppEntry = () => (
     messages={messages}
     onError={console.log}
   >
-    <Router basename={getBaseName(window.location.pathname)}>
-      <App />
-    </Router>
+    <App />
   </IntlProvider>
 );
 

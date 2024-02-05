@@ -49,6 +49,7 @@ import { Title } from '@patternfly/react-core/dist/esm/components/Title/index';
 import messages from '../../Messages';
 import { useIntl } from 'react-intl';
 import { useChrome } from '@redhat-cloud-services/frontend-components/useChrome';
+import { Icon } from '@patternfly/react-core';
 
 const CustomSection = ({ label }) => <React.Fragment>{label}</React.Fragment>;
 
@@ -87,7 +88,9 @@ const Register = () => {
                 <li>
                   <DrawerHead>
                     <Group type="title-group">
-                      <TasksIcon size="md" />
+                      <Icon size="lg">
+                        <TasksIcon />
+                      </Icon>
                       <Title headingLevel="h3" size="md">
                         {intl.formatMessage(messages.preinstallationChecks)}
                       </Title>

@@ -6,28 +6,28 @@
 // Base
 .ins-c-registration-assistant {
     height: 86vh;
-    .pf-c-clipboard-copy {
+    .pf-v5-c-clipboard-copy {
         padding-bottom: var(--pf-global--spacer--md);
     }
-    .pf-c-form-control[readonly] {
+    .pf-v5-c-form-control[readonly] {
         background-color: var(--pf-global--palette--black-150);
     }
 }
 
 // Step title
-.pf-c-title.ins-c-step-title,
-.pf-c-content .pf-c-title.ins-c-step-title {
+.pf-v5-c-title.ins-c-step-title,
+.pf-v5-c-content .pf-v5-c-title.ins-c-step-title {
     margin-bottom: var(--pf-global--spacer--md);
     font-weight: var(--pf-global--FontWeight--semi-bold);
 }
 
 // Content title
-.pf-c-title.ins-c-content-title,
+.pf-v5-c-title.ins-c-content-title,
 .ins-c-content-title {
     font-family: var(--pf-global--FontFamily--sans-serif);
     font-size: var(--pf-global--FontSize--lg);
 
-    .pf-c-drawer__panel & {
+    .pf-v5-c-drawer__panel & {
         margin-bottom: var(--pf-global--spacer--md);
     }
 
@@ -48,7 +48,7 @@
     }  
 }
 
-.pf-c-drawer__body {
+.pf-v5-c-drawer__body {
         max-width: 900px;
     }
 
@@ -59,7 +59,7 @@
     grid-template-columns: 2rem auto;
     align-items: center;
 
-    .pf-c-title,
+    .pf-v5-c-title,
     .ins-c-title {
         display: inline;
         font-family: var(--pf-global--FontFamily--sans-serif);
@@ -73,21 +73,21 @@
 }
 
 // Helper text
-.pf-c-form__helper-text {
+.pf-v5-c-form__helper-text {
     span {
         display: block;
         max-width: 500px;
     }
 
-    // use this modifier when helper text appears as a sibling of .pf-c-form__group instead of a child
+    // use this modifier when helper text appears as a sibling of .pf-v5-c-form__group instead of a child
     &.ins-m-conditional-helper {
-        --pf-c-content--MarginBottom: 0;
+        --pf-v5-c-content--MarginBottom: 0;
 
-        margin-top: calc((var(--pf-c-form--GridGap) * -1) + var(--pf-c-form__helper-text--MarginTop));
+        margin-top: calc((var(--pf-v5-c-form--GridGap) * -1) + var(--pf-v5-c-form__helper-text--MarginTop));
     }
 
     &.ins-m-light {
-        --pf-c-form__helper-text--Color: var(--pf-global--secondary-color--100);
+        --pf-v5-c-form__helper-text--Color: var(--pf-global--secondary-color--100);
     }
 }
 
@@ -107,7 +107,7 @@
 }
 
 // Drawer panel
-.pf-c-drawer__panel {
+.pf-v5-c-drawer__panel {
     &.ins-m-light-300 {
         background-color: var(--pf-global--BackgroundColor--light-300);
     }

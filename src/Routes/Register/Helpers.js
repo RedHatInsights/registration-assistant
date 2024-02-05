@@ -39,6 +39,7 @@ import Group from '../../Components/Group/Group';
 import React from 'react';
 import { componentTypes } from '@data-driven-forms/react-form-renderer';
 import messages from '../../Messages';
+import { Icon } from '@patternfly/react-core';
 
 const learnMore = (intl, url = '#') => (
   <a className="learnMore ins-c-learn-more" href={url}>
@@ -115,7 +116,6 @@ const schema = (intl, chrome) => ({
       name: 'rhel-os-helper',
       label: (
         <FormHelperText
-          isHidden={false}
           aria-live="polite"
           className="ins-m-light ins-m-conditional-helper"
         >
@@ -151,11 +151,7 @@ const schema = (intl, chrome) => ({
       clearOnUnmount: true,
       label: intl.formatMessage(messages.useAutomation),
       helperText: (
-        <FormHelperText
-          className="ins-m-light"
-          isHidden={false}
-          inValidHelperText
-        >
+        <FormHelperText className="ins-m-light" inValidHelperText>
           <span>{intl.formatMessage(messages.automationNote)}</span>
         </FormHelperText>
       ),
@@ -346,11 +342,7 @@ const schema = (intl, chrome) => ({
       clearOnUnmount: true,
       label: intl.formatMessage(messages.rhsChooseConfigMan),
       helperText: (
-        <FormHelperText
-          className="ins-m-light"
-          isHidden={false}
-          inValidHelperText
-        >
+        <FormHelperText className="ins-m-light" inValidHelperText>
           <span>{intl.formatMessage(messages.automationNote)}</span>
         </FormHelperText>
       ),
@@ -646,7 +638,9 @@ const schema = (intl, chrome) => ({
 
 const DataCollection = ({ intl }) => (
   <Group type="title-group">
-    <ShieldAltIcon size="md" className="ins-c-icon" />
+    <Icon size="lg">
+      <ShieldAltIcon />
+    </Icon>
     <Flex spaceItems={{ default: 'spaceItemsSm' }}>
       <FlexItem>
         <Title headingLevel="h4">
@@ -666,7 +660,9 @@ const DataCollection = ({ intl }) => (
 const SetupConfigure = ({ intl }) => (
   <Group type="drawer-group">
     <Group type="title-group">
-      <CogsIcon size="md" className="ins-c-icon" />
+      <Icon size="lg">
+        <CogsIcon />
+      </Icon>
       <Title headingLevel="h4">
         {intl.formatMessage(messages.setupConfigure)}
       </Title>
@@ -693,7 +689,9 @@ const SetupConfigure = ({ intl }) => (
 const Satellite = ({ intl }) => (
   <Group type="drawer-group">
     <Group type="title-group">
-      <CloudIcon size="md" className="ins-c-icon" />
+      <Icon size="lg">
+        <CloudIcon />
+      </Icon>
       <Title headingLevel="h4">{intl.formatMessage(messages.rhS)}</Title>
     </Group>
     <TextContent>
