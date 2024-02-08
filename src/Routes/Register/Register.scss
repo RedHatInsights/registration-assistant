@@ -16,7 +16,11 @@
 
     .pf-v5-c-form__group-control {
         // stylelint-disable-next-line
-        @extend .pf-v5-c-form__group-control, .pf-m-inline;
+        @extend .pf-m-inline;
+    }
+
+    .pf-v5-c-radio {
+        width: auto;
     }
 }
 
