@@ -11,6 +11,9 @@ objects:
       envName: ${ENV_NAME}
       title: registration
       deploymentRepo: https://github.com/RedHatInsights/registration-assistant
+      frontend:
+        paths:
+          - /apps/registration
       API:
         versions:
           - v1
