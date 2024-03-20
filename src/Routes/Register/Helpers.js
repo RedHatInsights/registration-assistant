@@ -471,7 +471,7 @@ const schema = (intl, chrome) => ({
                           isInline
                           component="a"
                           variant="link"
-                          href="https://access.redhat.com/documentation/en-us/red_hat_insights/2023/html/client_configuration_guide_for_red_hat_insights/con-insights-changing-the-client-schedule_insights-cg-changing-schedule"
+                          href="https://access.redhat.com/documentation/en-us/red_hat_insights/1-latest/html/client_configuration_guide_for_red_hat_insights/assembly-client-changing-schedule"
                         >
                           {intl.formatMessage(messages.changingTheInsights)}
                         </Button>
@@ -672,14 +672,14 @@ const SetupConfigure = ({ intl }) => (
         {intl.formatMessage(messages.assessAndMonitor)}
         {learnMore(
           intl,
-          'https://access.redhat.com/documentation/en-us/red_hat_insights/2023/html/assessing_and_monitoring_security_policy_compliance_of_rhel_systems/index'
+          'https://access.redhat.com/documentation/en-us/red_hat_insights/1-latest/html/assessing_and_monitoring_security_policy_compliance_of_rhel_systems/index'
         )}
       </Text>
       <Text component={TextVariants.p}>
         {intl.formatMessage(messages.detectAndNotify)}
         {learnMore(
           intl,
-          'https://access.redhat.com/documentation/en-us/red_hat_insights/2023/html/monitoring_and_reacting_to_configuration_changes_using_policies/index'
+          'https://access.redhat.com/documentation/en-us/red_hat_insights/1-latest/html/monitoring_and_reacting_to_configuration_changes_using_policies/index'
         )}
       </Text>
     </TextContent>
@@ -724,7 +724,7 @@ const RegisterWithRhsm = ({ intl }) => (
     <Text component={TextVariants.small}>
       {intl.formatMessage(messages.registerRhsmTextNote, {
         basicAuth: (
-          <a href="https://access.redhat.com/documentation/en-us/red_hat_insights/2023/html/configuring_basic_authentication_for_red_hat_insights/index">
+          <a href="https://access.redhat.com/documentation/en-us/red_hat_insights/1-latest/html/configuring_basic_authentication_for_red_hat_insights/index">
             {intl.formatMessage(messages.basicAuth)}
           </a>
         ),
@@ -816,7 +816,7 @@ const EnablingInsightsOnRhui = ({ intl }) => (
               component="a"
               variant="link"
               target="_blank"
-              href="https://access.redhat.com/documentation/en-us/red_hat_subscription_management/1/html/red_hat_cloud_access_reference_guide/index"
+              href="https://access.redhat.com/documentation/en-us/subscription_central/1-latest/html/red_hat_cloud_access_reference_guide/index"
             >
               {intl.formatMessage(messages.cloudAccessDocumentation)}
             </Button>
