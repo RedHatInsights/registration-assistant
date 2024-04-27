@@ -197,7 +197,7 @@ const Register = () => {
     <React.Fragment>
       <Helmet>
         <meta charSet="utf-8" />
-        <title>Register Systems | Red Hat Insights</title>
+        <title>Register Systems | RHEL</title>
       </Helmet>
       <FormRenderer
         schema={schema(intl, chrome)}
