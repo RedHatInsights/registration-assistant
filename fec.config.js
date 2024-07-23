@@ -1,7 +1,7 @@
 module.exports = {
   appUrl: '/insights/registration',
   debug: true,
-  useProxy: true,
+  useProxy: process.env.PROXY === 'true',
   proxyVerbose: true,
   interceptChromeConfig: false,
   plugins: [],

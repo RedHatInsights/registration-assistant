@@ -10,8 +10,8 @@ React.js registration-assistant app for Red Hat Insights provides an in-applicat
 
 ## Running locally
 1. Install dependencies with `npm install`
-2. Run development server with `npm run start:proxy:beta`
-3. Local version of the app will be available at https://stage.foo.redhat.com:1337/preview/insights/registration
+2. Run development server with `npm run start:proxy`
+3. Local version of the app will be available at https://stage.foo.redhat.com:1337/insights/registration
 
 If you encounter any problems try to consult the [Troubleshooting page](https://docs.engineering.redhat.com/pages/viewpage.action?spaceKey=RHIF&title=Troubleshooting).
 
@@ -19,14 +19,12 @@ If you encounter any problems try to consult the [Troubleshooting page](https://
 [Jest](https://jestjs.io/) is used as the testing framework, although there are currently no Jest tests present. `npm run verify` will run linters and tests. Travis is used to test the build for this code.
 
 ## Deploying
-Any push to the following branches will trigger a build in [registration-assistant-build repository](https://github.com/RedHatInsights/registration-assistant-build) which will deploy to corresponding environment. Travis is used to deploy the application.
+The app uses containerized builds which are configured in [`app-interface`](https://gitlab.cee.redhat.com/service/app-interface/-/blob/master/data/services/insights/frontend-base/deploy.yml).
 
-| Push to branch in this repo  | Updated branch in build repo  | Environment       | Available at
-| :--------------------------- | :---------------------------- | :---------------- | :-----------
-| master                       | qa-beta                       | stage beta        | https://console.stage.redhat.com/preview
-| master-stable                | qa-stable                     | stage stable      | https://console.stage.redhat.com
-| prod-beta                    | prod-beta                     | production beta   | https://console.redhat.com/preview
-| prod-stable                  | prod-stable                   | production stable | https://console.redhat.com
+| Environment | Available at                     | Deployed version
+| :---------- | :--------------------------------| :----------
+| stage       | https://console.stage.redhat.com | master branch
+| production  | https://console.redhat.com       | up to the commit configured in `app-interface`
 
 ## Design System
 This project uses [Patternfly React](https://github.com/patternfly/patternfly-react).

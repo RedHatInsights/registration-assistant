@@ -48,7 +48,6 @@ import PropTypes from 'prop-types';
 import { Title } from '@patternfly/react-core/dist/esm/components/Title/index';
 import messages from '../../Messages';
 import { useIntl } from 'react-intl';
-import { useChrome } from '@redhat-cloud-services/frontend-components/useChrome';
 import { Icon } from '@patternfly/react-core';
 
 const CustomSection = ({ label }) => <React.Fragment>{label}</React.Fragment>;
@@ -64,7 +63,6 @@ const insRaMapper = {
 
 const Register = () => {
   const intl = useIntl();
-  const chrome = useChrome();
 
   const [isExpanded, setIsExpanded] = useState(false);
 
@@ -200,7 +198,7 @@ const Register = () => {
         <title>Register Systems | RHEL</title>
       </Helmet>
       <FormRenderer
-        schema={schema(intl, chrome)}
+        schema={schema(intl)}
         componentMapper={insRaMapper}
         FormTemplate={(props) => (
           <FormTemplate {...props} showFormControls={false} />
