@@ -1,3 +1,16 @@
+import React from 'react';
+import {
+  Skeleton,
+  SkeletonSize,
+} from '@redhat-cloud-services/frontend-components/Skeleton';
+import {
+  EmptyState,
+  EmptyStateHeader,
+  EmptyStateIcon,
+  EmptyStateVariant,
+} from '@patternfly/react-core';
+import { PlusCircleIcon } from '@patternfly/react-icons';
+
 export const regAssistantDescription =
   'The Insights for RHEL registration assistant will guide you through the setup process for the Red Hat Insights client.';
 
@@ -32,9 +45,42 @@ sed -i 's|#baseurl=http://mirror.centos.org/centos/$releasever|baseurl=http://va
 yum install -y subscription-manager subscription-manager-rhsm-certificates insights-client rhc rhc-worker-script`;
 
 export const rhcConnect = (activationKey, orgId) => {
-  return `rhc connect --activation-key ${activationKey} --organization ${orgId}`;
+  return `rhc connect --activation-key ${activationKey.name} --organization ${orgId}`;
 };
 
 export const subManagerRegister = (activationKey, orgId) => {
-  return `subscription-manager register --activationkey ${activationKey} --org ${orgId}`;
+  return `subscription-manager register --activationkey ${activationKey.name} --org ${orgId}`;
 };
+
+export const loadingActivationKeys = [
+  {
+    name: <Skeleton size={SkeletonSize.sm} />,
+  },
+  {
+    name: <Skeleton size={SkeletonSize.sm} />,
+  },
+  {
+    name: <Skeleton size={SkeletonSize.sm} />,
+  },
+  {
+    name: <Skeleton size={SkeletonSize.sm} />,
+  },
+  {
+    name: <Skeleton size={SkeletonSize.sm} />,
+  },
+];
+
+export const emptyActivationKeys = [
+  {
+    name: (
+      <EmptyState variant={EmptyStateVariant.xs}>
+        <EmptyStateHeader
+          titleText="No activation keys yet"
+          headingLevel="h6"
+          icon={<EmptyStateIcon icon={PlusCircleIcon} />}
+        />
+      </EmptyState>
+    ),
+    isDisabled: true,
+  },
+];

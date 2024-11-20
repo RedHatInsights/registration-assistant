@@ -17,8 +17,9 @@ import {
 } from '../../constants';
 import { ExternalLinkAltIcon } from '@patternfly/react-icons';
 import RegAssistCodeBlock from '../RegAssistCodeBlock/RegAssistCodeBlock';
+import ViewInventoryStep from './ViewInventoryStep';
 
-const CentosLinuxRegContent = ({ orgId, selectedKey }) => {
+const CentosLinuxRegContent = ({ orgId, selectedKey, setStep }) => {
   return (
     <TextContent>
       <Text component={TextVariants.p}>
@@ -58,11 +59,17 @@ const CentosLinuxRegContent = ({ orgId, selectedKey }) => {
               <ExternalLinkAltIcon />
             </Icon>
           </Text>
-          <RegAssistCodeBlock code={centosInstallRHC} />
+          <RegAssistCodeBlock code={centosInstallRHC} setStep={setStep} />
         </TextListItem>
         <TextListItem>
           Connect to Insights.
-          <RegAssistCodeBlock code={rhcConnect(selectedKey, orgId)} />
+          <RegAssistCodeBlock
+            code={rhcConnect(selectedKey, orgId)}
+            setStep={setStep}
+          />
+        </TextListItem>
+        <TextListItem>
+          <ViewInventoryStep />
         </TextListItem>
       </TextList>
     </TextContent>
@@ -72,6 +79,7 @@ const CentosLinuxRegContent = ({ orgId, selectedKey }) => {
 CentosLinuxRegContent.propTypes = {
   orgId: PropTypes.string,
   selectedKey: PropTypes.string,
+  setStep: PropTypes.func,
 };
 
 export default CentosLinuxRegContent;

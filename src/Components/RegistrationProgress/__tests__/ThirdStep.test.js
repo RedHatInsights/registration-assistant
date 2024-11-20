@@ -2,23 +2,28 @@ import React from 'react';
 import { render, screen } from '@testing-library/react';
 import { BrowserRouter as Router } from 'react-router-dom';
 import '@testing-library/jest-dom';
-import CentosLinuxRegContent from '../CentosLinuxRegContent';
+import ThirdStep from '../ThirdStep';
 import { mockFetchedKeys } from './content.fixtures';
+import RHEL7RegContent from '../RHEL7RegContent';
 
-describe('CentosLinuxRegContent', () => {
+describe('ThirdStep', () => {
+  const setStep = jest.fn();
+
   it('should display activation key', async () => {
     render(
       <Router>
-        <CentosLinuxRegContent
+        <ThirdStep
+          OperatingSystemComponent={RHEL7RegContent}
           orgId="98765432"
           selectedKey={mockFetchedKeys[0]}
+          setStep={setStep}
         />
       </Router>
     );
 
     expect(
       screen.getByText(
-        /rhc connect --activation-key activation-key-1 --organization 98765432/i
+        /subscription-manager register --activationkey activation-key-1 --org 98765432/i
       )
     ).toBeVisible();
   });

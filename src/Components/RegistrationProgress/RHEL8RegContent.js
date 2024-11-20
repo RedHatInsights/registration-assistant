@@ -8,8 +8,9 @@ import {
 } from '@patternfly/react-core';
 import RegAssistCodeBlock from '../RegAssistCodeBlock/RegAssistCodeBlock';
 import { insightsClientRegister, subManagerRegister } from '../../constants';
+import ViewInventoryStep from './ViewInventoryStep';
 
-const RHEL8RegContent = ({ orgId, selectedKey }) => {
+const RHEL8RegContent = ({ orgId, selectedKey, setStep }) => {
   return (
     <TextContent>
       <TextList isPlain>
@@ -24,13 +25,19 @@ const RHEL8RegContent = ({ orgId, selectedKey }) => {
           <span>Connect your system to the subscription manager</span>
           <br />
           <span>This provides a basic level of connectivity in Insights.</span>
-          <RegAssistCodeBlock code={subManagerRegister(selectedKey, orgId)} />
+          <RegAssistCodeBlock
+            code={subManagerRegister(selectedKey, orgId)}
+            setStep={setStep}
+          />
         </TextListItem>
         <TextListItem>
           <span>Connect to Insights.</span>
           <br />
           <span>This allows Red Hat Insights to provide recommendations.</span>
-          <RegAssistCodeBlock code={insightsClientRegister} />
+          <RegAssistCodeBlock code={insightsClientRegister} setStep={setStep} />
+        </TextListItem>
+        <TextListItem>
+          <ViewInventoryStep />
         </TextListItem>
       </TextList>
     </TextContent>
@@ -40,6 +47,7 @@ const RHEL8RegContent = ({ orgId, selectedKey }) => {
 RHEL8RegContent.propTypes = {
   orgId: PropTypes.string,
   selectedKey: PropTypes.string,
+  setStep: PropTypes.func,
 };
 
 export default RHEL8RegContent;
