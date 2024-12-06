@@ -3,12 +3,13 @@ import PropTypes from 'prop-types';
 import { Icon, Text, TextContent, TextVariants } from '@patternfly/react-core';
 import { monitoringHostsLink, remoteHostConfigLink } from '../../constants';
 import { ExternalLinkAltIcon } from '@patternfly/react-icons';
+import { centosRadio, rhel9Radio } from '../../constants';
 
 const RegAssistantFooter = ({ operatingSystem }) => {
   return (
     <TextContent style={{ marginTop: '24px' }}>
-      {(operatingSystem.id === 'centos-radio' ||
-        operatingSystem.id === 'rhel9-radio') && (
+      {(operatingSystem.id === centosRadio ||
+        operatingSystem.id === rhel9Radio) && (
         <Text component={TextVariants.p}>
           Read more about Remote host configuration (RHC) options and levels of
           connectivity:{' '}

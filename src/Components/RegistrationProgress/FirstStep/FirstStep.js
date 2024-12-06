@@ -59,11 +59,11 @@ const FirstStep = ({
 
   useEffect(() => {
     if (createdKeyName) {
-      keys.map((key) => {
-        if (key.name === createdKeyName) {
-          handleActivationKeySelect(key);
+      for (let i = 0; i < keys.length; i++) {
+        if (keys[i].name === createdKeyName) {
+          handleActivationKeySelect(keys[i]);
         }
-      });
+      }
     }
   }, [createdKeyName]);
 

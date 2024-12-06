@@ -84,3 +84,8 @@ export const emptyActivationKeys = [
     isDisabled: true,
   },
 ];
+
+export const centosRadio = 'centos-radio';
+export const rhel7Radio = 'rhel7-radio';
+export const rhel8Radio = 'rhel8-radio';
+export const rhel9Radio = 'rhel9-radio';
