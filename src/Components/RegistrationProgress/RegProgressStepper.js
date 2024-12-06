@@ -1,11 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import { ProgressStep, ProgressStepper } from '@patternfly/react-core';
 import useChrome from '@redhat-cloud-services/frontend-components/useChrome';
-import FirstStep from './FirstStep';
+import FirstStep from './FirstStep/FirstStep';
 import SecondStep from './SecondStep';
 import ThirdStep from './ThirdStep';
-import FourthStep from './FourthStep';
 import RegAssistantFooter from './RegAssistantFooter';
+import { useAxiosWithPlatformInterceptors } from '@redhat-cloud-services/frontend-components-utilities/interceptors';
+import { fetchActivationKeys } from '../../../api';
+import { dispatchNotification } from '../../Utilities/Dispatcher';
+import { emptyActivationKeys } from '../../constants';
+import CreateActivationKeyModal from './CreateActivationKeyModal';
 
 const RegProgessStepper = () => {
   const chrome = useChrome();
@@ -13,6 +17,32 @@ const RegProgessStepper = () => {
   const [selectedKey, setSelectedKey] = useState('Select activation key');
   const [operatingSystem, setOperatingSystem] = useState();
   const [orgId, setOrgId] = useState();
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [createdKeyName, setKeyName] = useState();
+  const [keys, setKeys] = useState();
+  const axios = useAxiosWithPlatformInterceptors();
+
+  const handleFetchKeys = async () => {
+    const fetchedKeys = await fetchActivationKeys(axios);
+
+    if (fetchedKeys.body?.length) {
+      const keysList = fetchedKeys.body.length
+        ? fetchedKeys.body
+        : emptyActivationKeys;
+
+      setKeys(keysList);
+    } else if (fetchedKeys.error) {
+      dispatchNotification({
+        variant: 'danger',
+        title: 'Error',
+        description: fetchedKeys.error.message,
+        dismissable: true,
+        autoDismiss: false,
+      });
+
+      return fetchedKeys.error;
+    }
+  };
 
   const fetchOrgId = async () => {
     const user = await chrome.auth.getUser();
@@ -35,12 +65,22 @@ const RegProgessStepper = () => {
 
   return (
     <React.Fragment>
+      {isModalOpen && (
+        <CreateActivationKeyModal
+          {...{ handleFetchKeys, isModalOpen, setIsModalOpen, setKeyName }}
+        />
+      )}
       <ProgressStepper isVertical>
         <ProgressStep
+          className="progress-step-font-weight"
           isCurrent={step === 0}
           description={
             <FirstStep
+              createdKeyName={createdKeyName}
+              handleFetchKeys={handleFetchKeys}
+              keys={keys}
               selectedKey={selectedKey}
+              setIsModalOpen={setIsModalOpen}
               setSelectedKey={setSelectedKey}
               setStep={setStep}
               step={step}
@@ -51,6 +91,7 @@ const RegProgessStepper = () => {
           Select activation key
         </ProgressStep>
         <ProgressStep
+          className="progress-step-font-weight"
           isCurrent={step === 1}
           variant={setVariant(1)}
           description={
@@ -66,6 +107,7 @@ const RegProgessStepper = () => {
           {step >= 1 && 'Select operating system'}
         </ProgressStep>
         <ProgressStep
+          className="progress-step-font-weight"
           isCurrent={step === 2}
           variant={setVariant(2)}
           description={
@@ -74,23 +116,15 @@ const RegProgessStepper = () => {
                 OperatingSystemComponent={operatingSystem.content}
                 orgId={orgId}
                 selectedKey={selectedKey}
+                setStep={setStep}
               />
             )
           }
         >
           {step >= 2 && `Register ${operatingSystem.name}`}
         </ProgressStep>
-        <ProgressStep
-          isCurrent={step === 3}
-          variant={setVariant(3)}
-          description={
-            step >= 2 && <FourthStep setStep={setStep} step={step} />
-          }
-        >
-          {step >= 2 && 'View registered system'}
-        </ProgressStep>
       </ProgressStepper>
-      {step >= 2 && <RegAssistantFooter />}
+      {step >= 2 && <RegAssistantFooter operatingSystem={operatingSystem} />}
     </React.Fragment>
   );
 };

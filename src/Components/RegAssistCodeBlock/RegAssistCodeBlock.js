@@ -7,7 +7,7 @@ import {
   ClipboardCopyButton,
 } from '@patternfly/react-core';
 
-const RegAssistCodeBlock = ({ code = [], classname }) => {
+const RegAssistCodeBlock = ({ code = [], classname, setStep }) => {
   const [copied, setCopied] = React.useState(false);
 
   const clipboardCopyFunc = (event, text) => {
@@ -16,6 +16,7 @@ const RegAssistCodeBlock = ({ code = [], classname }) => {
   const onClick = (event, text) => {
     clipboardCopyFunc(event, text);
     setCopied(true);
+    setStep && setStep(3);
   };
 
   const actions = (
@@ -57,6 +58,7 @@ const RegAssistCodeBlock = ({ code = [], classname }) => {
 RegAssistCodeBlock.propTypes = {
   classname: PropTypes.string,
   code: PropTypes.array,
+  setStep: PropTypes.func,
 };
 
 export default RegAssistCodeBlock;
