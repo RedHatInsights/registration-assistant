@@ -2,7 +2,7 @@ import React from 'react';
 import { TextContent, TextList, TextListItem } from '@patternfly/react-core';
 import InsightsLink from '@redhat-cloud-services/frontend-components/InsightsLink';
 
-const FourthStep = () => {
+const ViewInventoryStep = () => {
   return (
     <React.Fragment>
       <TextContent>
@@ -23,4 +23,4 @@ const FourthStep = () => {
   );
 };
 
-export default FourthStep;
+export default ViewInventoryStep;

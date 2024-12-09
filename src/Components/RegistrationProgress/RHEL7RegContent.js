@@ -17,8 +17,9 @@ import {
   subManagerRegister,
   yumInstallInsightsClient,
 } from '../../constants';
+import ViewInventoryStep from './ViewInventoryStep';
 
-const RHEL7RegContent = ({ orgId, selectedKey }) => {
+const RHEL7RegContent = ({ orgId, selectedKey, setStep }) => {
   return (
     <TextContent>
       <Text component={TextVariants.p}>
@@ -48,17 +49,26 @@ const RHEL7RegContent = ({ orgId, selectedKey }) => {
           <span>Connect your system to the subscription manager</span>
           <br />
           <span>This provides a basic level of connectivity in Insights.</span>
-          <RegAssistCodeBlock code={subManagerRegister(selectedKey, orgId)} />
+          <RegAssistCodeBlock
+            code={subManagerRegister(selectedKey, orgId)}
+            setStep={setStep}
+          />
         </TextListItem>
         <TextListItem>
           Confirm Insights client is installed.
-          <RegAssistCodeBlock code={yumInstallInsightsClient} />
+          <RegAssistCodeBlock
+            code={yumInstallInsightsClient}
+            setStep={setStep}
+          />
         </TextListItem>
         <TextListItem>
           <span>Connect to Insights.</span>
           <br />
           <span>This allows Red Hat Insights to provide recommendations.</span>
-          <RegAssistCodeBlock code={insightsClientRegister} />
+          <RegAssistCodeBlock code={insightsClientRegister} setStep={setStep} />
+        </TextListItem>
+        <TextListItem>
+          <ViewInventoryStep />
         </TextListItem>
       </TextList>
     </TextContent>
@@ -68,6 +78,7 @@ const RHEL7RegContent = ({ orgId, selectedKey }) => {
 RHEL7RegContent.propTypes = {
   orgId: PropTypes.string,
   selectedKey: PropTypes.string,
+  setStep: PropTypes.func,
 };
 
 export default RHEL7RegContent;
