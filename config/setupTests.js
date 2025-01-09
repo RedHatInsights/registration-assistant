@@ -6,5 +6,15 @@ jest.mock('@redhat-cloud-services/frontend-components/useChrome', () => ({
   default: () => ({
     getApp: () => 'malware',
     getBundle: () => 'insights',
+    auth: {
+      getUser: () =>
+        new Promise((res) =>
+          res({
+            identity: {
+              org_id: '98765432',
+            },
+          })
+        ),
+    },
   }),
 }));

@@ -2,13 +2,21 @@ import React, { Suspense, lazy } from 'react';
 import { Navigate, Route, Routes } from 'react-router-dom';
 
 import Loading from './Components/Loading/Loading';
+import { useRefreshFeatureFlag } from './Utilities/Hooks';
 
 const Register = lazy(() =>
   import(/* webpackChunkName: "Register" */ './Routes/Register/Register')
 );
+
+const NewRegister = lazy(() =>
+  import(/* webpackChunkName: "Register" */ './Routes/Register/NewRegister')
+);
+
 const paths = { register: '/' };
 
 export const RouteList = () => {
+  const isRefreshEnabled = useRefreshFeatureFlag();
+
   return (
     <Routes>
       <Route
@@ -19,7 +27,7 @@ export const RouteList = () => {
         element={
           <Suspense fallback={<Loading />}>
             {' '}
-            <Register />{' '}
+            {isRefreshEnabled ? <NewRegister /> : <Register />}{' '}
           </Suspense>
         }
       />
