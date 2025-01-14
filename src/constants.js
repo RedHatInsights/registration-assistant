@@ -39,9 +39,9 @@ export const insightsClientRegister = 'insights-client --register';
 
 export const yumInstallInsightsClient = 'yum install insights-client';
 
-export const centosInstallRHC = `curl -o /etc/pki/rpm-gpg/RPM-GPG-KEY-redhat-release https://www.redhat.com/security/data/fd431d51.txt
+export const centosInstallRHC = `curl -o /etc/pki/rpm-gpg/RPM-GPG-KEY-redhat-release https://security.access.redhat.com/data/fd431d51.txt
 
-curl -o /etc/yum.repos.d/client-tools-for-rhel-7-server.repo https://ftp.redhat.com/redhat/client-tools/client-tools-for-rhel-7-server.repo
+curl -o /etc/yum.repos.d/client-tools-for-rhel-7-server.repo https://cdn-public.redhat.com/content/public/repofiles/client-tools-for-rhel-7-server.repo
 
 sed -i 's/mirrorlist/#mirrorlist/g' /etc/yum.repos.d/CentOS-*.repo
 sed -i 's|#baseurl=http://mirror.centos.org/centos/$releasever|baseurl=http://vault.centos.org/7.9.2009|g' /etc/yum.repos.d/CentOS-*.repo
