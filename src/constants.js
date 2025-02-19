@@ -17,11 +17,26 @@ export const regAssistantDescription =
 export const dataCollection =
   "Learn more about Red Hat Insights' data collection and controls";
 
+export const insightsUsingProxy =
+  'Red Hat Insights proxy - learn how to connect to Red Hat Insights using a proxy';
+
+export const insightsUsingSatellite =
+  'Red Hat Satellite - learn how to connect systems to Red Hat Insights at scale with Red Hat Satellite';
+
 export const AUTOMATE_WITH_SATELLITE =
   'Looking for ways to automate with Insights registration with Satellite? Read the following article:';
 
+export const contentRunCommands =
+  'Run the following commands in the terminal of your RHEL system with root privileges';
+
 export const dataCollectionLink =
   'https://www.redhat.com/en/technologies/management/insights/data-application-security#section-data-collection';
+
+export const insightsUsingProxyLink =
+  'https://docs.redhat.com/en/documentation/red_hat_insights/1-latest/html/connecting_to_red_hat_insights_through_insights_proxy/index';
+
+export const insightsUsingSatelliteLink =
+  'https://docs.redhat.com/en/documentation/red_hat_satellite/6.16/html/managing_hosts/monitoring-hosts-by-using-red-hat-insights#configuring_synchronization_of_insights_recommendations_for_hosts_managing-hosts';
 
 export const remoteHostConfigLink =
   'https://docs.redhat.com/en/documentation/red_hat_insights/1-latest/html/remote_host_configuration_and_management/index';
