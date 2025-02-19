@@ -26,6 +26,9 @@ export const insightsUsingSatellite =
 export const AUTOMATE_WITH_SATELLITE =
   'Looking for ways to automate with Insights registration with Satellite? Read the following article:';
 
+export const contentRunCommands =
+  'Run the following commands in the terminal of your RHEL system with root privileges';
+
 export const dataCollectionLink =
   'https://www.redhat.com/en/technologies/management/insights/data-application-security#section-data-collection';
 

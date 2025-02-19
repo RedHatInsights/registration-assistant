@@ -7,7 +7,7 @@ import {
   TextListVariants,
 } from '@patternfly/react-core';
 import RegAssistCodeBlock from '../RegAssistCodeBlock/RegAssistCodeBlock';
-import { rhcConnect } from '../../constants';
+import { rhcConnect, contentRunCommands } from '../../constants';
 import ViewInventoryStep from './ViewInventoryStep';
 
 const RHEL9RegContent = ({ orgId, selectedKey, setStep }) => {
@@ -15,9 +15,7 @@ const RHEL9RegContent = ({ orgId, selectedKey, setStep }) => {
     <TextContent>
       <TextList isPlain>
         <TextListItem>
-          <span>Prerequisites:</span>
-          <br />
-          <span>You must have root privileges.</span>
+          <span>{contentRunCommands}</span>
         </TextListItem>
       </TextList>
       <TextList component={TextListVariants.ol}>
