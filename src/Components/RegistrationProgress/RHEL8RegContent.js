@@ -7,7 +7,11 @@ import {
   TextListVariants,
 } from '@patternfly/react-core';
 import RegAssistCodeBlock from '../RegAssistCodeBlock/RegAssistCodeBlock';
-import { insightsClientRegister, subManagerRegister } from '../../constants';
+import {
+  contentRunCommands,
+  insightsClientRegister,
+  subManagerRegister,
+} from '../../constants';
 import ViewInventoryStep from './ViewInventoryStep';
 
 const RHEL8RegContent = ({ orgId, selectedKey, setStep }) => {
@@ -15,9 +19,7 @@ const RHEL8RegContent = ({ orgId, selectedKey, setStep }) => {
     <TextContent>
       <TextList isPlain>
         <TextListItem>
-          <span>Prerequisites:</span>
-          <br />
-          <span>You must have root privileges.</span>
+          <span>{contentRunCommands}</span>
         </TextListItem>
       </TextList>
       <TextList component={TextListVariants.ol}>

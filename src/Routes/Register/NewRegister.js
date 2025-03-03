@@ -10,6 +10,10 @@ import {
 import {
   dataCollection,
   dataCollectionLink,
+  insightsUsingProxy,
+  insightsUsingProxyLink,
+  insightsUsingSatellite,
+  insightsUsingSatelliteLink,
   regAssistantDescription,
 } from '../../constants';
 import {
@@ -33,6 +37,28 @@ const NewRegister = () => {
         />
         <TextContent>
           <Text>{regAssistantDescription}</Text>
+          <a
+            rel="noopener noreferrer"
+            target="_blank"
+            href={insightsUsingProxyLink}
+          >
+            {insightsUsingProxy}
+            <Icon className="pf-v5-u-ml-xs">
+              <ExternalLinkAltIcon />
+            </Icon>
+          </a>
+          <br />
+          <a
+            rel="noopener noreferrer"
+            target="_blank"
+            href={insightsUsingSatelliteLink}
+          >
+            {insightsUsingSatellite}
+            <Icon className="pf-v5-u-ml-xs">
+              <ExternalLinkAltIcon />
+            </Icon>
+          </a>
+          <br />
           <a
             rel="noopener noreferrer"
             target="_blank"
