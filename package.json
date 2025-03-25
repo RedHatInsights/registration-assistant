@@ -10,7 +10,8 @@
     "lint:js": "eslint config src",
     "lint:js:fix": "eslint config src --fix",
     "lint:sass": "stylelint 'src/**/*.scss' --config .stylelintrc.json",
-    "nightly": "npm run deploy",
+    "nightly": "npm run travis:verify",
+    "postinstall": "ts-patch install",
     "prod": "NODE_ENV=production webpack serve --config config/dev.webpack.config.js",
     "server:ctr": "node src/server/generateServerKey.js",
     "start": "fec dev",
@@ -24,8 +25,7 @@
     "translations:compile": "npx formatjs compile ./build/messages/src/Messages.json --out-file ./locales/translations.json",
     "travis:build": "npm run build",
     "travis:verify": "npm run test:coverage",
-    "verify": "npm-run-all build lint test",
-    "postinstall": "ts-patch install"
+    "verify": "npm-run-all build lint test"
   },
   "jest": {
     "testEnvironment": "jsdom",
@@ -34,6 +34,7 @@
       "src/**/*.js",
       "!src/**/stories/*",
       "!src/**/*.fixtures.js",
+      "!**/node_modules/**",
       "!src/**/*.cy.js"
     ],
     "coverageDirectory": "./coverage-jest/",
@@ -77,7 +78,7 @@
     "redux-promise-middleware": "6.2.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.25.8",
+    "@babel/core": "^7.26.0",
     "@babel/plugin-transform-runtime": "^7.25.7",
     "@babel/preset-env": "^7.25.8",
     "@babel/preset-flow": "^7.25.7",
@@ -100,7 +101,7 @@
     "babel-plugin-react-intl": "8.2.25",
     "babel-plugin-transform-imports": "2.0.0",
     "cypress": "^13.10.0",
-    "eslint": "^8.57.1",
+    "eslint": "^8.9.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-loader": "^4.0.2",
     "eslint-plugin-cypress": "^3.3.0",
