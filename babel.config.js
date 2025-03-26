@@ -7,14 +7,7 @@ require.extensions['.css'] = () => undefined;
 module.exports = {
   presets: ['@babel/env', '@babel/react'],
   plugins: [
-    [
-      'transform-inline-environment-variables',
-      {
-        include: ['NODE_ENV'],
-      },
-    ],
     '@babel/plugin-transform-runtime',
-    'lodash',
   ],
   env: {
     componentTest: {

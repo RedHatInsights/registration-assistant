@@ -1,6 +1,7 @@
 extends: 
   - "@redhat-cloud-services/eslint-config-redhat-cloud-services"
   - 'plugin:cypress/recommended'
+  - 'plugin:testing-library/react'
 globals:
   insights: 'readonly'
   shallow: readonly
@@ -8,3 +9,4 @@ globals:
   mount: 'readonly'
 rules:
   rulesdir/forbid-pf-relative-imports: 'off'
+  testing-library/no-wait-for-side-effects: 'off'
