@@ -9,3 +9,4 @@ globals:
   mount: 'readonly'
 rules:
   rulesdir/forbid-pf-relative-imports: 'off'
+  testing-library/no-wait-for-side-effects: 'off'
