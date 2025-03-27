@@ -12,6 +12,7 @@ import {
 import { ExternalLinkAltIcon } from '@patternfly/react-icons';
 import RegAssistCodeBlock from '../RegAssistCodeBlock/RegAssistCodeBlock';
 import {
+  contentRunCommands,
   insightsClientRegister,
   rhel7LifecycleSupport,
   subManagerRegister,
@@ -39,9 +40,7 @@ const RHEL7RegContent = ({ orgId, selectedKey, setStep }) => {
       </Text>
       <TextList isPlain>
         <TextListItem>
-          <span>Prerequisites:</span>
-          <br />
-          <span>You must have root privileges.</span>
+          <span>{contentRunCommands}</span>
         </TextListItem>
       </TextList>
       <TextList component={TextListVariants.ol}>

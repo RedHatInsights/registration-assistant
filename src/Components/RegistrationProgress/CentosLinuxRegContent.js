@@ -11,6 +11,7 @@ import {
 } from '@patternfly/react-core';
 import {
   centosInstallRHC,
+  contentRunCommands,
   convertUsingInsights,
   remoteHostConfigLink,
   rhcConnect,
@@ -40,9 +41,7 @@ const CentosLinuxRegContent = ({ orgId, selectedKey, setStep }) => {
       </Text>
       <TextList isPlain>
         <TextListItem>
-          <span>Prerequisites:</span>
-          <br />
-          <span>You must have root privileges.</span>
+          <span>{contentRunCommands}</span>
         </TextListItem>
       </TextList>
       <TextList component={TextListVariants.ol}>
