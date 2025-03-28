@@ -140,7 +140,8 @@
       "src/**/*.cy.js",
       "src/{App,entry,entry-dev}.js",
       "**/__fixtures__/**",
-      "**/__factories__/**"
+      "**/__factories__/**",
+      "src/Components/RegistrationProcess/CreateActivationKeyModal.js"
     ]
   },
   "routes": {
