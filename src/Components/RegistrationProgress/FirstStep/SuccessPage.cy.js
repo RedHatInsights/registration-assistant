@@ -1,4 +1,5 @@
-import { singleActivationKeyInterceptor } from '../../../../cypress/support/interceptors';
+import { activationKeysInterceptors } from '../../../../cypress/support/interceptors';
+import { EMPTY_STATE_ICON } from '@redhat-cloud-services/frontend-components-utilities';
 import SuccessPage from './SuccessPage';
 
 const CHECKMARK_SVG =
@@ -6,14 +7,15 @@ const CHECKMARK_SVG =
 
 describe('Rendering tests.', () => {
   beforeEach(() => {
-    singleActivationKeyInterceptor.keys();
+    activationKeysInterceptors['successful with one key']();
     cy.mountWithContext(SuccessPage);
   });
   it('Success page renders correctly', () => {
-    cy.get('body');
     // close button displayed
     cy.get('button').should('include.text', 'Close');
     // correct icon displayed
-    cy.get('path').should('have.attr', 'd', CHECKMARK_SVG);
+    cy.get(EMPTY_STATE_ICON)
+      .find('path')
+      .should('have.attr', 'd', CHECKMARK_SVG);
   });
 });

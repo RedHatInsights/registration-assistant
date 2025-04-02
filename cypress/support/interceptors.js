@@ -8,14 +8,11 @@ export const activationKeysInterceptors = {
             statusCode: 200,
             body: fixtures
         }).as('getActivationKeys');
-    }
-}
-
-export const singleActivationKeyInterceptor = {
-    keys: (fixtures = singleActivationKeyFixtures) => {
+    },
+    'successful with one key': (fixtures = singleActivationKeyFixtures) => {
         cy.intercept('GET', '', {
             statusCode: 200,
             body: fixtures
-        }).as('getSingleActivationKey');
-    } 
+        }).as('getSingleActivationKey')
+    }
 }
