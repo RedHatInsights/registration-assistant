@@ -1,5 +1,6 @@
-import { activationKeysInterceptors } from '../../../../cypress/support/interceptors';
+// eslint-disable-next-line rulesdir/disallow-fec-relative-imports
 import { EMPTY_STATE_ICON } from '@redhat-cloud-services/frontend-components-utilities';
+import { activationKeysInterceptors } from '../../../../cypress/support/interceptors';
 import SuccessPage from './SuccessPage';
 
 const CHECKMARK_SVG =
