@@ -1,4 +1,4 @@
-[![Build Status](https://api.travis-ci.com/RedHatInsights/registration-assistant.svg?branch=master)](https://www.travis-ci.com/github/RedHatInsights/registration-assistant)
+[![Build Status](https://img.shields.io/github/actions/workflow/status/RedhatInsights/registration-assistant/test.yml?branch=master)](https://github.com/github/RedHatInsights/registration-assistant/actions/workflows/test.yml)
 
 # registration-assistant
 React.js registration-assistant app for Red Hat Insights provides an in-application interactive experience which helps guide the user through the registration process to get the Red Hat Insights client installed and registered on their systems. We believe by nurturing the customer through the process and providing a clear call to action around installation within the applications, we can help drive additional adoption increasing the breadth of Insights registrations for an account.
