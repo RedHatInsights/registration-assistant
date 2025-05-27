@@ -29,7 +29,7 @@ import React from 'react';
 import FlagProvider from '@unleash/proxy-client-react';
 import { Provider } from 'react-redux';
 import { MemoryRouter, Route, Routes } from 'react-router-dom';
-import { mount } from '@cypress/react18';
+import { mount } from 'cypress/react';
 import { RBACProvider } from '@redhat-cloud-services/frontend-components/RBACProvider';
 import { getRegistry } from '@redhat-cloud-services/frontend-components-utilities';
 
