@@ -25,7 +25,7 @@ const RegProgessStepper = () => {
   const handleFetchKeys = async () => {
     const fetchedKeys = await fetchActivationKeys(axios);
 
-    if (fetchedKeys.body?.length) {
+    if (fetchedKeys.body) {
       const keysList = fetchedKeys.body.length
         ? fetchedKeys.body
         : emptyActivationKeys;
