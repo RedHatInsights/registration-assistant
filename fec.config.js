@@ -1,5 +1,6 @@
 const { sentryWebpackPlugin } = require('@sentry/webpack-plugin');
 
+/*TODO: change to /lightspeed/registration when lightspeed is enabled*/
 module.exports = {
   appUrl: '/insights/registration',
   debug: true,

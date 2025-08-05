@@ -4,7 +4,7 @@ const chromeMock = {
   appAction: () => {},
   appObjectId: () => {},
   on: () => () => {},
-  getApp: () => 'inventory', // TODO: use real app name for registration assistant
+  getApp: () => 'registration',
   getBundle: () => 'insights', // TODO: use real bundle name for registration assistant
   getUserPermissions: () => [{ permission: 'inventory:*:*' }], // TODO: check if the function is needed
   auth: {
