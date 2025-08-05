@@ -3,23 +3,20 @@ import PropTypes from 'prop-types';
 import { Icon, Content, ContentVariants } from '@patternfly/react-core';
 import { ExternalLinkAltIcon } from '@patternfly/react-icons';
 import RegAssistCodeBlock from '../RegAssistCodeBlock/RegAssistCodeBlock';
-import {
-  contentRunCommands,
-  insightsClientRegister,
-  rhel7LifecycleSupport,
-  subManagerRegister,
-  yumInstallInsightsClient,
-} from '../../constants';
+import * as constants from '../../constants';
 import ViewInventoryStep from './ViewInventoryStep';
+import { useLightspeedFeatureFlag } from '../../Utilities/Hooks';
 
 const RHEL7RegContent = ({ orgId, selectedKey, setStep }) => {
+  const platformName = useLightspeedFeatureFlag();
+
   return (
     <Content>
       <Content component={ContentVariants.p}>
         {`RHEL 7's maintenance support phase has ended.`}{' '}
         <Content
           component={ContentVariants.a}
-          href={rhel7LifecycleSupport}
+          href={constants.rhel7LifecycleSupport}
           rel="noopener noreferrer"
           target="_blank"
         >
@@ -32,31 +29,41 @@ const RHEL7RegContent = ({ orgId, selectedKey, setStep }) => {
       </Content>
       <Content component="ul" isPlainList>
         <Content component="li">
-          <span>{contentRunCommands}</span>
+          <span>{constants.contentRunCommands}</span>
         </Content>
       </Content>
       <Content component={ContentVariants.ol}>
         <Content component="li">
           <span>Connect your system to the subscription manager</span>
           <br />
-          <span>This provides a basic level of connectivity in Insights.</span>
+          <span>
+            This provides a basic level of connectivity in{' '}
+            {platformName === 'Lightspeed' ? 'Red Hat Lightspeed' : 'Insights'}.
+          </span>
           <RegAssistCodeBlock
-            code={subManagerRegister(selectedKey, orgId)}
+            code={constants.subManagerRegister(selectedKey, orgId)}
             setStep={setStep}
           />
         </Content>
         <Content component="li">
-          Confirm Insights client is installed.
+          Install the insights-client tool.
           <RegAssistCodeBlock
-            code={yumInstallInsightsClient}
+            code={constants.yumInstallInsightsClient}
             setStep={setStep}
           />
         </Content>
         <Content component="li">
-          <span>Connect to Insights.</span>
+          <span>{constants[`connectTo${platformName}`]}</span>
           <br />
-          <span>This allows Red Hat Insights to provide recommendations.</span>
-          <RegAssistCodeBlock code={insightsClientRegister} setStep={setStep} />
+          <span>
+            This allows{' '}
+            {platformName === 'Lightspeed' ? 'Red Hat Lightspeed' : 'Insights'}{' '}
+            to provide recommendations.
+          </span>
+          <RegAssistCodeBlock
+            code={constants.insightsClientRegister}
+            setStep={setStep}
+          />
         </Content>
         <Content component="li">
           <ViewInventoryStep />

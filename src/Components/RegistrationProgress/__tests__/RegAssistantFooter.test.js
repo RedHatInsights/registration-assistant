@@ -4,7 +4,7 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import '@testing-library/jest-dom';
 import RegAssistantFooter from '../RegAssistantFooter';
 import { operatingSystemList } from '../operatingSystemConstants';
-import { AUTOMATE_WITH_SATELLITE } from '../../../constants';
+import { automateWithSatelliteInsights } from '../../../constants';
 
 describe('RegAssistantFooter', () => {
   it('should display proper footer for rhel 7', async () => {
@@ -14,7 +14,7 @@ describe('RegAssistantFooter', () => {
       </Router>
     );
 
-    expect(screen.getByText(AUTOMATE_WITH_SATELLITE)).toBeVisible();
+    expect(screen.getByText(automateWithSatelliteInsights)).toBeVisible();
 
     expect(
       screen.queryAllByText(
@@ -30,7 +30,7 @@ describe('RegAssistantFooter', () => {
       </Router>
     );
 
-    expect(screen.getByText(AUTOMATE_WITH_SATELLITE)).toBeVisible();
+    expect(screen.getByText(automateWithSatelliteInsights)).toBeVisible();
 
     expect(
       screen.queryAllByText(
@@ -46,7 +46,7 @@ describe('RegAssistantFooter', () => {
       </Router>
     );
 
-    expect(screen.getByText(AUTOMATE_WITH_SATELLITE)).toBeVisible();
+    expect(screen.getByText(automateWithSatelliteInsights)).toBeVisible();
 
     expect(
       screen.queryAllByText(
@@ -62,7 +62,7 @@ describe('RegAssistantFooter', () => {
       </Router>
     );
 
-    expect(screen.getByText(AUTOMATE_WITH_SATELLITE)).toBeVisible();
+    expect(screen.getByText(automateWithSatelliteInsights)).toBeVisible();
 
     expect(
       screen.getByText(

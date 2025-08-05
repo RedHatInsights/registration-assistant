@@ -16,7 +16,8 @@ export const RouteList = () => {
         key="register"
         exact
         path={paths.register}
-        rootClass="Insights"
+        //rootClass="Insights"
+        rootClass="Red Hat Lightspeed"
         element={
           <Suspense fallback={<Loading />}>
             {' '}
