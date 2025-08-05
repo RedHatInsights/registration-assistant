@@ -1,31 +1,28 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Icon, Content, ContentVariants } from '@patternfly/react-core';
-import {
-  centosInstallRHC,
-  contentRunCommands,
-  convertUsingInsights,
-  remoteHostConfigLink,
-  rhcConnect,
-} from '../../constants';
+import * as constants from '../../constants';
 import { ExternalLinkAltIcon } from '@patternfly/react-icons';
 import RegAssistCodeBlock from '../RegAssistCodeBlock/RegAssistCodeBlock';
 import ViewInventoryStep from './ViewInventoryStep';
+import { useLightspeedFeatureFlag } from '../../Utilities/Hooks';
 
 const CentosLinuxRegContent = ({ orgId, selectedKey, setStep }) => {
+  const platformName = useLightspeedFeatureFlag();
+
   return (
     <Content>
       <Content component={ContentVariants.p}>
-        Registering CentOS Linux 7 to Insights is only supported for the
-        conversion of CentOS Linux 7 to Red Hat Enterprise Linux using Red Hat
-        Insights.{' '}
+        {constants[`centosRegister${platformName}`]}{' '}
         <Content
           component={ContentVariants.a}
-          href={convertUsingInsights}
+          href={constants.convertLinuxToRHEL}
           rel="noopener noreferrer"
           target="_blank"
         >
-          Converting using Insights
+          {platformName === 'Lightspeed'
+            ? 'Converting using Red Hat Lightspeed'
+            : 'Converting using Insights'}
           <Icon className="pf-v6-u-ml-xs">
             <ExternalLinkAltIcon color="var(--pf-t--global--text--color--link--default)" />
           </Icon>
@@ -33,7 +30,7 @@ const CentosLinuxRegContent = ({ orgId, selectedKey, setStep }) => {
       </Content>
       <Content component="ul" isPlainList>
         <Content component="li">
-          <span>{contentRunCommands}</span>
+          <span>{constants.contentRunCommands}</span>
         </Content>
       </Content>
       <Content component={ContentVariants.ol}>
@@ -41,7 +38,7 @@ const CentosLinuxRegContent = ({ orgId, selectedKey, setStep }) => {
           Install{' '}
           <Content
             component={ContentVariants.a}
-            href={remoteHostConfigLink}
+            href={constants.remoteHostConfigLink}
             rel="noopener noreferrer"
             target="_blank"
           >
@@ -50,12 +47,15 @@ const CentosLinuxRegContent = ({ orgId, selectedKey, setStep }) => {
               <ExternalLinkAltIcon color="var(--pf-t--global--text--color--link--default)" />
             </Icon>
           </Content>
-          <RegAssistCodeBlock code={centosInstallRHC} setStep={setStep} />
+          <RegAssistCodeBlock
+            code={constants.centosInstallRHC}
+            setStep={setStep}
+          />
         </Content>
         <Content component="li">
-          Connect to Insights.
+          {constants[`connectTo${platformName}`]}.
           <RegAssistCodeBlock
-            code={rhcConnect(selectedKey, orgId)}
+            code={constants.rhcConnect(selectedKey, orgId)}
             setStep={setStep}
           />
         </Content>

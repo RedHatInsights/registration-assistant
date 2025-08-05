@@ -71,7 +71,11 @@ Cypress.Commands.add(
         getUserPermissions: () => userPermissions,
         auth: {
           getUser: () => {
-            return Promise.resolve({});
+            return Promise.resolve({
+              identity: {
+                org_id: '12345'
+              }
+            });
           },
         },
         getApp: () => 'inventory',

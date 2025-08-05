@@ -15,6 +15,22 @@ describe('Rendering tests.', () => {
   beforeEach(() => {
     cy.mockWindowInsights();
     activationKeysInterceptors.keys();
+    // Mock feature flags endpoint
+    cy.intercept('GET', 'http://localhost:8002/feature_flags', {
+      statusCode: 200,
+      body: {
+        toggles: [
+          {
+            name: 'platform.lightspeed-rebrand',
+            enabled: false,
+            variant: {
+              name: 'disabled',
+              enabled: false
+            }
+          }
+        ]
+      }
+    }).as('getFeatureFlags');
   });
 
   it('First step renders correctly.', () => {
