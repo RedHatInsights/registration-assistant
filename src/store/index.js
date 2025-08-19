@@ -1,7 +1,6 @@
 import { createContext } from 'react';
 import { getRegistry } from '@redhat-cloud-services/frontend-components-utilities/Registry';
 import promiseMiddleware from 'redux-promise-middleware';
-import { notificationsReducer } from '@redhat-cloud-services/frontend-components-notifications/redux';
 
 let registry;
 
@@ -14,10 +13,6 @@ export function init(...middleware) {
     promiseMiddleware,
     ...middleware.filter((item) => typeof item !== 'undefined'),
   ]);
-
-  registry.register({
-    notifications: notificationsReducer,
-  });
 
   return registry;
 }

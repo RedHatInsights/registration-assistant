@@ -1,12 +1,6 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
-import {
-  Icon,
-  PageSection,
-  PageSectionVariants,
-  Text,
-  TextContent,
-} from '@patternfly/react-core';
+import { Icon, PageSection, Content } from '@patternfly/react-core';
 import {
   dataCollection,
   dataCollectionLink,
@@ -35,16 +29,16 @@ const Register = () => {
           style={{ paddingBottom: '16px' }}
           title="Registration Assistant"
         />
-        <TextContent>
-          <Text>{regAssistantDescription}</Text>
+        <Content>
+          <Content component="p">{regAssistantDescription}</Content>
           <a
             rel="noopener noreferrer"
             target="_blank"
             href={insightsUsingProxyLink}
           >
             {insightsUsingProxy}
-            <Icon className="pf-v5-u-ml-xs">
-              <ExternalLinkAltIcon />
+            <Icon className="pf-v6-u-ml-xs">
+              <ExternalLinkAltIcon color="var(--pf-t--global--text--color--link--default)" />
             </Icon>
           </a>
           <br />
@@ -54,8 +48,8 @@ const Register = () => {
             href={insightsUsingSatelliteLink}
           >
             {insightsUsingSatellite}
-            <Icon className="pf-v5-u-ml-xs">
-              <ExternalLinkAltIcon />
+            <Icon className="pf-v6-u-ml-xs">
+              <ExternalLinkAltIcon color="var(--pf-t--global--text--color--link--default)" />
             </Icon>
           </a>
           <br />
@@ -65,13 +59,13 @@ const Register = () => {
             href={dataCollectionLink}
           >
             {dataCollection}
-            <Icon className="pf-v5-u-ml-xs">
-              <ExternalLinkAltIcon />
+            <Icon className="pf-v6-u-ml-xs">
+              <ExternalLinkAltIcon color="var(--pf-t--global--text--color--link--default)" />
             </Icon>
           </a>
-        </TextContent>
+        </Content>
       </PageHeader>
-      <PageSection variant={PageSectionVariants.light}>
+      <PageSection hasBodyWrapper={false}>
         <RegProgessStepper />
       </PageSection>
     </React.Fragment>

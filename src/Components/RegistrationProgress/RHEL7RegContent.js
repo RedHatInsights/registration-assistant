@@ -1,14 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {
-  Icon,
-  Text,
-  TextContent,
-  TextList,
-  TextListItem,
-  TextListVariants,
-  TextVariants,
-} from '@patternfly/react-core';
+import { Icon, Content, ContentVariants } from '@patternfly/react-core';
 import { ExternalLinkAltIcon } from '@patternfly/react-icons';
 import RegAssistCodeBlock from '../RegAssistCodeBlock/RegAssistCodeBlock';
 import {
@@ -22,29 +14,29 @@ import ViewInventoryStep from './ViewInventoryStep';
 
 const RHEL7RegContent = ({ orgId, selectedKey, setStep }) => {
   return (
-    <TextContent>
-      <Text component={TextVariants.p}>
+    <Content>
+      <Content component={ContentVariants.p}>
         {`RHEL 7's maintenance support phase has ended.`}{' '}
-        <Text
-          component={TextVariants.a}
+        <Content
+          component={ContentVariants.a}
           href={rhel7LifecycleSupport}
           rel="noopener noreferrer"
           target="_blank"
         >
           Red Hat Enterprise Linux 7 Extended Lifecycle Support Maintenance
           Policy
-          <Icon className="pf-v5-u-ml-xs">
-            <ExternalLinkAltIcon />
+          <Icon className="pf-v6-u-ml-xs">
+            <ExternalLinkAltIcon color="var(--pf-t--global--text--color--link--default)" />
           </Icon>
-        </Text>
-      </Text>
-      <TextList isPlain>
-        <TextListItem>
+        </Content>
+      </Content>
+      <Content component="ul" isPlainList>
+        <Content component="li">
           <span>{contentRunCommands}</span>
-        </TextListItem>
-      </TextList>
-      <TextList component={TextListVariants.ol}>
-        <TextListItem>
+        </Content>
+      </Content>
+      <Content component={ContentVariants.ol}>
+        <Content component="li">
           <span>Connect your system to the subscription manager</span>
           <br />
           <span>This provides a basic level of connectivity in Insights.</span>
@@ -52,25 +44,25 @@ const RHEL7RegContent = ({ orgId, selectedKey, setStep }) => {
             code={subManagerRegister(selectedKey, orgId)}
             setStep={setStep}
           />
-        </TextListItem>
-        <TextListItem>
+        </Content>
+        <Content component="li">
           Confirm Insights client is installed.
           <RegAssistCodeBlock
             code={yumInstallInsightsClient}
             setStep={setStep}
           />
-        </TextListItem>
-        <TextListItem>
+        </Content>
+        <Content component="li">
           <span>Connect to Insights.</span>
           <br />
           <span>This allows Red Hat Insights to provide recommendations.</span>
           <RegAssistCodeBlock code={insightsClientRegister} setStep={setStep} />
-        </TextListItem>
-        <TextListItem>
+        </Content>
+        <Content component="li">
           <ViewInventoryStep />
-        </TextListItem>
-      </TextList>
-    </TextContent>
+        </Content>
+      </Content>
+    </Content>
   );
 };
 

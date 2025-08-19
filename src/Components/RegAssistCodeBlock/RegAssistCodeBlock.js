@@ -41,7 +41,7 @@ const RegAssistCodeBlock = ({ code = [], classname, setStep }) => {
   /*remove code.map when new reg Assistant is implemented*/
   return (
     <CodeBlock
-      className={`pf-v5-u-mb-lg pf-v5-u-mt-md ${classname}`}
+      className={`pf-v6-u-mb-lg pf-v6-u-mt-md ${classname}`}
       actions={actions}
     >
       {Array.isArray(code) ? (

@@ -10,6 +10,7 @@ import { fetchActivationKeys } from '../../../api';
 import { dispatchNotification } from '../../Utilities/Dispatcher';
 import { emptyActivationKeys } from '../../constants';
 import CreateActivationKeyModal from './CreateActivationKeyModal';
+import { useAddNotification } from '@redhat-cloud-services/frontend-components-notifications/hooks';
 
 const RegProgessStepper = () => {
   const chrome = useChrome();
@@ -21,6 +22,7 @@ const RegProgessStepper = () => {
   const [createdKeyName, setKeyName] = useState();
   const [keys, setKeys] = useState();
   const axios = useAxiosWithPlatformInterceptors();
+  const addNotification = useAddNotification();
 
   const handleFetchKeys = async () => {
     const fetchedKeys = await fetchActivationKeys(axios);
@@ -32,13 +34,16 @@ const RegProgessStepper = () => {
 
       setKeys(keysList);
     } else if (fetchedKeys.error) {
-      dispatchNotification({
-        variant: 'danger',
-        title: 'Error',
-        description: fetchedKeys.error.message,
-        dismissable: true,
-        autoDismiss: false,
-      });
+      dispatchNotification(
+        {
+          variant: 'danger',
+          title: 'Error',
+          description: fetchedKeys.error.message,
+          dismissable: true,
+          autoDismiss: false,
+        },
+        addNotification
+      );
 
       return fetchedKeys.error;
     }

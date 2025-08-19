@@ -13,6 +13,7 @@ function selectRadio(option) {
 
 describe('Rendering tests.', () => {
   beforeEach(() => {
+    cy.mockWindowInsights();
     activationKeysInterceptors.keys();
   });
 

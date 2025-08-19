@@ -1,13 +1,13 @@
 import React from 'react';
-import { TextContent, TextList, TextListItem } from '@patternfly/react-core';
+import { Content } from '@patternfly/react-core';
 import InsightsLink from '@redhat-cloud-services/frontend-components/InsightsLink';
 
 const ViewInventoryStep = () => {
   return (
     <React.Fragment>
-      <TextContent>
-        <TextList isPlain>
-          <TextListItem>
+      <Content>
+        <Content component="ul" isPlainList>
+          <Content component="li">
             <span>
               Navigate to the{' '}
               <InsightsLink to="/" app="inventory">
@@ -18,9 +18,9 @@ const ViewInventoryStep = () => {
             <span>
               It can take a couple of minutes for your system to appear.
             </span>
-          </TextListItem>
-        </TextList>
-      </TextContent>
+          </Content>
+        </Content>
+      </Content>
     </React.Fragment>
   );
 };

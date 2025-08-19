@@ -8,6 +8,7 @@ const CHECKMARK_SVG =
 
 describe('Rendering tests.', () => {
   beforeEach(() => {
+    cy.mockWindowInsights();
     activationKeysInterceptors['successful with one key']();
     cy.mountWithContext(SuccessPage);
   });
