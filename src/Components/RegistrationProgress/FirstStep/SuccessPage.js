@@ -4,10 +4,8 @@ import {
   Button,
   EmptyState,
   EmptyStateBody,
-  EmptyStateIcon,
   Spinner,
   EmptyStateActions,
-  EmptyStateHeader,
   EmptyStateFooter,
 } from '@patternfly/react-core';
 import { CheckCircleIcon } from '@patternfly/react-icons';
@@ -29,12 +27,11 @@ const SuccessPage = ({
   const content = isLoading ? (
     <Spinner />
   ) : (
-    <EmptyState>
-      <EmptyStateHeader
-        titleText="Activation key created"
-        icon={<EmptyStateIcon color="green" icon={CheckCircleIcon} />}
-        headingLevel="h4"
-      />
+    <EmptyState
+      headingLevel="h4"
+      icon={CheckCircleIcon}
+      titleText="Activation key created"
+    >
       <EmptyStateBody>
         <b>{name}</b> is now available for use. Close to continue with
         registration assistant.

@@ -1,20 +1,9 @@
-import {
-  EmptyState,
-  EmptyStateHeader,
-  EmptyStateIcon,
-  Spinner,
-} from '@patternfly/react-core/dist/esm/components';
+import { EmptyState, Spinner } from '@patternfly/react-core';
 
 import React from 'react';
 
 const Loading = () => (
-  <EmptyState>
-    <EmptyStateHeader
-      titleText="Loading"
-      headingLevel="h4"
-      icon={<EmptyStateIcon icon={Spinner} />}
-    />
-  </EmptyState>
+  <EmptyState headingLevel="h4" icon={Spinner} titleText="Loading"></EmptyState>
 );
 
 export default Loading;

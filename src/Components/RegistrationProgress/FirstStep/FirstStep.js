@@ -8,9 +8,8 @@ import {
   Select,
   SelectList,
   SelectOption,
-  Text,
-  TextContent,
-  TextVariants,
+  Content,
+  ContentVariants,
 } from '@patternfly/react-core';
 import {
   ExternalLinkAltIcon,
@@ -24,6 +23,7 @@ import { ShowSelectedActivationKey } from './ShowSelectedActivationKey';
 import { dispatchNotification } from '../../../Utilities/Dispatcher';
 import { useAxiosWithPlatformInterceptors } from '@redhat-cloud-services/frontend-components-utilities/interceptors';
 import { createActivationKey } from '../../../../api';
+import { useAddNotification } from '@redhat-cloud-services/frontend-components-notifications/hooks';
 
 const ActivationKeysList = ({ keys }) => {
   return keys.map((key, idx) => (
@@ -50,6 +50,7 @@ const FirstStep = ({
 }) => {
   const [isOpen, setOpen] = useState(false);
   const axios = useAxiosWithPlatformInterceptors();
+  const addNotification = useAddNotification();
 
   const handleActivationKeySelect = (selectedKeyDetails) => {
     setSelectedKey(selectedKeyDetails);
@@ -109,21 +110,27 @@ const FirstStep = ({
     });
 
     if (postResponse.body?.id) {
-      dispatchNotification({
-        variant: 'success',
-        title: 'Activation key created successfully',
-        description: `${postResponse.body.name} is now available for use.`,
-      });
+      dispatchNotification(
+        {
+          variant: 'success',
+          title: 'Activation key created successfully',
+          description: `${postResponse.body.name} is now available for use.`,
+        },
+        addNotification
+      );
 
       handleActivationKeySelect(postResponse.body);
     } else if (postResponse.error) {
-      dispatchNotification({
-        variant: 'danger',
-        title: 'Error',
-        description: postResponse.error.message,
-        dismissable: true,
-        autoDismiss: false,
-      });
+      dispatchNotification(
+        {
+          variant: 'danger',
+          title: 'Error',
+          description: postResponse.error.message,
+          dismissable: true,
+          autoDismiss: false,
+        },
+        addNotification
+      );
 
       setOpen(false);
     }
@@ -131,27 +138,27 @@ const FirstStep = ({
 
   return (
     <React.Fragment>
-      <TextContent>
-        <Text component={TextVariants.p}>
+      <Content>
+        <Content component={ContentVariants.p}>
           You need an{' '}
-          <Text
-            component={TextVariants.a}
+          <Content
+            component={ContentVariants.a}
             href="https://docs.redhat.com/en/documentation/subscription_central/1-latest/html/getting_started_with_activation_keys_on_the_hybrid_cloud_console/index"
             rel="noopener noreferrer"
             target="_blank"
           >
             activation key
-            <Icon className="pf-v5-u-ml-xs">
-              <ExternalLinkAltIcon />
+            <Icon className="pf-v6-u-ml-xs">
+              <ExternalLinkAltIcon color="var(--pf-t--global--text--color--link--default)" />
             </Icon>
-          </Text>{' '}
+          </Content>{' '}
           to register. An activation key is a pre-shared token that enables
           authorized users to register and auto-configure systems.
-        </Text>
-      </TextContent>
+        </Content>
+      </Content>
       <div
         style={{
-          fontWeight: 'var(--pf-v5-global--FontWeight--bold)',
+          fontWeight: 'var(--pf-t--global--font--weight--heading--bold)',
           color: '#151515',
           marginTop: '16px',
         }}
@@ -184,7 +191,7 @@ const FirstStep = ({
           </Button>
           <br />
           <Button
-            className="pf-v5-u-pt-sm"
+            className="pf-v6-u-pt-sm"
             variant="link"
             icon={<SyncAltIcon />}
             isInline
@@ -194,14 +201,14 @@ const FirstStep = ({
           </Button>
         </MenuFooter>
       </Select>
-      <TextContent>
-        <Text component={TextVariants.p}>
+      <Content>
+        <Content component={ContentVariants.p}>
           You can manage activation keys on the{' '}
           <InsightsLink to="/activation-keys" app="connector">
             Activation keys page.
           </InsightsLink>
-        </Text>
-      </TextContent>
+        </Content>
+      </Content>
       {selectedKey.id && (
         <ShowSelectedActivationKey selectedKey={selectedKey} />
       )}

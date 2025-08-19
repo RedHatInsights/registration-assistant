@@ -2,11 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {
   ExpandableSection,
-  TextContent,
-  TextList,
-  TextListItem,
-  TextListItemVariants,
-  TextListVariants,
+  Content,
+  ContentVariants,
 } from '@patternfly/react-core';
 
 export const ShowSelectedActivationKey = ({ selectedKey }) => {
@@ -22,40 +19,36 @@ export const ShowSelectedActivationKey = ({ selectedKey }) => {
       onToggle={onToggle}
       isExpanded={isExpanded}
     >
-      <TextContent className="pf-v5-u-ml-lg">
-        <TextList component={TextListVariants.dl}>
-          <TextListItem component={TextListItemVariants.dt}>Name</TextListItem>
-          <TextListItem component={TextListItemVariants.dd}>
+      <Content className="pf-v6-u-ml-lg">
+        <Content component={ContentVariants.dl}>
+          <Content component={ContentVariants.dt}>Name</Content>
+          <Content component={ContentVariants.dd}>
             {selectedKey.name || 'Not defined'}
-          </TextListItem>
-          <TextListItem component={TextListItemVariants.dt}>
-            Description
-          </TextListItem>
-          <TextListItem component={TextListItemVariants.dd}>
+          </Content>
+          <Content component={ContentVariants.dt}>Description</Content>
+          <Content component={ContentVariants.dd}>
             {selectedKey.description || 'Not defined'}
-          </TextListItem>
-          <TextListItem component={TextListItemVariants.dt}>
-            Workload
-          </TextListItem>
-          <TextListItem component={TextListItemVariants.dd}>
+          </Content>
+          <Content component={ContentVariants.dt}>Workload</Content>
+          <Content component={ContentVariants.dd}>
             {selectedKey.releaseVersion || 'Not defined'}
-          </TextListItem>
-          <TextListItem component={TextListItemVariants.dt}>Role</TextListItem>
-          <TextListItem component={TextListItemVariants.dd}>
+          </Content>
+          <Content component={ContentVariants.dt}>Role</Content>
+          <Content component={ContentVariants.dd}>
             {selectedKey.role || 'Not defined'}
-          </TextListItem>
-          <TextListItem component={TextListItemVariants.dt}>
+          </Content>
+          <Content component={ContentVariants.dt}>
             Service level agreement(SLA)
-          </TextListItem>
-          <TextListItem component={TextListItemVariants.dd}>
+          </Content>
+          <Content component={ContentVariants.dd}>
             {selectedKey.serviceLevel || 'Not defined'}
-          </TextListItem>
-          <TextListItem component={TextListItemVariants.dt}>Usage</TextListItem>
-          <TextListItem component={TextListItemVariants.dd}>
+          </Content>
+          <Content component={ContentVariants.dt}>Usage</Content>
+          <Content component={ContentVariants.dd}>
             {selectedKey.usage || 'Not defined'}
-          </TextListItem>
-        </TextList>
-      </TextContent>
+          </Content>
+        </Content>
+      </Content>
     </ExpandableSection>
   );
 };

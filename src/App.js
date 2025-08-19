@@ -1,7 +1,7 @@
 import './App.scss';
 import React, { useEffect } from 'react';
 import { RouteList } from './Routes';
-import NotificationsPortal from '@redhat-cloud-services/frontend-components-notifications/NotificationPortal';
+import NotificationsProvider from '@redhat-cloud-services/frontend-components-notifications/NotificationsProvider';
 
 const App = (props) => {
   useEffect(() => {
@@ -10,8 +10,9 @@ const App = (props) => {
 
   return (
     <React.Fragment>
-      <NotificationsPortal />
-      <RouteList childProps={props} />
+      <NotificationsProvider>
+        <RouteList childProps={props} />
+      </NotificationsProvider>
     </React.Fragment>
   );
 };

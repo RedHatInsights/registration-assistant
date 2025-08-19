@@ -1,14 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {
-  Icon,
-  Text,
-  TextContent,
-  TextList,
-  TextListItem,
-  TextListVariants,
-  TextVariants,
-} from '@patternfly/react-core';
+import { Icon, Content, ContentVariants } from '@patternfly/react-core';
 import {
   centosInstallRHC,
   contentRunCommands,
@@ -22,56 +14,56 @@ import ViewInventoryStep from './ViewInventoryStep';
 
 const CentosLinuxRegContent = ({ orgId, selectedKey, setStep }) => {
   return (
-    <TextContent>
-      <Text component={TextVariants.p}>
+    <Content>
+      <Content component={ContentVariants.p}>
         Registering CentOS Linux 7 to Insights is only supported for the
         conversion of CentOS Linux 7 to Red Hat Enterprise Linux using Red Hat
         Insights.{' '}
-        <Text
-          component={TextVariants.a}
+        <Content
+          component={ContentVariants.a}
           href={convertUsingInsights}
           rel="noopener noreferrer"
           target="_blank"
         >
           Converting using Insights
-          <Icon className="pf-v5-u-ml-xs">
-            <ExternalLinkAltIcon />
+          <Icon className="pf-v6-u-ml-xs">
+            <ExternalLinkAltIcon color="var(--pf-t--global--text--color--link--default)" />
           </Icon>
-        </Text>
-      </Text>
-      <TextList isPlain>
-        <TextListItem>
+        </Content>
+      </Content>
+      <Content component="ul" isPlainList>
+        <Content component="li">
           <span>{contentRunCommands}</span>
-        </TextListItem>
-      </TextList>
-      <TextList component={TextListVariants.ol}>
-        <TextListItem>
+        </Content>
+      </Content>
+      <Content component={ContentVariants.ol}>
+        <Content component="li">
           Install{' '}
-          <Text
-            component={TextVariants.a}
+          <Content
+            component={ContentVariants.a}
             href={remoteHostConfigLink}
             rel="noopener noreferrer"
             target="_blank"
           >
             Remote host configuration
-            <Icon className="pf-v5-u-ml-xs">
-              <ExternalLinkAltIcon />
+            <Icon className="pf-v6-u-ml-xs">
+              <ExternalLinkAltIcon color="var(--pf-t--global--text--color--link--default)" />
             </Icon>
-          </Text>
+          </Content>
           <RegAssistCodeBlock code={centosInstallRHC} setStep={setStep} />
-        </TextListItem>
-        <TextListItem>
+        </Content>
+        <Content component="li">
           Connect to Insights.
           <RegAssistCodeBlock
             code={rhcConnect(selectedKey, orgId)}
             setStep={setStep}
           />
-        </TextListItem>
-        <TextListItem>
+        </Content>
+        <Content component="li">
           <ViewInventoryStep />
-        </TextListItem>
-      </TextList>
-    </TextContent>
+        </Content>
+      </Content>
+    </Content>
   );
 };
 

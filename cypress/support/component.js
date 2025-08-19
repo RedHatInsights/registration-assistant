@@ -23,7 +23,9 @@ import { mount } from 'cypress/react';
 import '@cypress/code-coverage/support';
 
 import '@patternfly/patternfly/patternfly.scss';
+import chrome from '../../config/overrideChrome';
 
+window.insights = { chrome };
 Cypress.Commands.add('mount', mount);
 
 // Example use:

@@ -4,9 +4,8 @@ import {
   Flex,
   FlexItem,
   Radio,
-  Text,
-  TextContent,
-  TextVariants,
+  Content,
+  ContentVariants,
 } from '@patternfly/react-core';
 import { operatingSystemList } from './operatingSystemConstants';
 
@@ -18,10 +17,10 @@ const SecondStep = ({ operatingSystem, setOperatingSystem, setStep }) => {
 
   return (
     <React.Fragment>
-      <TextContent>
-        <Text component={TextVariants.p}>
+      <Content>
+        <Content component={ContentVariants.p}>
           Select the OS your system is running.
-        </Text>
+        </Content>
         <Flex>
           {operatingSystemList.map((os) => (
             <FlexItem spacer={{ default: 'spacerMd' }} key={`${os.name}-radio`}>
@@ -35,7 +34,7 @@ const SecondStep = ({ operatingSystem, setOperatingSystem, setStep }) => {
             </FlexItem>
           ))}
         </Flex>
-      </TextContent>
+      </Content>
     </React.Fragment>
   );
 };

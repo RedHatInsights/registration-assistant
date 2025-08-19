@@ -6,7 +6,6 @@ import {
 import {
   EmptyState,
   EmptyStateBody,
-  EmptyStateHeader,
   EmptyStateVariant,
 } from '@patternfly/react-core';
 import { PlusCircleIcon } from '@patternfly/react-icons';
@@ -91,8 +90,7 @@ export const loadingActivationKeys = [
 export const emptyActivationKeys = [
   {
     name: (
-      <EmptyState variant={EmptyStateVariant.xs}>
-        <EmptyStateHeader icon={<PlusCircleIcon />} />
+      <EmptyState icon={PlusCircleIcon} variant={EmptyStateVariant.xs}>
         <EmptyStateBody>No activation keys yet</EmptyStateBody>
       </EmptyState>
     ),
