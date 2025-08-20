@@ -5,8 +5,8 @@ import {
 } from '@redhat-cloud-services/frontend-components/Skeleton';
 import {
   EmptyState,
+  EmptyStateBody,
   EmptyStateHeader,
-  EmptyStateIcon,
   EmptyStateVariant,
 } from '@patternfly/react-core';
 import { PlusCircleIcon } from '@patternfly/react-icons';
@@ -92,11 +92,8 @@ export const emptyActivationKeys = [
   {
     name: (
       <EmptyState variant={EmptyStateVariant.xs}>
-        <EmptyStateHeader
-          titleText="No activation keys yet"
-          headingLevel="h6"
-          icon={<EmptyStateIcon icon={PlusCircleIcon} />}
-        />
+        <EmptyStateHeader icon={<PlusCircleIcon />} />
+        <EmptyStateBody>No activation keys yet</EmptyStateBody>
       </EmptyState>
     ),
     isDisabled: true,
