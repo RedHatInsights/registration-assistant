@@ -5,6 +5,3 @@ export const useFeatureFlag = (flag) => {
   const isFlagEnabled = useFlag(flag);
   return flagsReady ? isFlagEnabled : undefined;
 };
-
-export const useRefreshFeatureFlag = () =>
-  useFeatureFlag('registration-assistant-refresh');
