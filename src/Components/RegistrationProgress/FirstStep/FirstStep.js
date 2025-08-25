@@ -17,13 +17,13 @@ import {
   SyncAltIcon,
 } from '@patternfly/react-icons';
 import { InsightsLink } from '@redhat-cloud-services/frontend-components/InsightsLink';
-import moment from 'moment';
 import { loadingActivationKeys } from '../../../constants';
 import { ShowSelectedActivationKey } from './ShowSelectedActivationKey';
 import { dispatchNotification } from '../../../Utilities/Dispatcher';
 import { useAxiosWithPlatformInterceptors } from '@redhat-cloud-services/frontend-components-utilities/interceptors';
 import { createActivationKey } from '../../../../api';
 import { useAddNotification } from '@redhat-cloud-services/frontend-components-notifications/hooks';
+import { v4 as uuidv4 } from 'uuid';
 
 const ActivationKeysList = ({ keys }) => {
   return keys.map((key, idx) => (
@@ -100,10 +100,10 @@ const FirstStep = ({
   );
 
   const autoGenerateKey = async () => {
-    const currentDate = moment.utc(Date.now()).format('YYYY-DD-MM-hh-mm-ss');
+    const activationKeyName = uuidv4();
 
     const postResponse = await createActivationKey(axios, {
-      name: `activation-key-${currentDate}`,
+      name: activationKeyName,
       role: '',
       serviceLevel: '',
       usage: '',
