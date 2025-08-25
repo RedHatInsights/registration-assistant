@@ -10,31 +10,56 @@ import {
 } from '@patternfly/react-core';
 import { PlusCircleIcon } from '@patternfly/react-icons';
 
-export const regAssistantDescription =
+export const regAssistantDescriptionInsights =
   'The Insights for RHEL registration assistant will guide you through the setup process for the Red Hat Insights client.';
 
-export const dataCollection =
+export const regAssistantDescriptionLightspeed =
+  'The Red Hat Lightspeed registration assistant will guide you through the setup process.';
+
+export const dataCollectionInsights =
   "Learn more about Red Hat Insights' data collection and controls";
 
-export const insightsUsingProxy =
+export const dataCollectionLightspeed =
+  "Learn more about Red Hat Lightspeed's data collection and controls";
+
+export const usingProxyInsights =
   'Red Hat Insights proxy - learn how to connect to Red Hat Insights using a proxy';
 
-export const insightsUsingSatellite =
+export const usingProxyLightspeed =
+  'Red Hat Lightspeed proxy - learn how to connect to Red Hat Lightspeed using a proxy';
+
+export const usingSatelliteInsights =
   'Red Hat Satellite - learn how to connect systems to Red Hat Insights at scale with Red Hat Satellite';
 
-export const AUTOMATE_WITH_SATELLITE =
-  'Looking for ways to automate with Insights registration with Satellite? Read the following article:';
+export const usingSatelliteLightspeed =
+  'Red Hat Satellite - learn how to connect systems to Red Hat Lightspeed at scale with Red Hat Satellite';
+
+export const automateWithSatelliteInsights =
+  'Looking for ways to automate Insights registration with Satellite? Read the following article:';
+
+export const automateWithSatelliteLightspeed =
+  'Looking for ways to automate Red Hat Lightspeed registration with Satellite? Read the following article:';
 
 export const contentRunCommands =
   'Run the following commands in the terminal of your RHEL system with root privileges';
 
+export const centosRegisterInsights =
+  'Registering CentOS Linux 7 to Insights is only supported for the conversion of CentOS Linux 7 to Red Hat Enterprise Linux using Red Hat Insights.';
+
+export const centosRegisterLightspeed =
+  'Registering CentOS Linux 7 to Red Hat Lightspeed is only supported for the conversion of CentOS Linux 7 to Red Hat Enterprise Linux using Red Hat Lightspeed.';
+
+export const connectToInsights = 'Connect to Insights.';
+
+export const connectToLightspeed = 'Connect to Red Hat Lightspeed.';
+
 export const dataCollectionLink =
   'https://www.redhat.com/en/technologies/management/insights/data-application-security#section-data-collection';
 
-export const insightsUsingProxyLink =
+export const usingProxyLink =
   'https://docs.redhat.com/en/documentation/red_hat_insights/1-latest/html/connecting_to_red_hat_insights_through_insights_proxy/index';
 
-export const insightsUsingSatelliteLink =
+export const usingSatelliteLink =
   'https://docs.redhat.com/en/documentation/red_hat_satellite/6.16/html/managing_hosts/monitoring-hosts-by-using-red-hat-insights#configuring_synchronization_of_insights_recommendations_for_hosts_managing-hosts';
 
 export const remoteHostConfigLink =
@@ -43,7 +68,7 @@ export const remoteHostConfigLink =
 export const monitoringHostsLink =
   'https://docs.redhat.com/en/documentation/red_hat_satellite/6.14/html/managing_hosts/Monitoring_Hosts_Using_Red_Hat_Insights_managing-hosts#deploying-red-hat-insights-using-the-ansible-role_managing-hosts';
 
-export const convertUsingInsights =
+export const convertLinuxToRHEL =
   'https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/8/html/converting_from_a_linux_distribution_to_rhel_using_the_convert2rhel_utility/converting-using-insights_converting-from-a-linux-distribution-to-rhel#converting-using-insights_converting-from-a-linux-distribution-to-rhel';
 
 export const rhel7LifecycleSupport =
@@ -57,13 +82,13 @@ export const centosInstallRHC = `curl -o /etc/pki/rpm-gpg/RPM-GPG-KEY-redhat-rel
 
 curl -o /etc/yum.repos.d/client-tools-for-rhel-7-server.repo https://cdn-public.redhat.com/content/public/repofiles/client-tools-for-rhel-7-server.repo
 
-sed -i 's/mirrorlist/#mirrorlist/g' /etc/yum.repos.d/CentOS-*.repo
-sed -i 's|#baseurl=http://mirror.centos.org/centos/$releasever|baseurl=http://vault.centos.org/7.9.2009|g' /etc/yum.repos.d/CentOS-*.repo
 yum install -y subscription-manager subscription-manager-rhsm-certificates insights-client rhc rhc-worker-script`;
 
 export const rhcConnect = (activationKey, orgId) => {
   return `rhc connect --activation-key ${activationKey.name} --organization ${orgId}`;
 };
+
+export const installWorkerPlaybook = 'dnf install -y rhc-worker-playbook';
 
 export const subManagerRegister = (activationKey, orgId) => {
   return `subscription-manager register --activationkey ${activationKey.name} --org ${orgId}`;

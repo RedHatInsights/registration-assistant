@@ -1,7 +1,7 @@
 [![Build Status](https://img.shields.io/github/actions/workflow/status/RedhatInsights/registration-assistant/test.yml?branch=master)](https://github.com/github/RedHatInsights/registration-assistant/actions/workflows/test.yml)
 
 # registration-assistant
-React.js registration-assistant app for Red Hat Insights provides an in-application interactive experience which helps guide the user through the registration process to get the Red Hat Insights client installed and registered on their systems. We believe by nurturing the customer through the process and providing a clear call to action around installation within the applications, we can help drive additional adoption increasing the breadth of Insights registrations for an account.
+React.js registration-assistant app for Red Hat Lightspeed provides an in-application interactive experience which helps guide the user through the registration process to get the Red Hat Lightspeed client installed and registered on their systems. We believe by nurturing the customer through the process and providing a clear call to action around installation within the applications, we can help drive additional adoption increasing the breadth of Red Hat Lightspeed registrations for an account.
 
 ## First time setup
 1. Make sure you have [Node.js](https://nodejs.org/en/) version >16 installed
@@ -30,4 +30,4 @@ The app uses containerized builds which are configured in [`app-interface`](http
 This project uses [Patternfly React](https://github.com/patternfly/patternfly-react).
 
 ## Insights Components
-This app imports components from [Insights Front-end Components library](https://github.com/RedHatInsights/frontend-components). ESI tags are used to import [Insights Chrome](https://github.com/RedHatInsights/insights-chrome) which takes care of the header, sidebar, and footer. These libraries are described in the [Platform experience documentation](http://front-end-docs-insights.apps.ocp4.prod.psi.redhat.com/).
+This app imports components from [Insights Frontend Components library](https://github.com/RedHatInsights/frontend-components). ESI tags are used to import [Insights Chrome](https://github.com/RedHatInsights/insights-chrome) which takes care of the header, sidebar, and footer. These libraries are described in the [Platform experience documentation](http://front-end-docs-insights.apps.ocp4.prod.psi.redhat.com/).

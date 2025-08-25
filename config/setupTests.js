@@ -4,7 +4,7 @@ global.React = React;
 jest.mock('@redhat-cloud-services/frontend-components/useChrome', () => ({
   __esModule: true,
   default: () => ({
-    getApp: () => 'malware',
+    getApp: () => 'registration',
     getBundle: () => 'insights',
     auth: {
       getUser: () =>
@@ -17,4 +17,9 @@ jest.mock('@redhat-cloud-services/frontend-components/useChrome', () => ({
         ),
     },
   }),
+}));
+
+jest.mock('../src/Utilities/Hooks', () => ({
+  ...jest.requireActual('../src/Utilities/Hooks'),
+  useLightspeedFeatureFlag: () => 'Insights',
 }));
