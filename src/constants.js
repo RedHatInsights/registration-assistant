@@ -57,19 +57,19 @@ export const dataCollectionLink =
   'https://www.redhat.com/en/technologies/management/insights/data-application-security#section-data-collection';
 
 export const usingProxyLink =
-  'https://docs.redhat.com/en/documentation/red_hat_insights/1-latest/html/connecting_to_red_hat_insights_through_insights_proxy/index';
+  'https://docs.redhat.com/en/documentation/red_hat_lightspeed/1-latest/html/connecting_your_rhel_systems_through_the_red_hat_lightspeed_proxy/index'
 
 export const usingSatelliteLink =
   'https://docs.redhat.com/en/documentation/red_hat_satellite/6.16/html/managing_hosts/monitoring-hosts-by-using-red-hat-insights#configuring_synchronization_of_insights_recommendations_for_hosts_managing-hosts';
 
 export const remoteHostConfigLink =
-  'https://docs.redhat.com/en/documentation/red_hat_insights/1-latest/html/remote_host_configuration_and_management/index';
+  'https://docs.redhat.com/en/documentation/red_hat_lightspeed/1-latest/html/remote_host_configuration_and_management/index';
 
 export const monitoringHostsLink =
   'https://docs.redhat.com/en/documentation/red_hat_satellite/6.14/html/managing_hosts/Monitoring_Hosts_Using_Red_Hat_Insights_managing-hosts#deploying-red-hat-insights-using-the-ansible-role_managing-hosts';
 
 export const convertLinuxToRHEL =
-  'https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/8/html/converting_from_a_linux_distribution_to_rhel_using_the_convert2rhel_utility/converting-using-insights_converting-from-a-linux-distribution-to-rhel#converting-using-insights_converting-from-a-linux-distribution-to-rhel';
+  'https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/8/html/converting_from_a_linux_distribution_to_rhel_using_the_convert2rhel_utility/converting-using-lightspeed_converting-from-a-linux-distribution-to-rhel#converting-using-lightspeed_converting-from-a-linux-distribution-to-rhel';
 
 export const rhel7LifecycleSupport =
   'https://access.redhat.com/support/policy/updates/rhel7-els-support-maintenance-policy';
