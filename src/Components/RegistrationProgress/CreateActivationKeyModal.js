@@ -1,7 +1,7 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { AsyncComponent } from '@redhat-cloud-services/frontend-components/AsyncComponent';
-import SuccessPage from './FirstStep/SuccessPage';
+import React from "react";
+import PropTypes from "prop-types";
+import { AsyncComponent } from "@redhat-cloud-services/frontend-components/AsyncComponent";
+import SuccessPage from "./FirstStep/SuccessPage";
 
 const CreateActivationKeyModal = ({
   handleFetchKeys,
@@ -11,7 +11,7 @@ const CreateActivationKeyModal = ({
 }) => {
   return (
     <AsyncComponent
-      appName="activationKeys"
+      scope="activationKeys"
       module="./CreateActivationKeyWizard"
       handleModalToggle={setIsModalOpen}
       isOpen={isModalOpen}
