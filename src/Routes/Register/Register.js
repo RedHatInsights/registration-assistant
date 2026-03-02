@@ -33,7 +33,7 @@ const Register = () => {
           <a
             rel="noopener noreferrer"
             target="_blank"
-            href={constants[`usingProxy${platformName}`]}
+            href={constants[`usingProxyLink`]}
           >
             {constants[`usingProxy${platformName}`]}
             <Icon className="pf-v6-u-ml-xs">
