@@ -11,7 +11,7 @@ const ViewInventoryStep = () => {
             <span>
               Navigate to the{' '}
               <InsightsLink to="/" app="inventory">
-                Inventory page
+                Systems Inventory page
               </InsightsLink>
             </span>
             <br />
