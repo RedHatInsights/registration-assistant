@@ -159,7 +159,6 @@ const FirstStep = ({
       <div
         style={{
           fontWeight: 'var(--pf-t--global--font--weight--heading--bold)',
-          color: '#151515',
           marginTop: '16px',
         }}
         data-testid="select-activation-key"
