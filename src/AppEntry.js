@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 import App from './App';
 import React from 'react';
 import { init, RegistryContext } from './store';

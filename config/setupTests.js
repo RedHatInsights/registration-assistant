@@ -13,6 +13,10 @@ jest.mock('@redhat-cloud-services/frontend-components/useChrome', () => ({
   default: () => ({
     getApp: () => 'registration',
     getBundle: () => 'insights',
+    getUserPermissions: () => Promise.resolve([
+      { permission: 'config-manager:activation_keys:read' },
+      { permission: 'config-manager:activation_keys:write' },
+    ]),
     auth: {
       getUser: () =>
         new Promise((res) =>

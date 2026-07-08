@@ -15,6 +15,7 @@ import {
   ExternalLinkAltIcon,
   PlusCircleIcon,
   SyncAltIcon,
+  LockIcon,
 } from '@patternfly/react-icons';
 import { InsightsLink } from '@redhat-cloud-services/frontend-components/InsightsLink';
 import { loadingActivationKeys } from '../../../constants';
@@ -24,6 +25,7 @@ import { useAxiosWithPlatformInterceptors } from '@redhat-cloud-services/fronten
 import { createActivationKey } from '../../../../api';
 import { useAddNotification } from '@redhat-cloud-services/frontend-components-notifications/hooks';
 import { v4 as uuidv4 } from 'uuid';
+import { useActivationKeyPermissions } from '../../../hooks/useActivationKeyPermissions';
 
 const ActivationKeysList = ({ keys }) => {
   return keys.map((key, idx) => (
@@ -51,6 +53,13 @@ const FirstStep = ({
   const [isOpen, setOpen] = useState(false);
   const axios = useAxiosWithPlatformInterceptors();
   const addNotification = useAddNotification();
+  const {
+    data: permissions,
+    isLoading: permissionsLoading,
+  } = useActivationKeyPermissions();
+
+  const hasReadPermission = permissions?.canReadActivationKeys;
+  const hasWritePermission = permissions?.canWriteActivationKeys;
 
   const handleActivationKeySelect = (selectedKeyDetails) => {
     setSelectedKey(selectedKeyDetails);
@@ -70,7 +79,8 @@ const FirstStep = ({
 
   const handleOpenDropdown = async () => {
     setOpen(!isOpen);
-    if (!isOpen) {
+    // Only fetch keys if we have read permission and not currently loading permissions
+    if (!isOpen && !permissionsLoading && hasReadPermission) {
       const error = await handleFetchKeys();
 
       if (error) {
@@ -170,35 +180,88 @@ const FirstStep = ({
         onSelect={(_, optionName) => handleActivationKeySelect(optionName)}
         selected={selectedKey}
         toggle={toggle}
-        style={{ width: '300px' }}
       >
-        <SelectList style={{ maxHeight: '300px', overflowY: 'scroll' }}>
-          {keys === undefined ? (
+        <SelectList
+          style={{
+            maxHeight: '300px',
+            overflowY: 'scroll',
+            ...((!hasReadPermission && !permissionsLoading) && {
+              minWidth: '500px',
+            }),
+          }}
+        >
+          {!hasReadPermission && !permissionsLoading ? (
+            <li
+              role="presentation"
+              style={{
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center',
+                padding: '32px 48px',
+                textAlign: 'center',
+                listStyle: 'none',
+                width: '500px',
+              }}
+            >
+              <LockIcon
+                size="xl"
+                style={{
+                  fontSize: '64px',
+                  color: 'var(--pf-t--global--icon--color--subtle)',
+                  marginBottom: '16px',
+                }}
+              />
+              <div
+                style={{
+                  fontSize: 'var(--pf-t--global--font--size--heading--md)',
+                  fontWeight: 'var(--pf-t--global--font--weight--heading--default)',
+                  marginBottom: '8px',
+                  color: 'var(--pf-t--global--text--color--regular)',
+                }}
+              >
+                You do not have access to view activation keys
+              </div>
+              <div
+                style={{
+                  fontSize: 'var(--pf-t--global--font--size--body--default)',
+                  color: 'var(--pf-t--global--text--color--subtle)',
+                  lineHeight: '1.5',
+                }}
+              >
+                To select an activation key, you must be granted a minimum of
+                activation key permissions from your Organization Administrator.
+              </div>
+            </li>
+          ) : keys === undefined || permissionsLoading ? (
             <ActivationKeysList keys={loadingActivationKeys} />
           ) : (
             <ActivationKeysList keys={keys} />
           )}
         </SelectList>
-        <MenuFooter>
-          <Button
-            variant="link"
-            icon={<PlusCircleIcon />}
-            isInline
-            onClick={() => handleCreateActivationKey()}
-          >
-            Create activation key
-          </Button>
-          <br />
-          <Button
-            className="pf-v6-u-pt-sm"
-            variant="link"
-            icon={<SyncAltIcon />}
-            isInline
-            onClick={() => autoGenerateKey()}
-          >
-            Auto-generate activation key
-          </Button>
-        </MenuFooter>
+        {(hasReadPermission || !permissionsLoading) && !((!hasReadPermission && !permissionsLoading)) && (
+          <MenuFooter>
+            <Button
+              variant="link"
+              icon={<PlusCircleIcon />}
+              isInline
+              onClick={() => handleCreateActivationKey()}
+              isDisabled={!hasWritePermission || permissionsLoading}
+            >
+              Create activation key
+            </Button>
+            <br />
+            <Button
+              className="pf-v6-u-pt-sm"
+              variant="link"
+              icon={<SyncAltIcon />}
+              isInline
+              onClick={() => autoGenerateKey()}
+              isDisabled={!hasWritePermission || permissionsLoading}
+            >
+              Auto-generate activation key
+            </Button>
+          </MenuFooter>
+        )}
       </Select>
       <Content>
         <Content component={ContentVariants.p}>
